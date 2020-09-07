@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//Auth admin
+Route::get('4dm1n/login', 'Admin\Auth\AuthController@loginGet')->name('admin_login_get')->middleware('guest');
+Route::post('4dm1n/login', 'Admin\Auth\AuthController@loginPost')->name('admin_login_post')->middleware('guest');
+Route::get('4dm1n/logout', 'Admin\Auth\AuthController@logout')->name('admin_logout');
+
+//MIDDLEWARE YG DIPAKE AUTH:ADMIN DISINI
+Route::prefix('4dm1n')->namespace('Admin')->middleware('auth:admin')->group(function () {
+    Route::get('dashboard', 'DashboardController@index')->name('admin_dashboard');
 });

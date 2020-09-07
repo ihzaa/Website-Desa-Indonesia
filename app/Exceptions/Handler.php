@@ -52,4 +52,14 @@ class Handler extends ExceptionHandler
     {
         return parent::render($request, $exception);
     }
+
+    // KALAU ADA YG MAU BUKA HALAMAN ADMIN TAPI BELUM LOGIN INI METHODNYA
+    protected function unauthenticated($request, \Illuminate\Auth\AuthenticationException $exception)
+    {
+        if ($request->expectsJson()) {
+            return response()->json(['error' => 'Unauthenticated.'], 401);
+        }
+
+        return redirect(route('admin_login_get'));
+    }
 }
