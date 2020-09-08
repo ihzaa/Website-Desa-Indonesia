@@ -19,12 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd4e4530-f071-4bdf-877a-a0002bdfda16" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/Admin/Pages/home_info_desa.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Admin/Pages/home_info_desa_create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/css/alt/adminlte.core.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Assets/Admin/dist/css/alt/adminlte.core.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Template/Components/Sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Template/Components/Sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Template/all.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Template/all.blade.php" afterDir="false" />
+    <list default="true" id="fd4e4530-f071-4bdf-877a-a0002bdfda16" name="Default Changelist" comment="Ben dak akeh sng conflict">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Pages/home_info_desa.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Pages/home_info_desa.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Pages/home_info_desa_create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Pages/home_info_desa_create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +37,11 @@
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -155,7 +160,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/AdminLTE-3.0.4/AdminLTE-3.0.4" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../speaktastic_lidm2020" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -182,8 +187,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1599555998492</updated>
-      <workItem from="1599555999539" duration="12749000" />
+      <workItem from="1599555999539" duration="16466000" />
     </task>
+    <task id="LOCAL-00001" summary="Ben dak akeh sng conflict">
+      <created>1599578685872</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1599578685872</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,19 +213,27 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Ben dak akeh sng conflict" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ben dak akeh sng conflict" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="1053" y="100" width="774" height="840" key="DiffContextDialog" timestamp="1599556612370">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1053" y="100" width="774" height="840" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599556612370" />
-    <state x="1220" y="275" key="FileChooserDialogImpl" timestamp="1599573617670">
+    <state x="1220" y="275" key="FileChooserDialogImpl" timestamp="1599581987777">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1220" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599573617670" />
+    <state x="1220" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599581987777" />
     <state x="794" y="439" key="NewPhpFileDialog" timestamp="1599567232076">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="439" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599567232076" />
+    <state x="1032" y="252" key="Vcs.Push.Dialog.v2" timestamp="1599578727130">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1032" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1599578727130" />
     <state x="44" y="158" width="932" height="730" key="dock-window-1" timestamp="1599567270399">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
