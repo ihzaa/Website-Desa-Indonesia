@@ -18,6 +18,18 @@
 
         </div>
         <div class="card-body">
+            @if (session('status'))
+                <div class="alert alert-success mt-2">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ session('status') }}
+                </div>
+            @endif
+            @if (session('alert'))
+                <div class="alert alert-danger mt-2">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong> {{ session('alert') }}</strong>
+                </div>
+            @endif
             <table id="dfUsageTable" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -40,9 +52,11 @@
                         <td>{!! $home->content !!}</td>
                         <td class="text-center">{{$home->home_category->category_name}}</td>
                         <td class="text-center">
+                            <a href="{{route('admin_home_edit', ['id' => $home->id])}}">
                             <button type="button" class="btn btn-warning btn-sm"
                                     style="font-size: 12px; width: 60px; padding: 2px">Edit
                             </button>
+                            </a>
                             <button type="button" class="btn btn-danger btn-sm deleteHomeModal"
                                     id="{{$home->id}}" data-toggle="modal" data-target="#deleteHomeModal"
                                     style="font-size: 12px; width: 60px; padding: 2px">Delete
@@ -104,6 +118,12 @@
 
                 $('#formDeleteHome').attr('action', '/4dm1n/home/delete/' + id)
             })
+
+            window.setTimeout(function() {
+                $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                    $(this).remove();
+                });
+            }, 2000);
         });
     </script>
 

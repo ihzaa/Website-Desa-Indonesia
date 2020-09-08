@@ -20,11 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd4e4530-f071-4bdf-877a-a0002bdfda16" name="Default Changelist" comment="Ben dak akeh sng conflict">
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin/Pages/home_info_desa_edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/website-desa-indonesia.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/website-desa-indonesia.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Home.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Admin/Pages/home_info_desa.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Pages/home_info_desa.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Pages/home_info_desa_create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Pages/home_info_desa_create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +33,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -160,7 +161,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../speaktastic_lidm2020" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/Admin/Pages" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -171,13 +172,19 @@
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/.env.example" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\website-desa-indonesia\resources\views\Admin\Pages" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\website-desa-indonesia\resources\views\Admin\Pages" />
       <recent name="C:\xampp\htdocs\website-desa-indonesia" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\website-desa-indonesia\resources\views\Admin\Pages" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -188,6 +195,7 @@
       <option name="presentableId" value="Default" />
       <updated>1599555998492</updated>
       <workItem from="1599555999539" duration="16466000" />
+      <workItem from="1599583605554" duration="1546000" />
     </task>
     <task id="LOCAL-00001" summary="Ben dak akeh sng conflict">
       <created>1599578685872</created>
@@ -212,6 +220,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Ben dak akeh sng conflict" />
