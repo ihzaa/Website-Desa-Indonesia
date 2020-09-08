@@ -21,4 +21,8 @@ Route::get('4dm1n/logout', 'Admin\Auth\AuthController@logout')->name('admin_logo
 //MIDDLEWARE YG DIPAKE AUTH:ADMIN DISINI
 Route::prefix('4dm1n')->namespace('Admin')->middleware('auth:admin')->group(function () {
     Route::get('dashboard', 'DashboardController@index')->name('admin_dashboard');
+
+    Route::get('home', 'HomeController@index')->name('admin_home');
+    Route::get('home/create', 'HomeController@create')->name('admin_home_create');
+    Route::post('home', 'HomeController@store')->name('admin_home_post');
 });
