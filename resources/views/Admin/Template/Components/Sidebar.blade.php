@@ -32,14 +32,38 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{route('admin_home')}}"
-                       class="nav-link {{request()->is('*home*')? "active":""}}">
+
+                <li class="nav-item has-treeview {{request()->is('*home*')? "menu-open":""}}">
+                    <a href="#" class="nav-link {{request()->is('*home*')? "active":""}}">
                         <i class="nav-icon fas fa-home"></i>
                         <p>
-                            Home dan Info Desa
+                            Home
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin_home_infodesa')}}"
+                               class="nav-link {{request()->is('*infodesa*')? "active":""}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Info Desa</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin_home_perangkatdesa')}}"
+                               class="nav-link {{request()->is('*perangkatdesa*')? "active":""}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Perangkat Desa</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin_home_bpd')}}"
+                               class="nav-link {{request()->is('*bpd*')? "active":""}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>BPD</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </nav>

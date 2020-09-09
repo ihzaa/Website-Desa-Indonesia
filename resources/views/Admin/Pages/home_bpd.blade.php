@@ -1,20 +1,20 @@
 @extends('Admin.Template.all')
 
-@section('page_title','Home dan Info Desa')
+@section('page_title','Badan Permusyawaratan Desa')
 
 @section('breadcumb')
     <li class="breadcrumb-item">Home</li>
-    <li class="breadcrumb-item">Info Desa</li>
+    <li class="breadcrumb-item">BPD</li>
 @endsection
 
 @section('content')
     <div class="card">
         <div class="card-header">
             <div class="d-flex justify-content-between">
-                <h3 class="card-title m-2">Informasi akan ditampilkan di Website Utama</h3>
-                <a href="{{route('admin_home_infodesa_create')}}">
-                    <button class="btn btn-secondary">Tambahkan Informasi</button>
-                </a>
+                <h3 class="card-title m-2">Informasi keanggotaan BPD</h3>
+                <button class="btn btn-secondary" data-toggle="modal"
+                        data-target="#tambahPerangkatModal">Tambahkan Anggota
+                </button>
             </div>
 
         </div>
@@ -35,31 +35,31 @@
                 <thead>
                 <tr>
                     <th width="5%" class="text-center">No</th>
-                    <th width="10%" class="text-center">Image</th>
-                    <th class="text-center" style="width: 200px;">Title</th>
-                    <th class="text-center">Content</th>
-                    <th class="text-center" style="width: 130px;">Category</th>
+                    <th width="150px" class="text-center">Gambar</th>
+                    <th class="text-center">Nama</th>
+                    <th class="text-center">Jabatan</th>
                     <th class="text-center" style="width: 130px;">Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($homes as $home)
+                @foreach($bpd as $bp)
                     <tr>
                         <td class="text-center">{{$loop->iteration . "."}}</td>
                         <td class="text-center">
-                            <a href="{{url('storage/images/home') . "/" .$home->image}}" target="_blank">Lihat Gambar</a>
+                            <img src="{{url('storage/images/bpd') . "/" .$bp->photo}}"
+                                 class="rounded" alt="{{url('storage/images/bpd') . "/" .$bp->nama}}"
+                                 width="100" height="100">
                         </td>
-                        <td>{{$home->title}}</td>
-                        <td>{!! $home->content !!}</td>
-                        <td class="text-center">{{$home->home_category->category_name}}</td>
+                        <td>{{$bp->nama}}</td>
+                        <td>{{$bp->jabatan}}</td>
                         <td class="text-center">
-                            <a href="{{route('admin_home_infodesa_edit', ['id' => $home->id])}}">
-                            <button type="button" class="btn btn-warning btn-sm"
-                                    style="font-size: 12px; width: 60px; padding: 2px">Edit
-                            </button>
+                            <a href="#">
+                                <button type="button" class="btn btn-warning btn-sm"
+                                        style="font-size: 12px; width: 60px; padding: 2px">Edit
+                                </button>
                             </a>
-                            <button type="button" class="btn btn-danger btn-sm deleteHomeModal"
-                                    id="{{$home->id}}" data-toggle="modal" data-target="#deleteHomeModal"
+                            <button type="button" class="btn btn-danger btn-sm deleteBPDModal"
+                                    id="{{$bp->id}}" data-toggle="modal" data-target="#deleteBPDModal"
                                     style="font-size: 12px; width: 60px; padding: 2px">Delete
                             </button>
                         </td>
@@ -74,8 +74,39 @@
     </div>
 
 
+    <!-- Add Perangkat Modal-->
+    <div class="modal fade" id="tambahPerangkatModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Anggota BPD</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <form action="{{route('admin_home_bpd_post')}}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-body">
+                        <input type="text" class="form-control mt-3 mb-3" aria-label="Sizing example input"
+                               aria-describedby="inputGroup-sizing-lg"
+                               placeholder="Masukkan Nama" name="nama" required>
+                        <input type="text" class="form-control mt-3 mb-3" aria-label="Sizing example input"
+                               aria-describedby="inputGroup-sizing-lg"
+                               placeholder="Masukkan Jabatan" name="jabatan" required>
+                        <input type="file" name="photo" class="mb-3" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!--Modal delete data-->
-    <div class="modal fade" id="deleteHomeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    <div class="modal fade" id="deleteBPDModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
          aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -85,7 +116,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form id="formDeleteHome" action="#" method="post">
+                <form id="formDeleteBPD" action="#" method="post">
                     @method('delete')
                     @csrf
                     <div class="modal-body">
@@ -114,14 +145,14 @@
                 "autoWidth": false
             });
 
-            $(".deleteHomeModal").click(function (e){
+            $(".deleteBPDModal").click(function (e) {
                 let id = $(this).attr("id")
 
-                $('#formDeleteHome').attr('action', '/4dm1n/home/infodesa/delete/' + id)
+                $('#formDeleteBPD').attr('action', '/4dm1n/home/bpd/delete/' + id)
             })
 
-            window.setTimeout(function() {
-                $(".alert").fadeTo(500, 0).slideUp(500, function(){
+            window.setTimeout(function () {
+                $(".alert").fadeTo(500, 0).slideUp(500, function () {
                     $(this).remove();
                 });
             }, 2000);

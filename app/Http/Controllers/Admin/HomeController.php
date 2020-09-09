@@ -32,7 +32,7 @@ class HomeController extends Controller
 
 
         if ($validator->fails()) {
-            return redirect()->route('admin_home_create')->with('alert', $validator->getMessageBag());
+            return redirect()->route('admin_home_infodesa_create')->with('alert', $validator->getMessageBag());
         }
 
         $file = $request->file('image');
@@ -47,7 +47,7 @@ class HomeController extends Controller
             'home_category_id' => $request->category
         ]);
 
-        return redirect()->route('admin_home_create')->with('status', 'Data Berhasil Ditambahkan');
+        return redirect()->route('admin_home_infodesa_create')->with('status', 'Data Berhasil Ditambahkan');
     }
 
     public function edit($id)
@@ -76,7 +76,7 @@ class HomeController extends Controller
 
 
             if ($validator->fails()) {
-                return redirect()->route('admin_home')->with('alert', $validator->getMessageBag());
+                return redirect()->route('admin_home_infodesa')->with('alert', $validator->getMessageBag());
             }
 
             $nama_file = "HM" . time() . "." . $file->getClientOriginalExtension();
@@ -91,13 +91,13 @@ class HomeController extends Controller
                 ]);
         }
 
-        return redirect()->route('admin_home')->with('status', 'Data Berhasil Di Update');
+        return redirect()->route('admin_home_infodesa')->with('status', 'Data Berhasil Di Update');
     }
 
     public function destroy($id)
     {
         Home::destroy($id);
 
-        return redirect()->route('admin_home');
+        return redirect()->route('admin_home_infodesa');
     }
 }

@@ -7,8 +7,9 @@
 @endsection
 
 @section('breadcumb')
+    <li class="breadcrumb-item">Home</li>
     <li class="breadcrumb-item" aria-current="page">
-        <a class="link-fx" href="{{route('admin_home')}}">Home dan Info Desa</a>
+        <a class="link-fx" href="{{route('admin_home_infodesa')}}">Info Desa</a>
     </li>
     <li class="breadcrumb-item">Update Informasi</li>
 @endsection
@@ -34,7 +35,7 @@
                     <strong> {{ session('alert') }}</strong>
                 </div>
             @endif
-            <form action="{{route('admin_home_put', ['id' => $home->id])}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('admin_home_infodesa_put', ['id' => $home->id])}}" method="post" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
                 <div class="form-group">
