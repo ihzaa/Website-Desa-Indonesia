@@ -32,7 +32,7 @@ class CreatePenduduksTable extends Migration
             $table->string('pekerjaan');
             $table->enum('status_kawin',['kawin', 'belum kawin', 'cerai hidup', 'cerai mati']);
             $table->string('kewarganegaraan');
-            $table->enum('status_hidup',['hidup','mati']);
+            $table->enum('status_hidup',['hidup','mati'])->nullable();
             $table->string('nama_ayah');
             $table->string('nama_ibu');
             $table->string('no_passpor')->nullable();
@@ -42,8 +42,8 @@ class CreatePenduduksTable extends Migration
             $table->unsignedBigInteger('id_data_ktp')->nullable();
             $table->unsignedBigInteger('id_kematian')->nullable();
             $table->foreign('id_kartu_keluarga')->references('id')->on('kartu_keluargas')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('id_data_ktp')->references('id')->on('kartu_keluargas')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('id_kematian')->references('id')->on('kartu_keluargas')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_data_ktp')->references('id')->on('data_ktps')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_kematian')->references('id')->on('kematians')->onUpdate('cascade')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });
