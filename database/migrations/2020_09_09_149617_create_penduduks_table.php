@@ -25,14 +25,14 @@ class CreatePenduduksTable extends Migration
             $table->string('kecamatan');
             $table->string('kabupaten_kota');
             $table->string('provinsi');
-            $table->boolean('jenis_kelamin')->comment('0 perempuan, 1 laki-laki');
-            $table->string('gol_darah');
-            $table->string('agama');
+            $table->enum('jenis_kelamin',['laki-laki','perempuan']);
+            $table->enum('gol_darah',['A','AB','B','O']);
+            $table->enum('agama',['islam', 'katholik' , 'protestan', 'hindu', 'budha' , 'konghucu', 'kepercayaan']);
             $table->string('pendidikan');
             $table->string('pekerjaan');
             $table->string('status_kawin');
             $table->string('kewarganegaraan');
-            $table->string('status_hidup');
+            $table->enum('status_hidup',['hidup','mati']);
             $table->string('nama_ayah');
             $table->string('nama_ibu');
             $table->string('no_passpor')->nullable();
