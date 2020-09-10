@@ -30,7 +30,7 @@ class CreatePenduduksTable extends Migration
             $table->enum('agama',['islam', 'katholik' , 'protestan', 'hindu', 'budha' , 'konghucu', 'kepercayaan']);
             $table->string('pendidikan');
             $table->string('pekerjaan');
-            $table->string('status_kawin');
+            $table->enum('status_kawin',['kawin', 'belum kawin', 'cerai hidup', 'cerai mati']);
             $table->string('kewarganegaraan');
             $table->enum('status_hidup',['hidup','mati']);
             $table->string('nama_ayah');
