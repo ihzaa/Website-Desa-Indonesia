@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,45 +18,45 @@
 
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{asset('Admin/dist/css/adminlte.min.css')}}">
-@yield('css_before')
-<!-- Google Font: Source Sans Pro -->
+    @yield('css_before')
+    <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
 <body class="hold-transition sidebar-mini">
-<!-- Site wrapper -->
-<div class="wrapper">
-    <!-- Navbar -->
-@include('Admin.Template.Components.Navbar')
-<!-- /.navbar -->
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        <!-- Navbar -->
+        @include('Admin.Template.Components.Navbar')
+        <!-- /.navbar -->
 
-    <!-- Main Sidebar Container -->
-@include('Admin.Template.Components.Sidebar')
+        <!-- Main Sidebar Container -->
+        @include('Admin.Template.Components.Sidebar')
 
-<!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1>@yield('page_title')</h1>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>@yield('page_title')</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                @yield('breadcumb')
+                            </ol>
+                        </div>
                     </div>
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            @yield('breadcumb')
-                        </ol>
-                    </div>
-                </div>
-            </div><!-- /.container-fluid -->
-        </section>
+                </div><!-- /.container-fluid -->
+            </section>
 
-        <!-- Main content -->
-        <section class="content" id="content" style="padding: 16px">
-            @yield('content')
-        </section>
-        <!-- /.content -->
-        <div id="main_loading" style="
+            <!-- Main content -->
+            <section class="content" id="content" style="padding: 16px">
+                @yield('content')
+            </section>
+            <!-- /.content -->
+            <div id="main_loading" style="
             display:none;
             background: #504b4b;
             color: #666666;
@@ -70,36 +71,36 @@
             padding-top: 25%;
             opacity: .80;
             ">
-            <i class="fas fa-2x fa-sync-alt fa-spin"></i>
-            <br/>
-            Loading...
+                <i class="fas fa-2x fa-sync-alt fa-spin"></i>
+                <br />
+                Loading...
+            </div>
         </div>
+        <!-- /.content-wrapper -->
+
+        <footer class="main-footer">
+            <div class="float-right d-none d-sm-block">
+                {{config('app.name')}}
+            </div>
+            <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+            reserved.
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
     </div>
-    <!-- /.content-wrapper -->
+    <!-- ./wrapper -->
 
-    <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            {{config('app.name')}}
-        </div>
-        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-        reserved.
-    </footer>
-
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
-
-<!-- jQuery -->
-<script src="{{asset('Admin/plugins/jquery/jquery.min.js')}}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{asset('Admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('Admin/dist/js/adminlte.min.js')}}"></script>
-@yield('js_after')
+    <!-- jQuery -->
+    <script src="{{asset('Admin/plugins/jquery/jquery.min.js')}}"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{{asset('Admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <!-- AdminLTE App -->
+    <script src="{{asset('Admin/dist/js/adminlte.min.js')}}"></script>
+    @yield('js_after')
 </body>
 
 </html>
