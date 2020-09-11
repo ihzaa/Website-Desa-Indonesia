@@ -32,7 +32,14 @@
                         </p>
                     </a>
                 </li>
-
+                <li class="nav-item">
+                    <a href="{{route('data_kk_index')}}" class="nav-link {{request()->is('*kartu-keluarga*')? 'active':''}}">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Kartu Keluarga
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item has-treeview {{request()->is('*home*')? "menu-open":""}}">
                     <a href="#" class="nav-link {{request()->is('*home*')? "active":""}}">
                         <i class="nav-icon fas fa-home"></i>

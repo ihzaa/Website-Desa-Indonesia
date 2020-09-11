@@ -53,11 +53,11 @@
                         <td>{{$bp->nama}}</td>
                         <td>{{$bp->jabatan}}</td>
                         <td class="text-center">
-                            <a href="#">
-                                <button type="button" class="btn btn-warning btn-sm"
-                                        style="font-size: 12px; width: 60px; padding: 2px">Edit
-                                </button>
-                            </a>
+                            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                                    data-target="#updateBpdModal" data-id="{{$bp->id}}"
+                                    data-nama="{{$bp->nama}}" data-jabatan="{{$bp->jabatan}}"
+                                    style="font-size: 12px; width: 60px; padding: 2px">Edit
+                            </button>
                             <button type="button" class="btn btn-danger btn-sm deleteBPDModal"
                                     id="{{$bp->id}}" data-toggle="modal" data-target="#deleteBPDModal"
                                     style="font-size: 12px; width: 60px; padding: 2px">Delete
@@ -99,6 +99,38 @@
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                         <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update Perangkat Modal-->
+    <div class="modal fade" id="updateBpdModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Anggota BPD</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <form id="formUpdateBpd" action="#" method="post" enctype="multipart/form-data">
+                    @method('PUT')
+                    @csrf
+                    <div class="modal-body">
+                        <input type="text" class="form-control mt-3 mb-3" aria-label="Sizing example input"
+                               aria-describedby="inputGroup-sizing-lg" id="nama"
+                               placeholder="Masukkan Nama" name="nama" required>
+                        <input type="text" class="form-control mt-3 mb-3" aria-label="Sizing example input"
+                               aria-describedby="inputGroup-sizing-lg"
+                               placeholder="Masukkan Jabatan" name="jabatan" id="jabatan" required>
+                        <input type="file" name="photo" class="mb-3">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary" type="submit">Update</button>
                     </div>
                 </form>
             </div>
@@ -149,7 +181,20 @@
                 let id = $(this).attr("id")
 
                 $('#formDeleteBPD').attr('action', '/4dm1n/home/bpd/delete/' + id)
-            })
+            });
+
+            $('#updateBpdModal').on('show.bs.modal', function (event) {
+                let button = $(event.relatedTarget);
+                let id = button.data('id');
+                let nama = button.data('nama');
+                let jabatan = button.data('jabatan');
+
+                let modal = $(this);
+                modal.find('#nama').val(nama)
+                modal.find('#jabatan').val(jabatan)
+
+                $('#formUpdateBpd').attr('action', '/4dm1n/home/bpd/update/' + id)
+            });
 
             window.setTimeout(function () {
                 $(".alert").fadeTo(500, 0).slideUp(500, function () {
