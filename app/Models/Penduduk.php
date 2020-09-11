@@ -18,11 +18,11 @@ class Penduduk extends Model
     }
 
     public function data_ktp(){
-        return $this->hasOne(DataKtp::class, 'id_data_ktp');
+        return $this->belongsTo(DataKtp::class, 'id_data_ktp');
     }
 
     public function kematian(){
-        return $this->hasOne(Kematian::class, 'id_kematian');
+        return $this->belongsTo(Kematian::class, 'id_kematian');
     }
 
     public function getUmurAttribute()

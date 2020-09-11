@@ -30,7 +30,7 @@
                     <th>SHDRT</th>
                     <th>Pekerjaan</th>
                     <th>Pendidikan</th>
-                    <th>Aksi</th>
+                    <th width="20%">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -44,7 +44,12 @@
                     <td>{{$p->pekerjaan}}</td>
                     <td>{{$p->pendidikan}}</td>
                     <td>
-
+                    <a href="{{route('data_penduduk_edit',['id'=>$kk->id,'id_anggota'=>$p->id])}}" class="btn btn-sm btn-primary">
+                    <i class="fas fa-edit"></i> edit
+                    </a>
+                    <button type="button" data-toggle="modal" data-id="{{$p->id}}" data-nama="{{$p->nama}}" data-target="#modal-default" class="hapus-modal btn btn-sm btn-danger">
+                        <i class="fas fa-trash"></i> hapus
+                    </button>
                     </td>
                 </tr>
                 @endforeach
@@ -136,6 +141,34 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="modal-default">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Hapus Kartu Keluarga</h4>
+      </div>
+      <form action="{{route('data_penduduk_delete',['id' => $kk->id])}}" method="POST">
+      @csrf
+      <div class="modal-body">
+        Anda yakin ingin menghapus anggota keluarga berikut ?
+          <input type="hidden" id="id_penduduk" name="id_penduduk">          
+          <div class="form-group">
+            <label for="nama_kk">Nama Anggota Keluarga</label>
+            <input type="text" class="form-control" id="nama_penduduk" disabled>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Batal</button>
+        <button type="submit" class="btn btn-danger">Hapus</button>
+      </div>
+      </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 @endsection
 
 
@@ -149,6 +182,12 @@
 <script>
   $(function() {
     $('#example1').DataTable()
+    $(document).on("click", ".hapus-modal", function() {
+      let idKK = $(this).data('id');
+      let titleKK = $(this).data('nama');
+      $("#id_penduduk").val(idKK);
+      $("#nama_penduduk").val(titleKK);
+    });
   })
 </script>
 @endsection

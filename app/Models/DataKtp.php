@@ -8,7 +8,7 @@ class DataKtp extends Model
 {
     protected $guarded = [];
     public function penduduk(){
-        return $this->belongsTo(Penduduk::class, 'id_data_ktp');
+        return $this->hasOne(Penduduk::class, 'id_data_ktp');
     }
 
 }

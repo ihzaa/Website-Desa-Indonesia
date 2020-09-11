@@ -21,6 +21,9 @@ Route::prefix('4dm1n')->namespace('Admin')->middleware('auth:admin')->group(func
         Route::prefix('/edit/{id}')->group(function () {
             Route::get('/add-anggota', 'PendudukController@form_add')->name('data_penduduk_add');
             Route::post('/add-anggota', 'PendudukController@store')->name('data_penduduk_store');
+            Route::get('/edit-anggota/{id_anggota}', 'PendudukController@form_edit')->name('data_penduduk_edit');
+            Route::post('/delete', 'PendudukController@delete')->name('data_penduduk_delete');
+            Route::post('/update', 'PendudukController@update')->name('data_penduduk_update');
         });
         Route::post('/edit', 'KartuKeluargaController@update')->name('data_kk_update');
         Route::post('/delete', 'KartuKeluargaController@delete')->name('data_kk_delete');

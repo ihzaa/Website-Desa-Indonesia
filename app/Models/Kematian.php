@@ -8,7 +8,7 @@ class Kematian extends Model
 {
     protected $guarded = [];
     public function penduduk(){
-        return $this->belongsTo(Penduduk::class, 'id_kematian');
+        return $this->hasOne(Penduduk::class, 'id_kematian');
     }
 
 }
