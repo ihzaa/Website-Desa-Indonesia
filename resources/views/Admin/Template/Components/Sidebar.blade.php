@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
         <img src="{{asset('Admin/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo"
-             class="brand-image img-circle elevation-3" style="opacity: .8">
+            class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">Admin</span>
     </a>
 
@@ -12,7 +12,7 @@
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
                 <img src="{{asset('Admin/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2"
-                     alt="User Image">
+                    alt="User Image">
             </div>
             <div class="info">
                 <a href="#" class="d-block">{{Auth::user()->username}}</a>
@@ -25,7 +25,7 @@
                 <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                 <li class="nav-item">
                     <a href="{{route('admin_dashboard')}}"
-                       class="nav-link {{request()->is('*dashboard*')? "active":""}}">
+                        class="nav-link {{request()->is('*dashboard*')? "active":""}}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -33,7 +33,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('data_kk_index')}}" class="nav-link {{request()->is('*kartu-keluarga*')? 'active':''}}">
+                    <a href="{{route('data_kk_index')}}"
+                        class="nav-link {{request()->is('*kartu-keluarga*')? 'active':''}}">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Kartu Keluarga
@@ -51,26 +52,35 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{route('admin_home_infodesa')}}"
-                               class="nav-link {{request()->is('*infodesa*')? "active":""}}">
+                                class="nav-link {{request()->is('*infodesa*')? "active":""}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Info Desa</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('admin_home_perangkatdesa')}}"
-                               class="nav-link {{request()->is('*perangkatdesa*')? "active":""}}">
+                                class="nav-link {{request()->is('*perangkatdesa*')? "active":""}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Perangkat Desa</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('admin_home_bpd')}}"
-                               class="nav-link {{request()->is('*bpd*')? "active":""}}">
+                                class="nav-link {{request()->is('*bpd*')? "active":""}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>BPD</p>
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin_surat_permohonan_index')}}"
+                        class="nav-link {{request()->is('*surat/permohonan*')? 'active':''}}">
+                        <i class="nav-icon fas fa-envelope-open-text"></i>
+                        <p>
+                            Surat Permohonan
+                        </p>
+                    </a>
                 </li>
             </ul>
         </nav>

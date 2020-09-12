@@ -1,3 +1,4 @@
+window.alert = function () {};
 $(document).ready(function () {
     const Toast = Swal.mixin({
         toast: true,
@@ -54,7 +55,7 @@ $(document).ready(function () {
         },
     });
 
-    $("#btn_preview").on("click", function () {
+    $(document).on("click", "#btn_preview", function () {
         if (!validator.checkForm() || $("#keterangan").val() == "") {
             if ($("#keterangan").val() == "") {
                 // Toast.fire({
@@ -64,8 +65,7 @@ $(document).ready(function () {
                 $(document).Toasts("create", {
                     class: "bg-danger",
                     title: "Maaf!",
-                    body:
-                        "Keterangan Surat Tidak Boleh Kosong.",
+                    body: "Keterangan Surat Tidak Boleh Kosong.",
                 });
             }
             document.body.scrollTop = 0; // For Safari
@@ -80,8 +80,8 @@ $(document).ready(function () {
                 attr += `
                 <div style="flex: 0 0 8.333333%;max-width: 8.333333%;">
                 </div>
-                <div style="flex: 0 0 25%;max-width: 25%;">
-                ${attr_input[i]}
+                <div style="flex: 0 0 25%;max-width: 25%;text-transform: capitalize;">
+                ${attr_input[i].replace("_", " ")}
                 </div>
                 <div style="flex: 0 0 66.666667%;max-width: 66.666667%;">
                 : Sesuai Dengan Data Penduduk
@@ -96,7 +96,54 @@ $(document).ready(function () {
             $("#modal_preview").modal("show");
         }
     });
+    $(document).on("submit", "#formaja", function () {
+        event.preventDefault();
+        if (!validator.checkForm() || $("#keterangan").val() == "") {
+            return;
+        }
+        $("#main_loading").show();
+        event.preventDefault();
+        const fileInput = document.querySelector("#logo");
+        const formData = new FormData();
+        formData.append("jenis_surat", $("#nama_surat").val());
+        formData.append("atribut", JSON.stringify($("#atribut").val()));
+        formData.append("keterangan", $("#keterangan").val());
+        formData.append("kode_surat", $("#kode_surat").val());
+        formData.append("ttd1", $("#ttd1").val());
+        formData.append("ttd2", $("#ttd2").val());
+        formData.append("ttd3", $("#ttd3").val());
+        if (fileInput.files[0] != undefined) {
+            formData.append("logo", fileInput.files[0]);
+        }
+
+        const options = {
+            method: "POST",
+            body: formData,
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+        };
+
+        fetch(event.target.action, options)
+            .then((resp) => {
+                return resp.text();
+            })
+            .then((body) => {
+                var link = window.location.href;
+                link = link.substring(0, link.lastIndexOf("/"));
+                window.history.pushState("", "", link);
+                $("#page_title").html("Surat Permohonan");
+                $("#bread_1").html(`Surat Permohonan`);
+                $("#bread_2").remove();
+                $("#content").html(body);
+                $("#main_loading").fadeOut();
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    });
 });
+
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -104,9 +151,10 @@ function readURL(input) {
             $("#img-" + input.id).attr("src", e.target.result);
         };
         reader.readAsDataURL(input.files[0]); // convert to base64 string
+        $(input).next(".custom-file-label").html(input.files[0].name);
     }
 }
 
-$(".input_img").change(function () {
+$(document).on("change", ".input_img", function () {
     readURL(this);
 });

@@ -41,10 +41,10 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>@yield('page_title')</h1>
+                            <h1 id="page_title">@yield('page_title')</h1>
                         </div>
                         <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
+                            <ol class="breadcrumb float-sm-right" id="breadcrumb">
                                 @yield('breadcumb')
                             </ol>
                         </div>
@@ -60,7 +60,7 @@
             <div id="main_loading" style="
             display:none;
             background: #504b4b;
-            color: #666666;
+            color: black;
             position: fixed;
             height: 100%;
             width: 100%;

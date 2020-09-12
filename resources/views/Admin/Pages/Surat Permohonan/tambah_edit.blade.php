@@ -1,22 +1,26 @@
 @extends('Admin.Template.all')
 
-@section('page_title','Surat Permohonan')
+@section('page_title',request()->is('*/tambah*')? 'Tambah Surat Permohonan':'Edit Surat Permohonan')
 
 @section('breadcumb')
 <li class="breadcrumb-item"><a href="{{route('admin_dashboard')}}">Dashboard</a></li>
-<li class="breadcrumb-item"><a href="{{route('admin_surat_permohonan_index')}}">Surat Permohonan</a></li>
-<li class="breadcrumb-item">Tambah Surat</li>
+<li class="breadcrumb-item" id="bread_1"><a href="{{route('admin_surat_permohonan_index')}}">Surat Permohonan</a></li>
+<li class="breadcrumb-item" id="bread_2">{{request()->is('*/tambah*')?"Tambah":"Edit"}} Surat</li>
 @endsection
 
-@section('css_before')
+@section('css')
 <link rel="stylesheet" href="{{asset('Admin/plugins/summernote/summernote-bs4.css')}}">
 <link rel="stylesheet" href="{{asset('Admin/plugins/select2/css/select2.min.css')}}">
 <link rel="stylesheet" href="{{asset('Admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
 <link rel="stylesheet" href="{{asset('Admin/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 @endsection
 
 @section('content')
-<form action="" method="POST" id="formaja">
+<form
+    action="{{request()->is('*/tambah*')?route('admin_surat_permohonan_tambah_post'):route('admin_surat_permohonan_edit_post',['id'=>$data['surat']->id])}}"
+    method="POST" id="formaja" enctype="multipart/form-data">
     @csrf
     <div class="card">
         <h5 class="card-header">Keterangan dan Logo Surat</h5>
@@ -24,7 +28,8 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="nama_surat">Nama Surat <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="nama_surat" name="jenis_surat" placeholder="Nama Surat">
+                    <input type="text" class="form-control" id="nama_surat" name="jenis_surat" placeholder="Nama Surat"
+                        value="{{request()->is('*/tambah*')?old('jenis_surat'):$data['surat']->jenis_surat}}">
                 </div>
                 <div class="col-md-6">
                     <label for="kode_surat">Kode Surat <span class="text-danger">*</span></label>
@@ -33,7 +38,8 @@
                             <span class="input-group-text">NomerSurat/</span>
                         </div>
                         <input type="text" class="form-control" id="kode_surat" name="kode_surat"
-                            placeholder="Kode Surat">
+                            placeholder="Kode Surat"
+                            value="{{request()->is('*/tambah*')?old('kode_surat'):$data['surat']->tipe_surat}}">
                         <div class="input-group-prepend">
                             <span class="input-group-text">/Tahun</span>
                         </div>
@@ -43,7 +49,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <img id="img-logo" class="img-fluid" style="max-height: 250px;"
-                        src="{{request()->is('*/tambah*')? asset('Admin/dist/img/Jgn Di Hapus/picture.svg'):''}}"
+                        src="{{request()->is('*/tambah*')? asset('Admin/dist/img/Jgn Di Hapus/picture.svg'):asset($data['surat']->logo)}}"
                         alt="your image" />
                 </div>
                 <div class="col-md-8 d-flex">
@@ -53,7 +59,7 @@
                             <input type="file" class="custom-file-input input_img"
                                 {{request()->is('*/tambah*')?"required":""}} name="logo" id="logo">
                             <label class="custom-file-label"
-                                for="imgInp">{{request()->is('*/edit*')?"Logo Surat":"Logo Surat.jpg"}}</label>
+                                for="logo">{{request()->is('*/tambah*')?"Pilih Logo":$data['surat']->jenis_surat.".jpg"}}</label>
                             <small class="form-text text-muted">- Ukuran max 256KB</small>
                             <small class="form-text text-muted">- Harus berupa gambar (format: jpg, jpeg, svg,
                                 png , dll)</small>
@@ -76,8 +82,7 @@
                     <div class="row mb-3">
                         <div class="col-md-12">
                             <h5 class="card-title">Pilih atribut yang akan ditampilkan pada surat<span
-                                    class="text-danger">*</span> <small>Urutan atribut sesuai dengan urutan
-                                    pemilihan</small></h5>
+                                    class="text-danger">*</span></h5>
                         </div>
                     </div>
                     <div class="row">
@@ -90,16 +95,36 @@
                                 {{-- <label>Atribut</label> --}}
                                 <select class="select2bs4" multiple="multiple"
                                     data-placeholder="Pilih atribut yang akan ditampilkan pada surat"
-                                    style="width: 100%;" name="atribut" id="atribut">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
+                                    style="width: 100%;" name="atribut[]" id="atribut" required>
+                                    @foreach ($data['kolom_penduduk'] as $d)
+                                    @if($d == "id" || $d== "no_kitas" || $d == "shdrt" || $d == "id_kartu_keluarga" ||
+                                    $d == "id_data_ktp" || $d == "id_kematian" || $d == "deleted_at" || $d ==
+                                    "created_at" || $d == "updated_at")
+                                    @php
+                                    continue;
+                                    @endphp
+                                    @endif
+                                    @if(request()->is('*/tambah*'))
+                                    <option value="{{$d}}">{{str_replace('_',' ',$d)}}</option>
+                                    @else
+                                    @if(in_array($d,$data['surat']->attribute))
+                                    <option value="{{$d}}" selected="selected">{{str_replace('_',' ',$d)}}</option>
+                                    @else
+                                    <option value="{{$d}}">{{str_replace('_',' ',$d)}}</option>
+                                    @endif
+                                    @endif
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-12 mt-2">
                             <h5>Keterangan Surat <span class="text-danger">*</span></h5>
+                            <small>Jika pada keterangan ingin menyertakan data penduduk, tambahkan
+                                <strong>{nama_atribut}</strong> sesuai dengan nama atribut yang
+                                tersedia pada list atribut diatas. Misal: {nama} atau {tgl lahir}.</small>
                             <div class="form-group">
-                                <textarea id="keterangan" name="keterangan"></textarea>
+                                <textarea id="keterangan"
+                                    name="keterangan">{{request()->is('*/tambah*')?old('keterangan'):$data['surat']->keterangan}}</textarea>
                             </div>
                         </div>
                     </div>
@@ -133,7 +158,8 @@
                                     Kiri
                                 </div>
                                 <div class="card-body">
-                                    <textarea class="summernote" id="ttd1"></textarea>
+                                    <textarea class="summernote" id="ttd1"
+                                        name="ttd1">{{request()->is('*/tambah*')? '':$data['surat']->ttd_kiri}}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -143,7 +169,8 @@
                                     Tengah
                                 </div>
                                 <div class="card-body">
-                                    <textarea class="summernote" id="ttd2"></textarea>
+                                    <textarea class="summernote" id="ttd2"
+                                        name="ttd2">{{request()->is('*/tambah*')? '':$data['surat']->ttd_tengah}}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -153,12 +180,14 @@
                                     Kanan
                                 </div>
                                 <div class="card-body">
-                                    <textarea class="summernote" id="ttd3"></textarea>
+                                    <textarea class="summernote" id="ttd3"
+                                        name="ttd3">{{request()->is('*/tambah*')? '':$data['surat']->ttd_kanan}}</textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <p class="mb-0"><strong>Saran: agar hasil maksimal, atur ukuran gambar tanda tangan menjadi 50%!</strong>
+                            <p class="mb-0"><strong>Saran: agar hasil maksimal, atur ukuran gambar tanda tangan menjadi
+                                    50%!</strong>
                             </p>
                         </div>
                     </div>
@@ -175,7 +204,7 @@
 </form>
 <div id="modal_preview" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title"
     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" style="min-width: 1300px !important;" role="document">
+    <div class="modal-dialog modal-dialog-centered" style="min-width: 1000px !important;" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="my-modal-title">Preview Surat</h5>
@@ -184,7 +213,7 @@
                 </button>
             </div>
             <div class="modal-body" style="overflow-x: auto;">
-                @include('Admin.Template.Surat Permohonan.All')
+                @include('Admin.Template.Surat Permohonan.Preview')
             </div>
         </div>
     </div>
@@ -197,6 +226,5 @@
 <script src="{{asset('Admin/plugins/jquery-validation/jquery.validate.min.js')}}"></script>
 <script src="{{asset('Admin/plugins/jquery-validation/additional-methods.min.js')}}"></script>
 <script src="{{asset('Admin/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
-
 <script src="{{asset('Admin/dist/js/pages/surat_permohonan_tambah_edit.blade.js')}}"></script>
 @endsection

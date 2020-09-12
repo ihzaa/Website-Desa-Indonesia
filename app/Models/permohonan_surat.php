@@ -15,4 +15,14 @@ class permohonan_surat extends Model
         'keterangan',
         'tipe_surat'
     ];
+
+    public function penduduk()
+    {
+        return $this->belongsToMany('App\Models\Penduduk', 'arsip_surat_penduduk');
+    }
+
+    public function arsip_surat_penduduks()
+    {
+        return $this->hasMany('App\Models\arsip_surat_penduduk');
+    }
 }
