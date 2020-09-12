@@ -10,7 +10,7 @@ class Penduduk extends Model
 {
     use SoftDeletes;
     protected $guarded = [];
-    protected $appends = ['umur'];
+    protected $appends = ['umur', 'pemilih'];
 
 
     public function kartu_keluarga(){
@@ -32,5 +32,16 @@ class Penduduk extends Model
         }else{
             return Carbon::parse($this->attributes['tgl_lahir'])->age;
         }
+    }
+
+    public function getPemilihAttribute()
+    {
+        if($this->status_hidup=='mati'){
+            return 'non-aktif';
+        }
+        if($this->umur >= 17 && $this->data_ktp() != null){
+            return 'aktif';
+        }
+        return 'non-aktif';
     }
 }
