@@ -30,6 +30,7 @@
                     <th>SHDRT</th>
                     <th>Pekerjaan</th>
                     <th>Pendidikan</th>
+                    <th>Calom Pemilih</th>
                     <th width="20%">Aksi</th>
                 </tr>
             </thead>
@@ -43,6 +44,7 @@
                     <td>{{$p->shdrt}}</td>
                     <td>{{$p->pekerjaan}}</td>
                     <td>{{$p->pendidikan}}</td>
+                    <td><span class="label {{$p->pemilih == 'aktif'? 'label-success' : 'label-default'}}">{{$p->pemilih}}</span></td>
                     <td>
                     <a href="{{route('data_penduduk_edit',['id'=>$kk->id,'id_anggota'=>$p->id])}}" class="btn btn-sm btn-primary">
                     <i class="fas fa-edit"></i> edit
