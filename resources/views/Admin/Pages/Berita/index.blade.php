@@ -43,7 +43,7 @@
                     <td><a href="{{asset('/Admin/dist/img/berita/thumbnails')}}/{{$data->thumbnail_berita}}"
                             target="_blank">Lihat Gambar</a></td>
                     <td>{{$data->judul_berita}}</td>
-                    <td>{{$data->updated_at}}</td>
+                    <td>{{Carbon\Carbon::parse($data->updated_at)->translatedFormat('l, d F Y H:i')}}</td>
                     <td>
                         <a href="{{route('admin_berita_edit', $data->id)}}" class="btn btn-warning">Edit</a>
                         <button class="btn btn-danger ml-2 deleteModal" data-toggle="modal" data-target="#deleteModal"
