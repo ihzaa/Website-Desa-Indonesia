@@ -27,5 +27,6 @@ Route::prefix('4dm1n')->namespace('Admin')->middleware('auth:admin')->group(func
 //ROUTE FRONT
 Route::prefix('')->namespace('Front')->group(function (){
     Route::get('', 'FrontController@index')->name('front_dashboard');
+    Route::get('berita/{id}', 'FrontController@ShowBerita')->name('front_berita_show');
     Route::get('tentangkami/{id}', 'FrontController@show')->name('front_tentang_kami');
 });

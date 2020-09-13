@@ -2,10 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::namespace('FE')->group(function(){
-    Route::get('/', 'LandingController@index')->name('landing_index');
-});
-
 Route::namespace('Admin')->middleware('auth:admin')->group(function () {
         Route::resource('4dm1n/berita','BeritaController')->names([
             'index'=>'admin_berita_index',

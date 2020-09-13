@@ -55,7 +55,7 @@
                         </div>
                         <div class="form-group">
                             <label for="thumbnail_berita">Thumbnail Berita</label>
-                            <input type="file" name="thumbnail_berita" class="form-control">
+                            <input type="file" accept="image/jpeg,image/png" name="thumbnail_berita" class="form-control">
                             <ul>
                                 <li>
                                     <small>File yang diterima : .jpeg / .jpg / .png</small>
