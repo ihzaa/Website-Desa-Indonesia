@@ -5,7 +5,8 @@
             position: absolute;
             left: 3rem;
             top: 1.5rem;
-            height: 120px;
+            height: 100px;
+            max-width: 250px !important;
             ">
         <h3 style="text-transform: uppercase!important;margin-bottom: 0!important;">
             PEMERINTAH KABUPATEN BOGOR</h3>

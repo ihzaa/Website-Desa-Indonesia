@@ -234,6 +234,7 @@ class SuratPermohonanController extends Controller
             left: 1rem;
             top: 1.5rem;
             height: 100px;
+            max-width: 180px !important;
             ">
             <h3 style="text-transform: uppercase!important;margin-bottom: 0!important;">
                 PEMERINTAH KABUPATEN BOGOR</h3>
@@ -284,16 +285,24 @@ class SuratPermohonanController extends Controller
         <p style="text-indent: 50px!important;margin-bottom: 0!important;" id="keterangan">
             ' . $data->keterangan . '</p>
     </div>
-
-    <table>
-            <tbody>
-                <tr>
-                    <td style="width: 66%!important;text-align: center!important;">' . $kiri . '</td>
-                    <td style="width: 66%!important;text-align: center!important;">' . $tengah . '</td>
-                    <td style="width: 66%!important;text-align: center!important;">' . $kanan . '</td>
-                </tr>
-            </tbody>
-        </table>');
+    <div style="width: 100%;margin-top: 1.5rem!important;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -7.5px;
+    margin-left: -7.5px;" id="atribut">
+    <table style="width: 100%;" >
+    <tbody>
+        <tr>
+            <td style="width: 60%!important;text-align: center!important;">' . $kiri . '</td>
+            <td style="width: 60%!important;text-align: center!important;">' . $tengah . '</td>
+            <td style="width: 60%!important;text-align: center!important;">' . $kanan . '</td>
+        </tr>
+    </tbody>
+</table>
+    </div>
+    ');
         return $pdf->download($data->jenis_surat . '-sampel.pdf');
     }
 }
