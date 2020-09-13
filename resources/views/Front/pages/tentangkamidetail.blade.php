@@ -14,7 +14,7 @@
                     <li><a href="{{url('/')}}">Home</a></li>
                     <li>{{$homes -> home_category -> category_name}}</li>
                 </ol>
-                <h2>Portfolio Details</h2>
+                <h2>{{"Detail " . $homes -> home_category -> category_name}}</h2>
 
             </div>
         </section><!-- End Breadcrumbs -->

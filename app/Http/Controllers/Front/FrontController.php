@@ -28,6 +28,10 @@ class FrontController extends Controller
             'home_category'
         ])->find($id);
 
-        return view('Front.pages.tentangkamidetail', compact('homes'));
+        if ($homes === null){
+            return redirect('/');
+        }else{
+            return view('Front.pages.tentangkamidetail', compact('homes'));
+        }
     }
 }
