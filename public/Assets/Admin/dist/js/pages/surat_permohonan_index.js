@@ -27,7 +27,7 @@ $(document).ready(function () {
                                             class="fas fa-edit"></i></a>
                         <button class="btn btn-sm btn-danger btn-hapus" data-toggle="tooltip" data-placement="bottom"
                                         title="Hapus" data-id="${data["surat"][i].id}"><i class="fas fa-trash"></i></button>
-                        <a href="${temp_url_sampel}" class="btn btn-sm btn-info btn-edit" data-toggle="tooltip"
+                        <a href="${temp_url_sampel}" class="btn btn-sm btn-info" data-toggle="tooltip"
                                         data-placement="bottom" title="Unduh Sampel Surat"><i class="fas fa-file-download"></i></a>
                     </td>
                 </tr>

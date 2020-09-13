@@ -23,3 +23,9 @@ Route::prefix('4dm1n')->namespace('Admin')->middleware('auth:admin')->group(func
     Route::get('dashboard', 'DashboardController@index')->name('admin_dashboard');
 
 });
+
+//ROUTE FRONT
+Route::prefix('')->namespace('Front')->group(function (){
+    Route::get('', 'FrontController@index')->name('front_dashboard');
+    Route::get('tentangkami/{id}', 'FrontController@show')->name('front_tentang_kami');
+});
