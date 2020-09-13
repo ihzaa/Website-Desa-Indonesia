@@ -19,14 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd4e4530-f071-4bdf-877a-a0002bdfda16" name="Default Changelist" comment="Ben dak akeh sng conflict">
-      <change afterPath="$PROJECT_DIR$/resources/views/Admin/Pages/home_info_desa_edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/website-desa-indonesia.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/website-desa-indonesia.iml" afterDir="false" />
+    <list default="true" id="fd4e4530-f071-4bdf-877a-a0002bdfda16" name="Default Changelist" comment="Clear Jobdesk">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Pages/home_info_desa.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Pages/home_info_desa.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +155,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/Admin/Pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -170,6 +164,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/.env.example" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -195,7 +190,9 @@
       <option name="presentableId" value="Default" />
       <updated>1599555998492</updated>
       <workItem from="1599555999539" duration="16466000" />
-      <workItem from="1599583605554" duration="1546000" />
+      <workItem from="1599583605554" duration="1863000" />
+      <workItem from="1599969721794" duration="59000" />
+      <workItem from="1599970355988" duration="608000" />
     </task>
     <task id="LOCAL-00001" summary="Ben dak akeh sng conflict">
       <created>1599578685872</created>
@@ -204,7 +201,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599578685872</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Clear Jobdesk">
+      <created>1599585297531</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1599585297531</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,13 +228,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Ben dak akeh sng conflict" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ben dak akeh sng conflict" />
+    <MESSAGE value="Clear Jobdesk" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clear Jobdesk" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1053" y="100" width="774" height="840" key="DiffContextDialog" timestamp="1599556612370">
+    <state x="1053" y="100" width="774" height="840" key="DiffContextDialog" timestamp="1599969771699">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1053" y="100" width="774" height="840" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599556612370" />
+    <state x="1053" y="100" width="774" height="840" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599969771699" />
     <state x="1220" y="275" key="FileChooserDialogImpl" timestamp="1599581987777">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
