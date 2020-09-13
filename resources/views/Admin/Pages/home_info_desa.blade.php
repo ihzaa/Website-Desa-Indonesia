@@ -3,7 +3,8 @@
 @section('page_title','Home dan Info Desa')
 
 @section('breadcumb')
-    <li class="breadcrumb-item">Home dan Info Desa</li>
+    <li class="breadcrumb-item">Home</li>
+    <li class="breadcrumb-item">Info Desa</li>
 @endsection
 
 @section('content')
@@ -11,7 +12,7 @@
         <div class="card-header">
             <div class="d-flex justify-content-between">
                 <h3 class="card-title m-2">Informasi akan ditampilkan di Website Utama</h3>
-                <a href="{{route('admin_home_create')}}">
+                <a href="{{route('admin_home_infodesa_create')}}">
                     <button class="btn btn-secondary">Tambahkan Informasi</button>
                 </a>
             </div>
@@ -52,7 +53,7 @@
                         <td>{!! $home->content !!}</td>
                         <td class="text-center">{{$home->home_category->category_name}}</td>
                         <td class="text-center">
-                            <a href="{{route('admin_home_edit', ['id' => $home->id])}}">
+                            <a href="{{route('admin_home_infodesa_edit', ['id' => $home->id])}}">
                             <button type="button" class="btn btn-warning btn-sm"
                                     style="font-size: 12px; width: 60px; padding: 2px">Edit
                             </button>
@@ -116,7 +117,7 @@
             $(".deleteHomeModal").click(function (e){
                 let id = $(this).attr("id")
 
-                $('#formDeleteHome').attr('action', '/4dm1n/home/delete/' + id)
+                $('#formDeleteHome').attr('action', '/4dm1n/home/infodesa/delete/' + id)
             })
 
             window.setTimeout(function() {
