@@ -82,6 +82,15 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('admin_berita_index')}}"
+                        class="nav-link {{request()->is('*berita*')? 'active':''}}">
+                        <i class="nav-icon fas fa-newspaper"></i></i>
+                        <p>
+                            Berita
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
