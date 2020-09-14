@@ -16,13 +16,25 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:augie" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18c1ceb2-349f-4add-9a9a-b07e9962f6f2" name="Default Changelist" comment="Front">
+    <list default="true" id="18c1ceb2-349f-4add-9a9a-b07e9962f6f2" name="Default Changelist" comment="Ada yang lupa ges">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/FrontController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/FrontController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Front/pages/tentangkamidetail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/pages/tentangkamidetail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/BPDController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/BPDController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PerangkatDesaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PerangkatDesaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Pages/home_bpd.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Pages/Home/home_bpd.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Pages/home_info_desa.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Pages/Home/home_info_desa.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Pages/home_info_desa_create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Pages/Home/home_info_desa_create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Pages/home_info_desa_edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Pages/Home/home_info_desa_edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Pages/home_perangkat_desa.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Pages/Home/home_perangkat_desa.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +170,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/Front/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../simponia" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -169,15 +181,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\website-desa-indonesia\resources\views\Front\pages" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\website-desa-indonesia\resources\views\Front\components" />
       <recent name="C:\xampp\htdocs\website-desa-indonesia\resources\views\Front" />
       <recent name="C:\xampp\htdocs\website-desa-indonesia\public\Assets\Front" />
       <recent name="E:\website-desa-indonesia\resources\views\Admin\Pages" />
       <recent name="E:\website-desa-indonesia" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\website-desa-indonesia\resources\views\Admin\Pages\Home" />
+      <recent name="C:\xampp\htdocs\website-desa-indonesia\resources\views\Front\pages" />
     </key>
   </component>
   <component name="RunManager">
@@ -202,7 +215,11 @@
       <workItem from="1599729916948" duration="845000" />
       <workItem from="1599739553947" duration="598000" />
       <workItem from="1599747780712" duration="6121000" />
-      <workItem from="1599981815728" duration="10807000" />
+      <workItem from="1599981815728" duration="11605000" />
+      <workItem from="1600001947317" duration="1784000" />
+      <workItem from="1600060537224" duration="123000" />
+      <workItem from="1600090276723" duration="17000" />
+      <workItem from="1600090691295" duration="1899000" />
     </task>
     <task id="LOCAL-00001" summary="conflict">
       <created>1599661331865</created>
@@ -225,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599992200396</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Ada yang lupa ges">
+      <created>1599993353611</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1599993353611</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,7 +260,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="augie" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -246,13 +282,14 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="conflict" />
     <MESSAGE value="Front" />
-    <option name="LAST_COMMIT_MESSAGE" value="Front" />
+    <MESSAGE value="Ada yang lupa ges" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ada yang lupa ges" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1220" y="275" key="FileChooserDialogImpl" timestamp="1599981219523">
+    <state x="1220" y="275" key="FileChooserDialogImpl" timestamp="1600090292153">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1220" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599981219523" />
+    <state x="1220" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1600090292153" />
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1599987625903">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -261,10 +298,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="922" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599981863237" />
-    <state x="1009" y="252" key="Vcs.Push.Dialog.v2" timestamp="1599992212399">
+    <state x="1009" y="252" key="Vcs.Push.Dialog.v2" timestamp="1599993359441">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1009" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1599992212399" />
+    <state x="1009" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1599993359441" />
     <state x="1079" y="138" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1599988680003">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
