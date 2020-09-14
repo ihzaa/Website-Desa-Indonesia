@@ -12,7 +12,7 @@
             @foreach($berita as $data)
                 <div class="news-card">
                     <a href="{{route('front_berita_show', $data->id)}}" class="news-card__card-link"></a>
-                    <img src="{{asset('Admin/dist/img/berita/thumbnails')}}/{{$data->thumbnail_berita}}"
+                    <img src="{{Storage::url('images/berita/thumbnails')}}/{{$data->thumbnail_berita}}"
                         alt="" class="news-card__image">
                     <div class="news-card__text-wrapper">
                         <h2 class="news-card__title">{{$data->judul_berita}}</h2>
