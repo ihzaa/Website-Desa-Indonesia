@@ -54,17 +54,17 @@
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
                     <li class="active"><a href="{{url('/')}}">Home</a></li>
-                    <li><a href="{{url('/#about')}}">About</a></li>
-                    <li><a href="{{url('/#services')}}">Services</a></li>
+                    <li><a href="{{url('/#grafik')}}">Pertumbuhan</a></li>
+                    <li><a href="{{url('/#services')}}">Berita</a></li>
                     <li class="drop-down"><a href="">Tentang Kami</a>
                         <ul>
                             <li><a href="{{url('/#tentangkami')}}">Visi Misi</a></li>
                             <li><a href="{{url('/#tentangkami')}}">Sejarah Desa</a></li>
                             <li><a href="{{url('/#tentangkami')}}">Profil Desa</a></li>
                             <li><a href="{{url('/#tentangkami')}}">Wilayah Desa</a></li>
+                            <li><a href="{{url('/#perangkatdesa')}}">Perangkat Desa</a></li>
                         </ul>
                     </li>
-                    <li><a href="{{url('/#perangkatdesa')}}">Perangkat Desa</a></li>
                     <li><a href="{{url('/#contact')}}">Contact</a></li>
 
                 </ul>
