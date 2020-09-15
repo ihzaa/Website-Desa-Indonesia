@@ -17,8 +17,15 @@ Route::prefix('4dm1n')->namespace('Admin')->middleware('auth:admin')->group(func
         Route::get('{id}', 'SuratPermohonanController@halamanEdit')->name('admin_surat_permohonan_edit');
         Route::get('{id}/response', 'SuratPermohonanController@halamanEditResponse')->name('admin_surat_permohonan_edit_response');
         Route::post('edit/{id}/post', 'SuratPermohonanController@edit')->name('admin_surat_permohonan_edit_post');
+
+        Route::get('sampel/{id}', 'Admin\SuratPermohonanController@downloadSampel')->name('admin_surat_permohonan_sampel');
     });
 });
 
-Route::get('sampel/{id}', 'Admin\SuratPermohonanController@downloadSampel')->name('admin_surat_permohonan_sampel');
 
+Route::prefix('surat-permohonan')->namespace('Front')->group(function () {
+    Route::get('', 'SuratPermohonanController@index')->name('front_index_surat_permohonan');
+    Route::post('login', 'SuratPermohonanController@login')->name('front_surat_permohonan_login_post');
+    Route::get('logout', 'SuratPermohonanController@logout')->name('front_surat_permohonan_logout');
+    Route::get('unduh/{id}', 'SuratPermohonanController@unduh')->name('front_surat_permohonan_unduh');
+});

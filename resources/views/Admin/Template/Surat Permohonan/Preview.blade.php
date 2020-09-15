@@ -48,7 +48,7 @@
     margin-left: -7.5px;" id="atribut">
 </div>
 <div style="min-width: 100%;margin-top: 1.5rem!important;padding-left: 3rem!important;padding-right: 3rem!important;">
-    <p style="text-indent: 50px;margin-bottom: 0!important;" id="keterangan"></p>
+    <p style="margin-bottom: 0!important;" id="keterangan"></p>
 </div>
 <div style="min-width: 100%;margin-top: 1.5rem!important;padding-left: 3rem!important;padding-right: 3rem!important;display: -ms-flexbox;
         display: flex;

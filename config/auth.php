@@ -51,6 +51,10 @@ return [
             'driver' => 'session',
             'provider' => 'admin',
         ],
+        'penduduk' => [
+            'driver' => 'session',
+            'provider' => 'penduduk',
+        ],
     ],
 
     /*
@@ -78,6 +82,10 @@ return [
         'admin' => [
             'driver' => 'eloquent',
             'model' => App\Models\admin::class,
+        ],
+        'penduduk' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\DataKtp::class,
         ],
         // 'users' => [
         //     'driver' => 'database',
