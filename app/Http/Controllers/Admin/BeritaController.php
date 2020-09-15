@@ -48,14 +48,16 @@ class BeritaController extends Controller
         $dom->loadHtml($description, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
         $images = $dom->getElementsByTagName('img');
 
+        if (!is_dir(storage_path('app\public\images\berita\konten'))) {
+            mkdir(storage_path('app\public\images\berita\konten'), 0777, true);
+        }
+
         foreach ($images as $k => $img) {
             $data = $img->getAttribute('src');
             list($type, $data) = explode(';', $data);
             list(, $data) = explode(',', $data);
             $image_name = "\app\public\images\berita\konten\img" . time() . $k . '.png';
             $path = storage_path() . $image_name;
-            // dd($path,$data);
-            // dd($data);
             file_put_contents($path, $data);
             $img->removeAttribute('src');
             $img->setAttribute('src', $image_name);
@@ -68,8 +70,6 @@ class BeritaController extends Controller
             'konten_berita'=>$request->konten_berita,
             'thumbnail_berita'=>$imageName
         ]);
-
-        // dd($imageName, public_path('\Assets\Admin\dist\img\berita\thumbnails'));
         return redirect()->route('admin_berita_index')->with('success', 'Berhasil menambahkan data');
     }
 
