@@ -52,8 +52,8 @@ class BeritaController extends Controller
             $data = $img->getAttribute('src');
             list($type, $data) = explode(';', $data);
             list(, $data) = explode(',', $data);
-            $image_name = "\Assets\Admin\dist\img\berita\konten" . time() . $k . '.png';
-            $path = public_path() . $image_name;
+            $image_name = "\app\public\images\berita\konten\img" . time() . $k . '.png';
+            $path = storage_path() . $image_name;
             // dd($path,$data);
             // dd($data);
             file_put_contents($path, $data);
@@ -61,8 +61,8 @@ class BeritaController extends Controller
             $img->setAttribute('src', $image_name);
         }
 
-        $imageName = time().'.'.$request->thumbnail_berita->extension();
-        $request->thumbnail_berita->move(public_path('Assets\Admin\dist\img\berita\thumbnails'), $imageName);
+        $imageName = 'img'.time().'.'.$request->thumbnail_berita->extension();
+        $request->thumbnail_berita->move(storage_path('\app\public\images\berita\thumbnails'), $imageName);
         Berita::create([
             'judul_berita'=>$request->judul_berita,
             'konten_berita'=>$request->konten_berita,

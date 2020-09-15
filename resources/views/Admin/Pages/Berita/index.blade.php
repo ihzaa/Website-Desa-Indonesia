@@ -40,7 +40,7 @@
                 @foreach($berita as $data)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td><a href="{{asset('/Admin/dist/img/berita/thumbnails')}}/{{$data->thumbnail_berita}}"
+                    <td><a href="{{Storage::url('images/berita/thumbnails')}}/{{$data->thumbnail_berita}}"
                             target="_blank">Lihat Gambar</a></td>
                     <td>{{$data->judul_berita}}</td>
                     <td>{{Carbon\Carbon::parse($data->updated_at)->translatedFormat('l, d F Y H:i')}}</td>
