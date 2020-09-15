@@ -26,16 +26,121 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18c1ceb2-349f-4add-9a9a-b07e9962f6f2" name="Default Changelist" comment="Change structure folder">
-      <change afterPath="$PROJECT_DIR$/app/Mail/SendGmail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Assets/Front/img/peta.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Assets/Logo/logo_jatim.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Assets/Logo/logo_jatim.svg" afterDir="false" />
+    <list default="true" id="18c1ceb2-349f-4add-9a9a-b07e9962f6f2" name="Default Changelist" comment="favicon">
+      <change afterPath="$PROJECT_DIR$/New folder/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/New folder/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/New folder/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/BeritaController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Berita.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_13_042243_create_berita_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Assets/Admin/dist/img/berita/konten15999987750.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Assets/Admin/dist/img/berita/konten15999987751.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Assets/Admin/dist/img/berita/konten15999989360.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Assets/Admin/dist/img/berita/konten15999989361.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Assets/Admin/dist/img/berita/thumbnails/1599998155.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Assets/Admin/dist/img/berita/thumbnails/1599998628.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Assets/Admin/dist/img/berita/thumbnails/1599998716.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Assets/Admin/dist/img/berita/thumbnails/1599998775.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Assets/Admin/dist/img/berita/thumbnails/1599998936.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Assets/Front/css/components/news.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin/Pages/Berita/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin/Pages/Berita/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin/Pages/Berita/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Front/components/berita.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Front/pages/berita.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/SuratPermohonanController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/SuratPermohonanController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/FrontController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/FrontController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/10logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/10logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/11logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/12logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/13logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/14logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/15logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/16logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/17logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/18logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/19logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/1logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/20logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/21logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/22logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/23logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/24logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/25logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/26logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/27logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/28logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/29logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/2logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/2logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/30logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/31logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/32logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/33logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/34logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/35logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/36logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/37logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/38logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/39logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/3logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/40logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/41logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/42logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/43logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/44logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/45logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/46logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/47logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/48logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/49logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/4logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/50logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/51logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/52logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/53logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/54logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/55logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/56logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/57logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/58logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/59logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/5logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/60logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/61logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/62logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/63logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/64logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/6logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/7logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/7logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/8logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/Logo Surat Permohonan/9logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/TTD Surat Permohonan/10-0-1-1599880747.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/TTD Surat Permohonan/10-0-3-1599880747.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/TTD Surat Permohonan/12-0-1-1599881405.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/TTD Surat Permohonan/12-0-1-1599894691.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/TTD Surat Permohonan/12-0-2-1599894691.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/TTD Surat Permohonan/12-0-2-1599904982.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/TTD Surat Permohonan/12-0-3-1599881405.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/TTD Surat Permohonan/12-0-3-1599897098.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/TTD Surat Permohonan/4-0-1599841087.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/TTD Surat Permohonan/5-0-1-1599841168.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/TTD Surat Permohonan/5-0-3-1599841168.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/img/TTD Surat Permohonan/60-0-1-1599897373.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/js/pages/surat_permohonan_index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/Assets/Admin/dist/js/pages/surat_permohonan_index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Admin/dist/js/pages/surat_permohonan_tambah_edit.blade.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/Assets/Admin/dist/js/pages/surat_permohonan_tambah_edit.blade.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/Assets/Front/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/Assets/Front/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Template/all.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Template/all.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Template/Components/Sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Template/Components/Sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Template/Surat Permohonan/Preview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Template/Surat Permohonan/Preview.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Template/Surat Permohonan/Sampel.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Template/Surat Permohonan/Sampel.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Front/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web-augie.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web-augie.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Front/pages/front.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/pages/front.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web-dwiky.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web-dwiky.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,7 +331,7 @@
       <workItem from="1600173507972" duration="3080000" />
       <workItem from="1600178429254" duration="145000" />
       <workItem from="1600178578780" duration="65000" />
-      <workItem from="1600178662547" duration="2140000" />
+      <workItem from="1600178662547" duration="2852000" />
     </task>
     <task id="LOCAL-00001" summary="conflict">
       <created>1599661331865</created>
@@ -263,7 +368,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600092684027</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="favicon">
+      <created>1600180940279</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1600180940279</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,13 +410,22 @@
     <MESSAGE value="Front" />
     <MESSAGE value="Ada yang lupa ges" />
     <MESSAGE value="Change structure folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change structure folder" />
+    <MESSAGE value="favicon" />
+    <option name="LAST_COMMIT_MESSAGE" value="favicon" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog" timestamp="1600181261942">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600181261942" />
     <state x="1220" y="275" key="FileChooserDialogImpl" timestamp="1600163158923">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1220" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1600163158923" />
+    <state x="590" y="274" key="MultipleFileMergeDialog" timestamp="1600181083428">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="590" y="274" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600181083428" />
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1600173621598">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

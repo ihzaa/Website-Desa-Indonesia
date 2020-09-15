@@ -101,6 +101,109 @@ $(document).ready(function () {
         if (!validator.checkForm() || $("#keterangan").val() == "") {
             return;
         }
+        if (document.getElementById("logo").hasAttribute("required")) {
+            var temp_logo = document.querySelector("#logo").files[0];
+            if (temp_logo.size > 256000) {
+                $(document).Toasts("create", {
+                    class: "bg-danger",
+                    title: "Maaf!",
+                    body: "Ukuran Logo yang Dipilih Lebih Besar Dari 256KB.",
+                });
+                document.body.scrollTop = 0; // For Safari
+                document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+                return;
+            }
+            var _validFileExtensions = [
+                ".jpg",
+                ".jpeg",
+                ".bmp",
+                ".gif",
+                ".png",
+            ];
+
+            var sFileName = document.querySelector("#logo").value;
+            if (sFileName.length > 0) {
+                var blnValid = false;
+                for (var j = 0; j < _validFileExtensions.length; j++) {
+                    var sCurExtension = _validFileExtensions[j];
+                    if (
+                        sFileName
+                            .substr(
+                                sFileName.length - sCurExtension.length,
+                                sCurExtension.length
+                            )
+                            .toLowerCase() == sCurExtension.toLowerCase()
+                    ) {
+                        blnValid = true;
+                        break;
+                    }
+                }
+
+                if (!blnValid) {
+                    $(document).Toasts("create", {
+                        class: "bg-danger",
+                        title: "Maaf!",
+                        body: "Logo Harus Berupa Gambar.",
+                    });
+                    document.body.scrollTop = 0; // For Safari
+                    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+                    return;
+                }
+            }
+        } else {
+            if (document.querySelector("#logo").value != "") {
+                var temp_logo = document.querySelector("#logo").files[0];
+                if (temp_logo.size > 256000) {
+                    $(document).Toasts("create", {
+                        class: "bg-danger",
+                        title: "Maaf!",
+                        body:
+                            "Ukuran Logo yang Dipilih Lebih Besar Dari 256KB.",
+                    });
+                    document.body.scrollTop = 0; // For Safari
+                    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+                    return;
+                }
+                var _validFileExtensions = [
+                    ".jpg",
+                    ".jpeg",
+                    ".bmp",
+                    ".gif",
+                    ".png",
+                ];
+
+                var sFileName = document.querySelector("#logo").value;
+                if (sFileName.length > 0) {
+                    var blnValid = false;
+                    for (var j = 0; j < _validFileExtensions.length; j++) {
+                        var sCurExtension = _validFileExtensions[j];
+                        if (
+                            sFileName
+                                .substr(
+                                    sFileName.length - sCurExtension.length,
+                                    sCurExtension.length
+                                )
+                                .toLowerCase() == sCurExtension.toLowerCase()
+                        ) {
+                            blnValid = true;
+                            break;
+                        }
+                    }
+
+                    if (!blnValid) {
+                        $(document).Toasts("create", {
+                            class: "bg-danger",
+                            title: "Maaf!",
+                            body: "Logo Harus Berupa Gambar.",
+                        });
+                        document.body.scrollTop = 0; // For Safari
+                        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+                        return;
+                    }
+                }
+            }
+        }
+
         $("#main_loading").show();
         event.preventDefault();
         const fileInput = document.querySelector("#logo");

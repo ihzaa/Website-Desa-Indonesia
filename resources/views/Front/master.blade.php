@@ -29,6 +29,7 @@
 
     <!-- Template Main CSS File -->
     <link href="{{asset('Front/css/style.css')}}" rel="stylesheet">
+    @yield('css_before')
 
     <!-- =======================================================
     * Template Name: Arsha - v2.2.0
@@ -179,8 +180,10 @@
 <script src="{{asset('Front/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
 <script src="{{asset('Front/vendor/aos/aos.js')}}"></script>
 
+
 <!-- Template Main JS File -->
 <script src="{{asset('Front/js/main.js')}}"></script>
+@yield('js_after')
 
 </body>
 
