@@ -13,7 +13,7 @@ class PerangkatDesaController extends Controller
     {
         $perangkats = PerangkatDesa::all();
 
-        return view('Admin.Pages.home_perangkat_desa', compact('perangkats'));
+        return view('Admin.Pages.Home.home_perangkat_desa', compact('perangkats'));
     }
 
     public function store(Request $request)

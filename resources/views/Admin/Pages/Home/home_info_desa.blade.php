@@ -13,7 +13,7 @@
             <div class="d-flex justify-content-between">
                 <h3 class="card-title m-2">Informasi akan ditampilkan di Website Utama</h3>
                 <a href="{{route('admin_home_infodesa_create')}}">
-                    <button class="btn btn-secondary">Tambahkan Informasi</button>
+                    <button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</button>
                 </a>
             </div>
 

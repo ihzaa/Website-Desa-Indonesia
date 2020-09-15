@@ -14,14 +14,14 @@ class HomeController extends Controller
     {
         $homes = Home::with(['home_category'])->get();
 
-        return view('Admin.Pages.home_info_desa', compact('homes'));
+        return view('Admin.Pages.Home.home_info_desa', compact('homes'));
     }
 
     public function create()
     {
         $categories = HomeCategory::all();
 
-        return view('Admin.Pages.home_info_desa_create', compact('categories'));
+        return view('Admin.Pages.Home.home_info_desa_create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -55,7 +55,7 @@ class HomeController extends Controller
         $home = Home::find($id);
         $categories = HomeCategory::all();
 
-        return view('Admin.Pages.home_info_desa_edit', compact('home', 'categories'));
+        return view('Admin.Pages.Home.home_info_desa_edit', compact('home', 'categories'));
     }
 
     public function update(Request $request, $id)

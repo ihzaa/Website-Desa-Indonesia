@@ -13,7 +13,7 @@ class BPDController extends Controller
     {
         $bpd = BPD::all();
 
-        return view('Admin.Pages.home_bpd', compact('bpd'));
+        return view('Admin.Pages.Home.home_bpd', compact('bpd'));
     }
 
     public function store(Request $request)
