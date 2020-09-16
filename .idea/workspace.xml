@@ -26,12 +26,15 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18c1ceb2-349f-4add-9a9a-b07e9962f6f2" name="Default Changelist" comment="favicon">
-      <change afterPath="$PROJECT_DIR$/resources/views/Front/components/grafikpertumbuhan.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/website-desa-indonesia.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/website-desa-indonesia.iml" afterDir="false" />
+    <list default="true" id="18c1ceb2-349f-4add-9a9a-b07e9962f6f2" name="Default Changelist" comment="Remake Front + Biar ndak error lagi">
+      <change afterPath="$PROJECT_DIR$/public/Assets/Logo/logo_garuda.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Assets/Logo/logo_peta.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Assets/Logo/logo_tulungagung.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Front/components/contact.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Front/components/faq.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Front/components/pricing.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/FrontController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/FrontController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Front/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Front/components/cliens.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/components/cliens.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Front/pages/front.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/pages/front.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -272,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600180940279</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Remake Front + Biar ndak error lagi">
+      <created>1600212682647</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1600212682647</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,7 +318,8 @@
     <MESSAGE value="Ada yang lupa ges" />
     <MESSAGE value="Change structure folder" />
     <MESSAGE value="favicon" />
-    <option name="LAST_COMMIT_MESSAGE" value="favicon" />
+    <MESSAGE value="Remake Front + Biar ndak error lagi" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remake Front + Biar ndak error lagi" />
   </component>
   <component name="WindowStateProjectService">
     <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog" timestamp="1600210471822">
@@ -323,10 +334,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="590" y="274" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600181083428" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1600210425492">
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1600212780459">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600210425492" />
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600212780459" />
     <state x="922" y="165" key="SettingsEditor" timestamp="1599981863237">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
