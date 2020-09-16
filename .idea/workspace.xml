@@ -26,15 +26,12 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18c1ceb2-349f-4add-9a9a-b07e9962f6f2" name="Default Changelist" comment="Remake Front + Biar ndak error lagi">
-      <change afterPath="$PROJECT_DIR$/public/Assets/Logo/logo_garuda.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Assets/Logo/logo_peta.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Assets/Logo/logo_tulungagung.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Front/components/contact.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Front/components/faq.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Front/components/pricing.blade.php" afterDir="false" />
+    <list default="true" id="18c1ceb2-349f-4add-9a9a-b07e9962f6f2" name="Default Changelist" comment="صرخت وأنا أتخيل ، كم أنت قاسٍ عليّ">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Front/components/cliens.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/components/cliens.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Assets/Front/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Assets/Front/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Front/components/cta.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/components/cta.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Front/components/grafikpertumbuhan.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/components/grafikpertumbuhan.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Front/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/master.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Front/pages/front.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/pages/front.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -232,6 +229,7 @@
       <workItem from="1600178429254" duration="145000" />
       <workItem from="1600178578780" duration="65000" />
       <workItem from="1600178662547" duration="2852000" />
+      <workItem from="1600223235692" duration="32000" />
     </task>
     <task id="LOCAL-00001" summary="conflict">
       <created>1599661331865</created>
@@ -282,7 +280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600212682647</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="صرخت وأنا أتخيل ، كم أنت قاسٍ عليّ">
+      <created>1600214680924</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1600214680924</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,7 +324,8 @@
     <MESSAGE value="Change structure folder" />
     <MESSAGE value="favicon" />
     <MESSAGE value="Remake Front + Biar ndak error lagi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remake Front + Biar ndak error lagi" />
+    <MESSAGE value="صرخت وأنا أتخيل ، كم أنت قاسٍ عليّ" />
+    <option name="LAST_COMMIT_MESSAGE" value="صرخت وأنا أتخيل ، كم أنت قاسٍ عليّ" />
   </component>
   <component name="WindowStateProjectService">
     <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog" timestamp="1600210471822">
@@ -342,10 +348,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="922" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599981863237" />
-    <state x="1009" y="252" key="Vcs.Push.Dialog.v2" timestamp="1600092691529">
+    <state x="1009" y="252" key="Vcs.Push.Dialog.v2" timestamp="1600214689194">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1009" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600092691529" />
+    <state x="1009" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600214689194" />
     <state x="668" y="172" key="VcsDiffUtil.ChangesDialog" timestamp="1600210319097">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -14,9 +14,9 @@
                     <h1>Website Desa Indonesia</h1>
                     <h2>Layanan Sistem Informasi dan Manajemen Tata Kelola Desa Indonesia</h2>
                     <div class="d-lg-flex">
-                        <a href="#about" class="btn-get-started scrollto">Get Started</a>
+                        <a href="#about" class="btn-get-started scrollto">Surat Permohonan</a>
                         <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video"
-                           data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
+                           data-vbtype="video" data-autoplay="true"> Lihat Video <i class="icofont-play-alt-2"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
@@ -64,7 +64,6 @@
     <!-- ======= Why Us Section ======= -->
     @include('Front.components.whyus')
     <!-- End Why Us Section -->
-
 
     <!-- ======= Pricing Section ======= -->
     @include('Front.components.pricing')

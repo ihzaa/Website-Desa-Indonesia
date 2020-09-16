@@ -8,7 +8,7 @@
             <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
                 <h3>Grafik Pertumbuhan</h3>
                 <p class="font-italic">
-                    Berikut adalah Grafik Pertumbuhan Penduduk di desa ... Berdasarkan Data Kependudukan database Desa
+                    Grafik Pertumbuhan Penduduk di desa ... Berdasarkan Database Kependudukan Desa
                 </p>
 
                 <div class="skills-content">

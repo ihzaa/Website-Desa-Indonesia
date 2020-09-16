@@ -3,13 +3,13 @@
 
         <div class="row">
             <div class="col-lg-9 text-center text-lg-left">
-                <h3>Call To Action</h3>
-                <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                    mollit anim id est laborum.</p>
+                <h3>Hubungi Lewat Whatsapp</h3>
+                <p> Demi meningkatkan kualitas pelayanan, Anda bisa menghubungi kontak layanan kami yang
+                    langsung terhubung ke perangkat desa setempat selama 1 x 24 Jam Melalui aplikasi Whatsapp</p>
             </div>
             <div class="col-lg-3 cta-btn-container text-center">
-                <a class="cta-btn align-middle" href="#">Call To Action</a>
+                <a class="cta-btn align-middle" target="_blank" href="https://wa.me/+6289515508020/">Hubungi
+                    Sekarang</a>
             </div>
         </div>
 
