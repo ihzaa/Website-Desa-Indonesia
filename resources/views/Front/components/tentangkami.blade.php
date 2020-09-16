@@ -42,7 +42,7 @@
                     <div class="portfolio-info">
                         <h4>{{$home -> title}}</h4>
                         <p>{{$home -> home_category -> category_name}}</p>
-                        <a href="{{asset('Front/img/portfolio/portfolio-1.jpg')}}" data-gall="portfolioGallery"
+                        <a href="{{url('storage/images/home/' . $home->image)}}" data-gall="portfolioGallery"
                            class="venobox preview-link" title="{{$home -> title}}"><i class="bx bx-plus"></i></a>
                         <a href="{{route('front_tentang_kami', ['id' => $home->id])}}" class="details-link"
                            title="More Details"><i
@@ -59,7 +59,7 @@
                     <div class="portfolio-info">
                         <h4>{{$home -> title}}</h4>
                         <p>{{$home -> home_category -> category_name}}</p>
-                        <a href="{{asset('Front/img/portfolio/portfolio-1.jpg')}}" data-gall="portfolioGallery"
+                        <a href="{{url('storage/images/home/' . $home->image)}}" data-gall="portfolioGallery"
                            class="venobox preview-link" title="{{$home -> title}}"><i class="bx bx-plus"></i></a>
                         <a href="{{route('front_tentang_kami', ['id' => $home->id])}}" class="details-link"
                            title="More Details"><i
@@ -76,7 +76,7 @@
                     <div class="portfolio-info">
                         <h4>{{$home -> title}}</h4>
                         <p>{{$home -> home_category -> category_name}}</p>
-                        <a href="{{asset('Front/img/portfolio/portfolio-1.jpg')}}" data-gall="portfolioGallery"
+                        <a href="{{url('storage/images/home/' . $home->image)}}" data-gall="portfolioGallery"
                            class="venobox preview-link" title="{{$home -> title}}"><i class="bx bx-plus"></i></a>
                         <a href="{{route('front_tentang_kami', ['id' => $home->id])}}" class="details-link"
                            title="More Details"><i

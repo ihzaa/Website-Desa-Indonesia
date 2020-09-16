@@ -5,11 +5,9 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\BPD;
 use App\Models\Home;
-use App\Models\KartuKeluarga;
 use App\Models\Penduduk;
 use App\Models\PerangkatDesa;
 use App\Models\Berita;
-use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
@@ -32,16 +30,18 @@ class FrontController extends Controller
             'penduduks', 'pria', 'wanita', 'kematians'));
     }
 
-    public function show($id)
+    public function showTentangKami($id)
     {
         $homes = Home::with([
             'home_category'
         ])->find($id);
 
+        $beritas = Berita::skip(0)->take(5)->orderBy('id', 'desc')->get();
+
         if ($homes === null) {
             return redirect('/');
         } else {
-            return view('Front.pages.tentangkamidetail', compact('homes'));
+            return view('Front.pages.tentangkamidetail', compact('homes', 'beritas'));
         }
     }
 
