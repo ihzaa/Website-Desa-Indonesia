@@ -25,10 +25,13 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18c1ceb2-349f-4add-9a9a-b07e9962f6f2" name="Default Changelist" comment="remake UI">
+    <list default="true" id="18c1ceb2-349f-4add-9a9a-b07e9962f6f2" name="Default Changelist" comment="kari bosq">
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin/Pages/KritikSaran/kritiksaran.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/Assets/Logo/logo_peta.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Front/components/grafikpertumbuhan.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/components/grafikpertumbuhan.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Template/Components/Sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Template/Components/Sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Front/components/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/components/contact.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web-augie.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web-augie.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +172,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/Assets/Logo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/Admin/Pages/KritikSaran" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -181,11 +184,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\website-desa-indonesia\resources\views\Admin\Pages\KritikSaran" />
+      <recent name="C:\xampp\htdocs\website-desa-indonesia\resources\views\Admin\Pages" />
       <recent name="C:\xampp\htdocs\website-desa-indonesia\public\Assets\Logo" />
       <recent name="C:\xampp\htdocs\website-desa-indonesia\resources\views\Admin\Pages\QnA" />
       <recent name="C:\xampp\htdocs\website-desa-indonesia\public\Assets\Front\img" />
-      <recent name="C:\xampp\htdocs\website-desa-indonesia\resources\views\Front\components" />
-      <recent name="C:\xampp\htdocs\website-desa-indonesia\resources\views\Front" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\website-desa-indonesia\resources\views\Admin\Pages\Home" />
@@ -226,7 +229,7 @@
       <workItem from="1600178578780" duration="65000" />
       <workItem from="1600178662547" duration="2852000" />
       <workItem from="1600223235692" duration="10394000" />
-      <workItem from="1600277295724" duration="15495000" />
+      <workItem from="1600277295724" duration="19005000" />
     </task>
     <task id="LOCAL-00001" summary="conflict">
       <created>1599661331865</created>
@@ -305,7 +308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600323718334</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="kari bosq">
+      <created>1600324328271</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1600324328271</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,17 +343,18 @@
     <MESSAGE value="صرخت وأنا أتخيل ، كم أنت قاسٍ عليّ" />
     <MESSAGE value="lupa tidak terpush" />
     <MESSAGE value="remake UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="remake UI" />
+    <MESSAGE value="kari bosq" />
+    <option name="LAST_COMMIT_MESSAGE" value="kari bosq" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600315947232">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600315947232" />
-    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog" timestamp="1600324302045">
+    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog" timestamp="1600341782389">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600324302045" />
+    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600341782389" />
     <state x="1220" y="275" key="FileChooserDialogImpl" timestamp="1600236548794">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -360,10 +371,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="922" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599981863237" />
-    <state x="1009" y="252" key="Vcs.Push.Dialog.v2" timestamp="1600323726451">
+    <state x="1009" y="252" key="Vcs.Push.Dialog.v2" timestamp="1600324334203">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1009" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600323726451" />
+    <state x="1009" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600324334203" />
     <state x="668" y="172" key="VcsDiffUtil.ChangesDialog" timestamp="1600210319097">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

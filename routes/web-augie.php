@@ -29,4 +29,7 @@ Route::prefix('4dm1n')->namespace('Admin')->middleware('auth:admin')->group(func
     Route::post('tanyajawab', 'QnAController@store')->name('admin_tanyajawab_post');
     Route::put('tanyajawab/{id}', 'QnAController@update')->name('admin_tanyajawab_update');
     Route::delete('tanyajawab/{id}', 'QnAController@destroy')->name('admin_tanyajawab_delete');
+
+    Route::get('kritiksaran', 'KritikSaranController@index')->name('admin_kritiksaran');
+    Route::post('kritiksaran', 'KritikSaranController@store')->name('admin_kritiksaran_post');
 });

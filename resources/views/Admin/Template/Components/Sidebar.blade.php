@@ -107,6 +107,17 @@
                         </p>
                     </a>
                 </li>
+
+                <li class="nav-header">EVALUASI PELAYANAN</li>
+                <li class="nav-item">
+                    <a href="{{route('admin_kritiksaran')}}"
+                       class="nav-link {{request()->is('*kritiksaran*')? 'active':''}}">
+                        <i class="nav-icon fas fa-award"></i>
+                        <p>
+                            Kritik dan Saran
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
