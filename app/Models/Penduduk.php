@@ -10,7 +10,7 @@ class Penduduk extends Model
 {
     use SoftDeletes;
     protected $guarded = [];
-    protected $appends = ['umur', 'pemilih'];
+    protected $appends = ['umur', 'pemilih', 'nik'];
 
 
     public function kartu_keluarga(){
@@ -39,9 +39,23 @@ class Penduduk extends Model
         if($this->status_hidup=='mati'){
             return 'non-aktif';
         }
-        if($this->umur >= 17 && $this->data_ktp() != null){
+        if($this->umur >= 17 && $this->data_ktp != null){
             return 'aktif';
         }
         return 'non-aktif';
+    }
+
+    public function getNikAttribute()
+    {
+        $nik = $this->data_ktp;
+        if($nik == NULL){
+            return 'belum ada data nik';
+        }else{
+            return $nik;
+        }
+    }
+
+    public function posyandus(){
+        return $this->belongsToMany(Posyandu::class, PosyanduPenduduk::class);
     }
 }

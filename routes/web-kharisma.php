@@ -28,4 +28,18 @@ Route::prefix('4dm1n')->namespace('Admin')->middleware('auth:admin')->group(func
         Route::post('/edit', 'KartuKeluargaController@update')->name('data_kk_update');
         Route::post('/delete', 'KartuKeluargaController@delete')->name('data_kk_delete');
     });
+
+    Route::get('/queryByNama', 'AnggotaPosyanduController@queryByNama')->name('query.penduduk.base');
+    Route::get('/queryByNama/{nama}', 'AnggotaPosyanduController@queryByNama');
+    Route::post('/anggota/store', 'AnggotaPosyanduController@store')->name('anggota_posyandu_store');
+    Route::post('/anggota/delete', 'AnggotaPosyanduController@delete')->name('anggota_posyandu_delete');
+
+    Route::resource('posyandu', 'PosyanduController')->names([
+        'index' => 'posyandu.index',
+        'store' => 'posyandu.store',
+        'edit' => 'posyandu.edit',
+        'update' => 'posyandu.update',
+        'destroy' => 'posyandu.destroy'
+    ]);
+
 });

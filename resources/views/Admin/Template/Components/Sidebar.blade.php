@@ -91,6 +91,15 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('posyandu.index')}}"
+                        class="nav-link {{request()->is('*posyandu*')? 'active':''}}">
+                        <i class="nav-icon fas fa-medkit"></i>
+                        <p>
+                            Posyandu
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
