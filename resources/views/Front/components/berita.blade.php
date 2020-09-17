@@ -1,17 +1,15 @@
 <section id="services" class="services section-bg">
-    <div class="container-fluid" data-aos="fade-up" style="padding-left:150px; padding-right: 150px;">
+    <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-            <h2>Berita Desa</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                fugiat sit in iste officiis commodi quidem hic quas.</p>
+            <h2><a href="{{route('berita_list')}}" class="text-decoration: none">Berita Desa</a></h2>
+            <p>Di bawah ini merupakan berita-berita yang ada pada desa, yang disajikan resmi oleh pemerintah desa.</p>
         </div>
 
         <div class="row">
             @foreach($berita as $data)
                 <div class="news-card">
-                    <a href="{{route('front_berita_show', $data->id)}}" class="news-card__card-link"></a>
+                    <a target="_blank" href="{{route('berita_show', $data->id)}}" class="news-card__card-link"></a>
                     <img src="{{Storage::url('images/berita/thumbnails')}}/{{$data->thumbnail_berita}}"
                         alt="" class="news-card__image">
                     <div class="news-card__text-wrapper">
