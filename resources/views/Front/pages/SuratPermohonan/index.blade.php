@@ -1,6 +1,7 @@
 @extends('Front.master')
 @section('css_after')
 <link rel="stylesheet" href="{{asset('Admin/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
+<link rel="stylesheet" href="{{asset('Front/css/loading.min.css')}}">
 @endsection
 @section('hero')
 <style>
@@ -12,10 +13,10 @@
     <div class="container" data-aos="fade-up">
         <div class="section-title text-light mt-3">
             <h2 class="text-light">Surat Permohonan</h2>
-            <p>Anda Masuk Sebagai {{$data['penduduk']->nama}}.</p>
-            <p>Klik <a class="btn btn-sm btn-danger"
-                    href="{{route('front_surat_permohonan_logout')}}">disini</a> jika ingin keluar.</p>
-                    <p>Pilih Salah Satu Surat Permohonan Untuk Mengunduh.</p>
+            <p>Anda Masuk Sebagai <strong class="ld ld-dim">{{$data['penduduk']->nama}}</strong>.</p>
+            <p>Klik <a class="btn btn-sm btn-danger" href="{{route('front_surat_permohonan_logout')}}">disini</a> jika
+                ingin keluar.</p>
+            <p>Pilih Salah Satu Surat Permohonan Untuk Mengunduh.</p>
         </div>
 
         <div class="row row-cols-2 row-cols-md-4">
