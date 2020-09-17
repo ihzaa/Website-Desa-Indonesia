@@ -21,34 +21,14 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18c1ceb2-349f-4add-9a9a-b07e9962f6f2" name="Default Changelist" comment="remake UI">
-      <change afterPath="$PROJECT_DIR$/public/Assets/Logo/logo_madiun.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Assets/Logo/logo_silat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Admin/Pages/QnA/qna.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/FrontController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/FrontController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Assets/Front/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Assets/Front/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/Assets/Logo/logo_peta.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Assets/Logo/logo_tulungagung.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Pages/Home/home_perangkat_desa.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Pages/Home/home_perangkat_desa.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Template/Components/Sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Template/Components/Sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Template/all.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Template/all.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Front/components/bpd.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/components/bpd.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Front/components/cliens.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/components/cliens.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Front/components/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/components/contact.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Front/components/faq.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/components/faq.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Front/components/grafikpertumbuhan.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/components/grafikpertumbuhan.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Front/components/perangkatdesa.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/components/perangkatdesa.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Front/components/tentangkami.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/components/tentangkami.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Front/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Front/pages/front.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/pages/front.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web-augie.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web-augie.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,7 +226,7 @@
       <workItem from="1600178578780" duration="65000" />
       <workItem from="1600178662547" duration="2852000" />
       <workItem from="1600223235692" duration="10394000" />
-      <workItem from="1600277295724" duration="14729000" />
+      <workItem from="1600277295724" duration="15495000" />
     </task>
     <task id="LOCAL-00001" summary="conflict">
       <created>1599661331865</created>
@@ -318,7 +298,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600277389901</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="remake UI">
+      <created>1600323718334</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1600323718334</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,19 +316,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/master" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -365,10 +340,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600315947232" />
-    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog" timestamp="1600210471822">
+    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog" timestamp="1600324302045">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600210471822" />
+    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600324302045" />
     <state x="1220" y="275" key="FileChooserDialogImpl" timestamp="1600236548794">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -385,10 +360,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="922" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599981863237" />
-    <state x="1009" y="252" key="Vcs.Push.Dialog.v2" timestamp="1600277393908">
+    <state x="1009" y="252" key="Vcs.Push.Dialog.v2" timestamp="1600323726451">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1009" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600277393908" />
+    <state x="1009" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600323726451" />
     <state x="668" y="172" key="VcsDiffUtil.ChangesDialog" timestamp="1600210319097">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

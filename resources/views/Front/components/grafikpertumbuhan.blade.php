@@ -17,8 +17,8 @@
                         <span class="skill">Total Penduduk <i class="val">{{count($penduduks)}}</i></span>
                         <div class="progress-bar-wrap">
                             <div class="progress-bar" role="progressbar"
-                                 aria-valuenow="{{count($penduduks) === 0 ? 0 : count($penduduks)}}" aria-valuemin="0"
-                                 aria-valuemax="100"></div>
+                                 aria-valuenow="{{count($penduduks) === 0 ? '0' : '100'}}" aria-valuemin="0"
+                                 aria-valuemax="{{count($penduduks) === 0 ? '0' : '100'}}"></div>
                         </div>
                     </div>
 
