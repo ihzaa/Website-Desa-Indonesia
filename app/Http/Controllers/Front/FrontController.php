@@ -8,6 +8,7 @@ use App\Models\Home;
 use App\Models\Penduduk;
 use App\Models\PerangkatDesa;
 use App\Models\Berita;
+use App\Models\QnA;
 
 class FrontController extends Controller
 {
@@ -16,6 +17,7 @@ class FrontController extends Controller
         $perangkats = PerangkatDesa::all();
         $bpds = BPD::all();
         $berita = Berita::all();
+        $qna = QnA::all();
 
         $penduduks = Penduduk::all();
         $pria = Penduduk::where('jenis_kelamin', 'laki-laki')->get();
@@ -27,7 +29,7 @@ class FrontController extends Controller
         ])->get();
 
         return view('Front.pages.front', compact('homes', 'perangkats', 'bpds', 'berita',
-            'penduduks', 'pria', 'wanita', 'kematians'));
+            'penduduks', 'pria', 'wanita', 'kematians', 'qna'));
     }
 
     public function showTentangKami($id)

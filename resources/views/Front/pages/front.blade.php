@@ -11,10 +11,10 @@
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
                      data-aos="fade-up" data-aos-delay="200">
-                    <h1>Website Desa Indonesia</h1>
-                    <h2>Layanan Sistem Informasi dan Manajemen Tata Kelola Desa Indonesia</h2>
+                    <h1>Desa Sangen</h1>
+                    <h2>Layanan Sistem Informasi dan Manajemen Tata Kelola Desa Sangen, Kecamatan Geger, Kabupaten Madiun</h2>
                     <div class="d-lg-flex">
-                        <a href="#about" class="btn-get-started scrollto">Surat Permohonan</a>
+                        <a href="{{route('front_index_surat_permohonan')}}" class="btn-get-started scrollto">Surat Permohonan</a>
                         <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video"
                            data-vbtype="video" data-autoplay="true"> Lihat Video <i class="icofont-play-alt-2"></i></a>
                     </div>

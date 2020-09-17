@@ -1,29 +1,28 @@
-<section id="perangkatdesa" class="team section-bg">
+<section id="perangkatdesa" class="buy-tickets section-bg">
     <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-            <h2>Perangkat Desa</h2>
-            <p>Berikut adalah perangkat desa Infotech masa periode 2020 - 2025.</p>
+            <h2>Perangkat Desa Sangen</h2>
         </div>
 
-        <div class="row">
+        <div class="row justify-content-center">
 
             @if(count($perangkats) !== 0)
                 @foreach($perangkats as $perangkat)
-                    <div class="col-lg-6 mt-4">
-                        <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="400">
-                            <div class="pic"><img src="{{url('storage/images/perangkat/' . $perangkat->photo)}}"
-                                                  class="img-fluid" alt="{{$perangkat->nama}}">
-                            </div>
-                            <div class="member-info">
-                                <h4>{{$perangkat->nama}}</h4>
-                                <span>{{$perangkat->jabatan}}</span>
-                                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-                                <div class="social">
-                                    <a href=""><i class="ri-twitter-fill"></i></a>
-                                    <a href=""><i class="ri-facebook-fill"></i></a>
-                                    <a href=""><i class="ri-instagram-fill"></i></a>
-                                    <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                    <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card mb-5 mb-lg-0">
+                            <div class="card-body">
+                                <h4 class="card-title text-muted text-uppercase text-center">{{$perangkat->nama}}</h4>
+                                <hr>
+                                <div class="row justify-content-center">
+                                    <img class="img-fluid"
+                                         src="{{url('storage/images/perangkat/' . $perangkat->photo)}}"
+                                         style="width: 70%;height: 12rem;object-fit: cover;" alt="{{$perangkat->nama}}">
+                                </div>
+                                <hr class="mb-3">
+                                <div class="text-center">
+                                    <button class="btn"
+                                            style="font-size: 0.7em; padding: 8px 16px 8px 16px">{{strtoupper($perangkat->jabatan)}}</button>
                                 </div>
                             </div>
                         </div>

@@ -1035,98 +1035,76 @@ section {
 /*--------------------------------------------------------------
 # Team
 --------------------------------------------------------------*/
-.team .member {
-  position: relative;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  border-radius: 5px;
-  background: #fff;
-  transition: 0.5s;
+#perangkatdesa {
+    padding: 60px 0;
 }
 
-.team .member .pic {
-  overflow: hidden;
-  width: 180px;
-  border-radius: 50%;
+#perangkatdesa .card {
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 1px 16px 0 rgba(6, 12, 34, 0.1);
 }
 
-.team .member .pic img {
-  transition: ease-in-out 0.3s;
+#perangkatdesa .card:hover {
+    box-shadow: 0 10px 35px 0 rgba(6, 12, 34, 0.2);
 }
 
-.team .member:hover {
-  transform: translateY(-10px);
+#perangkatdesa .card hr {
+    margin: 25px 0;
 }
 
-.team .member .member-info {
-  padding-left: 30px;
+#perangkatdesa .card .card-title {
+    margin: 10px 0;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: bold;
 }
 
-.team .member h4 {
-  font-weight: 700;
-  margin-bottom: 5px;
-  font-size: 20px;
-  color: #37517e;
+#perangkatdesa .card .card-price {
+    font-size: 48px;
+    margin: 0;
 }
 
-.team .member span {
-  display: block;
-  font-size: 15px;
-  padding-bottom: 10px;
-  position: relative;
-  font-weight: 500;
+#perangkatdesa .card ul li {
+    margin-bottom: 20px;
 }
 
-.team .member span::after {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 50px;
-  height: 1px;
-  background: #cbd6e9;
-  bottom: 0;
-  left: 0;
+#perangkatdesa .card .text-muted {
+    opacity: 0.7;
 }
 
-.team .member p {
-  margin: 10px 0 0 0;
-  font-size: 14px;
+#perangkatdesa .card .btn {
+    font-size: 15px;
+    border-radius: 50px;
+    padding: 10px 40px;
+    transition: all 0.2s;
+    background-color: #47b2e4;
+    border: 0;
+    color: #fff;
 }
 
-.team .member .social {
-  margin-top: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+#perangkatdesa .card .btn:hover {
+    background-color: #47b2e4;
+    cursor: pointer;
 }
 
-.team .member .social a {
-  transition: ease-in-out 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50px;
-  width: 32px;
-  height: 32px;
-  background: #eff2f8;
+#perangkatdesa #buy-ticket-modal input, #perangkatdesa #buy-ticket-modal select {
+    border-radius: 0;
 }
 
-.team .member .social a i {
-  color: #37517e;
-  font-size: 16px;
-  margin: 0 2px;
+#perangkatdesa #buy-ticket-modal .btn {
+    font-size: 15px;
+    border-radius: 50px;
+    padding: 10px 40px;
+    transition: all 0.2s;
+    background-color: #f82249;
+    border: 0;
+    color: #fff;
 }
 
-.team .member .social a:hover {
-  background: #47b2e4;
-}
-
-.team .member .social a:hover i {
-  color: #fff;
-}
-
-.team .member .social a + a {
-  margin-left: 8px;
+#perangkatdesa #buy-ticket-modal .btn:hover {
+    background-color: #e0072f;
 }
 
 /*--------------------------------------------------------------

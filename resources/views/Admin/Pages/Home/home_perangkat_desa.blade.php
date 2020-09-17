@@ -136,7 +136,7 @@
                 </div>
             </div>
         </div>
-    </div>ss
+    </div>
 
     <!--Modal delete data-->
     <div class="modal fade" id="deletePerangkatModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"

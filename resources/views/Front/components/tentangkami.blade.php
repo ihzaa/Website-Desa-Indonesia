@@ -9,11 +9,11 @@
         </div>
 
         <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">Semua</li>
-            <li data-filter=".filter-visimisi">Visi Misi</li>
-            <li data-filter=".filter-sejarahdesa">Sejarah Desa</li>
-            <li data-filter=".filter-profildesa">Profil Desa</li>
-            <li data-filter=".filter-wilayahdesa">Wilayah Desa</li>
+{{--            <li data-filter="*" class="filter-active">Semua</li>--}}
+            <li data-filter=".filter-visimisi" class="filter-active">Visi Misi</li>
+            <li data-filter=".filter-sejarahdesa">Sejarah</li>
+            <li data-filter=".filter-profildesa">Profil</li>
+            <li data-filter=".filter-wilayahdesa">Wilayah</li>
         </ul>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">

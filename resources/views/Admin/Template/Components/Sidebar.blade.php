@@ -77,6 +77,16 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a href="{{route('admin_tanyajawab')}}"
+                       class="nav-link {{request()->is('*tanyajawab*')? 'active':''}}">
+                        <i class="nav-icon fas fa-hands-helping"></i></i>
+                        <p>
+                            Tanya Jawab
+                        </p>
+                    </a>
+                </li>
+
                 <li class="nav-header">LAYANAN ADMINISTRATIF</li>
                 <li class="nav-item">
                     <a href="{{route('data_kk_index')}}"

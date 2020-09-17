@@ -22,5 +22,11 @@ Route::prefix('4dm1n')->namespace('Admin')->middleware('auth:admin')->group(func
         Route::post('bpd/store', 'BPDController@store')->name('admin_home_bpd_post');
         Route::put('bpd/update/{id}', 'BPDController@update')->name('admin_home_bpd_update');
         Route::delete('bpd/delete/{id}', 'BPDController@destroy')->name('admin_home_bpd_destroy');
+
     });
+
+    Route::get('tanyajawab', 'QnAController@index')->name('admin_tanyajawab');
+    Route::post('tanyajawab', 'QnAController@store')->name('admin_tanyajawab_post');
+    Route::put('tanyajawab/{id}', 'QnAController@update')->name('admin_tanyajawab_update');
+    Route::delete('tanyajawab/{id}', 'QnAController@destroy')->name('admin_tanyajawab_delete');
 });
