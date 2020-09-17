@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class arsip_surat_penduduk extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['tanggal_surat', 'penduduk_id', 'permohonan_surat_id'];
+    protected $fillable = ['nomer', 'tanggal_surat', 'penduduk_id', 'permohonan_surat_id'];
 }

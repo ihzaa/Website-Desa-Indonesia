@@ -15,10 +15,13 @@ $(document).ready(function () {
                     let temp_url = url.edit;
                     temp_url = temp_url.replace("_id", data["surat"][i].id);
                     let temp_url_sampel = url.sampel;
-                    temp_url_sampel = temp_url_sampel.replace("_id", data["surat"][i].id);
+                    temp_url_sampel = temp_url_sampel.replace(
+                        "_id",
+                        data["surat"][i].id
+                    );
                     $("#tabel_surat tbody").append(`
                 <tr>
-                    <td>${data["surat"][i].jenis_surat}</td>
+                    <td class="nama_surat">${data["surat"][i].jenis_surat}</td>
                     <td>${data["surat"][i].arsip_surat_penduduks_count}
                     </td>
                     <td class="text-center">
@@ -27,8 +30,8 @@ $(document).ready(function () {
                                             class="fas fa-edit"></i></a>
                         <button class="btn btn-sm btn-danger btn-hapus" data-toggle="tooltip" data-placement="bottom"
                                         title="Hapus" data-id="${data["surat"][i].id}"><i class="fas fa-trash"></i></button>
-                        <a href="${temp_url_sampel}" class="btn btn-sm btn-info" data-toggle="tooltip"
-                                        data-placement="bottom" title="Unduh Sampel Surat"><i class="fas fa-file-download"></i></a>
+                        <button class="btn btn-sm btn-info btn-unduh-sampel" data-toggle="tooltip"
+                                        data-placement="bottom" title="Unduh Sampel Surat" data-id="${data["surat"][i].id}"><i class="fas fa-file-download"></i></button>
                     </td>
                 </tr>
             `);
@@ -52,6 +55,101 @@ $(document).ready(function () {
             });
     }
     getAll();
+    var myHeaders = new Headers();
+    myHeaders.append("pragma", "no-cache");
+    myHeaders.append("cache-control", "no-cache");
+    var myInit = {
+        headers: myHeaders,
+    };
+    fetch(url.getArsip, myInit)
+        .then((response) => response.json())
+        .then((data) => {
+            let el = $("#tabel_arsip tbody");
+            let isi = "";
+            for (let i = 0; i < data.arsip.length; i++) {
+                isi += `
+                <tr>
+                    <td>
+                        ${i + 1}
+                    </td>
+                    <td>
+                        ${Date.parse(data.arsip[i].tanggal_surat).toString(
+                            "d MMMM yyyy"
+                        )}
+                    </td>
+                    <td class="nama_surat">${
+                        data.surat[data.arsip[i].permohonan_surat_id]
+                    }</td>
+                    <td>
+                        ${data.penduduk[data.arsip[i].penduduk_id]}
+                    </td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-info btn-unduh-arsip" data-toggle="tooltip" data-id="${
+                            data.arsip[i].id
+                        }" data-no="${data.arsip[i].nomer}"
+                        data-placement="bottom" title="Unduh Surat"><i class="fas fa-file-download"></i></button>
+                    </td>
+                </tr>
+                `;
+            }
+            el.append(isi);
+            $("#tabel_arsip").DataTable({
+                paging: true,
+                lengthChange: true,
+                searching: true,
+                ordering: true,
+                info: true,
+                autoWidth: true,
+            });
+            $('[data-toggle="tooltip"]').tooltip();
+            $("#arsip_loading").remove();
+        });
+
+    $(document).on("click", ".btn-unduh-sampel", function () {
+        $("#main_loading").fadeIn();
+        let id = $(this).data("id");
+        let nomer = "Sampel";
+        let nama = $(this).parent().parent().find(".nama_surat").html();
+        let temp_url = url.sampelNew;
+        temp_url = temp_url.replace("_id", id);
+        fetch(temp_url)
+            .then((response) => response.text())
+            .then((data) => {
+                download(nomer, nama, data);
+            });
+    });
+    $(document).on("click", ".btn-unduh-arsip", function () {
+        $("#main_loading").fadeIn();
+        let id = $(this).data("id");
+        let nomer = $(this).data("no");
+        let nama = $(this).parent().parent().find(".nama_surat").html();
+        let temp_url = url.downloadArsip;
+        temp_url = temp_url.replace("_id", id);
+        fetch(temp_url)
+            .then((response) => response.text())
+            .then((data) => {
+                download(nomer, nama, data);
+            });
+    });
+
+    function download(no, nama, isi) {
+        var el = document.createElement("div");
+        el.innerHTML = isi;
+        var opt = {
+            margin: 0.2,
+            filename: no + "-" + nama + ".pdf",
+            image: { type: "jpeg", quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+        };
+        html2pdf()
+            .set(opt)
+            .from(el)
+            .save()
+            .then(() => {
+                $("#main_loading").fadeOut();
+            });
+    }
     $(document).on("click", "#btn_tambah", function () {
         $("#main_loading").show();
         // fetch(url.halamanTambahR)

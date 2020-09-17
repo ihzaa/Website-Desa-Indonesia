@@ -32,7 +32,8 @@
                         value="{{request()->is('*/tambah*')?old('jenis_surat'):$data['surat']->jenis_surat}}">
                 </div>
                 <div class="col-md-6">
-                    <label for="kode_surat">Kode Surat <span class="text-danger">*</span></label>
+                    <label for="kode_surat">Kode Surat <span class="text-danger">*</span> <small>NomerSurat dan Tahun
+                            otomatis terisi.</small></label>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">NomerSurat/</span>
@@ -204,7 +205,7 @@
 </form>
 <div id="modal_preview" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title"
     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" style="min-width: 1000px !important;" role="document">
+    <div class="modal-dialog modal-dialog-centered" style="min-width: 21.9cm !important;" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="my-modal-title">Preview Surat</h5>

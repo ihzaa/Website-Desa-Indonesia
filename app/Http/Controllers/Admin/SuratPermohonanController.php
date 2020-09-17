@@ -6,12 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Models\arsip_surat_penduduk;
 use App\Models\Penduduk;
 use App\Models\permohonan_surat;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
 use PDF;
+use stdClass;
 
 class SuratPermohonanController extends Controller
 {
@@ -304,5 +306,63 @@ class SuratPermohonanController extends Controller
     </div>
     ');
         return $pdf->download($data->jenis_surat . '-sampel.pdf');
+    }
+
+    public function getAllArsip()
+    {
+        // $data['surat'] = permohonan_surat::pluck('jenis_surat', 'id');
+        // $data['arsip'] = array();
+        // foreach ($data['surat'] as $k => $v) {
+        //     $data['arsip'][$k] = arsip_surat_penduduk::where('permohonan_surat_id', $k)->get();
+        // }
+        $data['surat'] = permohonan_surat::pluck('jenis_surat', 'id');
+        $data['penduduk'] = Penduduk::pluck('nama', 'id');
+        $data['arsip'] = arsip_surat_penduduk::orderBy('tanggal_surat', 'desc')->get();
+
+        return response()->json($data);
+    }
+
+    public function downloadArsipById($id)
+    {
+        $arsip = arsip_surat_penduduk::find($id);
+        $surat = permohonan_surat::find($arsip->permohonan_surat_id);
+        $surat->attribute = json_decode($surat->attribute);
+        $penduduk = Penduduk::find($arsip->penduduk_id);
+        $penduduk->tgl_lahir = Carbon::parse($penduduk->tgl_lahir)->translatedFormat("d F Y");
+        $surat['nomor'] = $arsip->nomer;
+        $surat['tahun'] = Carbon::parse($arsip->tanggal_surat)->format('Y');
+        $str = "";
+        do {
+            $str = $this->get_string_between($surat['keterangan'], "{", "}");
+            $tmp = str_replace(" ", "_", $str);
+            $surat['keterangan'] = str_replace("{" . $str . "}", $penduduk[$tmp], $surat['keterangan']);
+        } while ($str != "");
+        // return response()->json($surat);
+        return response()->view('Front.pages.SuratPermohonan.TemplateSurat', compact("surat", "penduduk"));
+    }
+
+    function get_string_between($string, $start, $end)
+    {
+        $string = ' ' . $string;
+        $ini = strpos($string, $start);
+        if ($ini == 0) return '';
+        $ini += strlen($start);
+        $len = strpos($string, $end, $ini) - $ini;
+        return substr($string, $ini, $len);
+    }
+
+    public function downloadSampelNew($id)
+    {
+        $surat = permohonan_surat::find($id);
+        $surat->attribute = json_decode($surat->attribute);
+        $penduduk = new stdClass();
+        $data['kolom_penduduk'] = Schema::getColumnListing('penduduks');
+        foreach ($data['kolom_penduduk'] as $d) {
+            // array_push($penduduk[$d] => "Sesuai Dengan Data Penduduk");
+            $penduduk->$d = "Sesuai Dengan Data Penduduk";
+        }
+        $surat['nomor'] = "NOMERSURAT";
+        $surat['tahun'] = Carbon::now()->format('Y');
+        return response()->view('Front.pages.SuratPermohonan.TemplateSurat', compact("surat", "penduduk"));
     }
 }

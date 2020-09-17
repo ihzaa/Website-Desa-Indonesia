@@ -17,6 +17,7 @@ class CreateArsipSuratPenduduksTable extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes();
+            $table->integer('nomer');
             $table->dateTime('tanggal_surat');
             $table->unsignedBigInteger('penduduk_id');
             $table->unsignedBigInteger('permohonan_surat_id');
