@@ -11,24 +11,24 @@
           text-transform: uppercase !important;
           margin-bottom: 0 !important;
         ">
-            PEMERINTAH KABUPATEN BOGOR
+            PEMERINTAH KABUPATEN MADIUN
         </h3>
         <h3 style="
           text-transform: uppercase !important;
           margin-bottom: 0 !important;
           margin-top: 0 !important;
         ">
-            KECAMATAN APAINI
+            Kecamatan Geger
         </h3>
         <h1 style="
           text-transform: uppercase !important;
           margin-bottom: 0 !important;
           margin-top: 0 !important;
         ">
-            <strong>DESA KONOHA</strong>
+            <strong>DESA Sangen</strong>
         </h1>
-        <p style="margin-bottom: 0 !important; margin-top: 0 !important">
-            Jl. Soehat RT.2 No.12 Balikpapan Utara
+        <p style="margin-bottom: 0 !important; margin-top: 0 !important;font-size: 75%;">
+            Jl. Raya Ponorogo - Madiun No.10, Kembangsore, Sangen, Kec. Geger, Madiun, Jawa Timur
         </p>
         <hr style="
           border-top: 2px solid rgba(0, 0, 0, 0.1);
@@ -64,7 +64,7 @@
             font-size: 150%;
           ">
                 <strong>{{$surat['nomor']}}/<span
-                        id="nomer_surat">{{$surat['tipe_surat']}}</span>/{{date('Y')}}</strong>
+                        id="nomer_surat">{{$surat['tipe_surat']}}</span>/{{$surat['tahun']}}</strong>
             </p>
         </div>
     </div>
@@ -75,7 +75,7 @@
       ">
         <div style="min-width: 100%">
             <p style="text-indent: 50px; margin-bottom: 0 !important">
-                Dengan ini Kepala Desa Konoha Kecamatan Apaini Kabupaten Bogor,
+                Dengan ini Kepala Desa Sangen Kecamatan Geger Kabupaten Madiun,
                 menerangkan dengan sebenarnya bahwa :
             </p>
         </div>

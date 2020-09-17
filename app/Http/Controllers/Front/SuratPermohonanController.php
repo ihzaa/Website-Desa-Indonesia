@@ -30,14 +30,16 @@ class SuratPermohonanController extends Controller
 
             $surat = permohonan_surat::find($id);
             $surat->attribute = json_decode($surat->attribute);
-            // $surat->tgl_lahir = Carbon::parse($surat->tgl_lahir)->format("d/m/y");
             $penduduk = Penduduk::find(Auth::guard('penduduk')->id());
+            $penduduk->tgl_lahir = Carbon::parse($penduduk->tgl_lahir)->translatedFormat("d F Y");
+            $surat['nomor'] = (arsip_surat_penduduk::where('permohonan_surat_id', $id)->count()) + 1;
             arsip_surat_penduduk::create([
+                "nomer" => $surat['nomor'],
                 "tanggal_surat" => Carbon::now(),
                 "penduduk_id" => $penduduk->id,
                 "permohonan_surat_id" => $id
             ]);
-            $surat['nomor'] = arsip_surat_penduduk::where('permohonan_surat_id', $id)->count();
+            $surat['tahun'] = date('y');
             $str = "";
             do {
                 $str = $this->get_string_between($surat['keterangan'], "{", "}");

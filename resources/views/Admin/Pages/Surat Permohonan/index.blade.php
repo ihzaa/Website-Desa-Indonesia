@@ -45,6 +45,43 @@
     <!-- /.card-body -->
 </div>
 <!-- /.card -->
+
+<div class="card card-outline card-success">
+    <div class="card-header d-flex">
+        <h3 class="card-title">Arsip Surat Yang Telah Diunduh Penduduk</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="tabel_arsip" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Tanggal</th>
+                    <th>Jenis Surat</th>
+                    {{-- <th>No. Surat</th> --}}
+                    <th>Penduduk</th>
+                    <th>Download</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>No</th>
+                    <th>Tanggal</th>
+                    <th>Jenis Surat</th>
+                    {{-- <th>No. Surat</th> --}}
+                    <th>Penduduk</th>
+                    <th>Download</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <!-- /.card-body -->
+    <div class="overlay dark" id="arsip_loading">
+        <i class="fas fa-2x fa-sync-alt fa-spin"></i>
+    </div>
+</div>
 @endsection
 
 @section('js_after')
@@ -55,6 +92,8 @@
 <script src="{{asset('Admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
 <script src="{{asset('Admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
 <script src="{{asset('Admin/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
+<script src="{{asset('Admin/dist/js/date.js')}}"></script>
+<script src="{{asset('Front/js/html2pdf/html2pdf.bundle.min.js')}}"></script>
 
 <script>
     window.alert = function () {};
@@ -66,7 +105,10 @@
                 hapus : "{{route('admin_surat_permohonan_hapus',['id'=>'_id'])}}",
                 editR : "{{route('admin_surat_permohonan_edit_response',['id'=>'_id'])}}",
                 edit : "{{route('admin_surat_permohonan_edit',['id'=>'_id'])}}",
-                sampel : "{{route('admin_surat_permohonan_sampel',['id'=>'_id'])}}"
+                sampel : "{{route('admin_surat_permohonan_sampel',['id'=>'_id'])}}",
+                getArsip : "{{route('admin_surat_permohonan_get_all_arsip')}}",
+                downloadArsip : "{{route('admin_surat_permohonan_download_arsip',['id'=>'_id'])}}",
+                sampelNew : "{{route('admin_surat_permohonan_sampel_new',['id'=>'_id'])}}",
                 }
 </script>
 <script src="{{asset('Admin/dist/js/pages/surat_permohonan_index.js')}}" id="js_main"></script>
