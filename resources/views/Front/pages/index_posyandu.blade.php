@@ -1,9 +1,14 @@
 @extends('Front.master')
-@section('header', 'header-inner-pages')
 
 @section('css_before')
 <link rel="stylesheet" href="{{asset('Admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
 <link rel="stylesheet" href="{{asset('Front/css/components/news.css')}}">
+@endsection
+
+
+@section('hero')
+<section id="hero" class="d-flex align-items-center" style="height: 10%">
+</section>
 @endsection
 
 @section('main')
@@ -20,46 +25,48 @@
     </div>
 </section><!-- End Breadcrumbs -->
 
-
-
-<section id="penduduks" class="services section-bg">
-    <div class="container-fluid" data-aos="fade-up" style="padding-left:150px; padding-right: 150px;">
-
+<section class="team section-bg">
+    <div class="container" data-aos="fade-up">
         <div class="section-title">
             <h2>Penduduk Terdaftar Posyandu {{$posyandu->nama_posyandu}}</h2>
         </div>
 
+        <div class="row">
+        <div class="col-lg-12">
         <table id="example1" class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>No.</th>
-                <th>Nama Penduduk</th>
-                <th>Umur (Tahun)</th>
-                <th>Gol. Darah</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($posyandu->penduduks as $p)
-            <tr>
-                <td>{{$loop->iteration}}</td>
-                <td>{{$p->nama}}</td>
-                <td>{{$p->umur}}</td>
-                <td>{{$p->gol_darah}}</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Nama Penduduk</th>
+                    <th>Umur (Tahun)</th>
+                    <th>Gol. Darah</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($posyandu->penduduks as $p)
+                <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$p->nama}}</td>
+                    <td>{{$p->umur}}</td>
+                    <td>{{$p->gol_darah}}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        </div>
+        </div>
     </div>
 </section>
 
-<section id="services" class="services section-bg">
-    <div class="container-fluid" data-aos="fade-up" style="padding-left:150px; padding-right: 150px;">
+<section id="perangkatdesa" class="team section-bg">
+    <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-            <h2>Kegiatan Posyandu</h2>
+            <h2>Daftar Kegiatan Posyandu</h2>
         </div>
 
         <div class="row">
+
             @foreach($posyandu->kegiatans as $k)
             <div class="news-card" style="width: 500px;">
                 <a href="#" class="news-card__card-link"></a>
