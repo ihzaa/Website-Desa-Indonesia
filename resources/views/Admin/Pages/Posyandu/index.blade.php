@@ -50,7 +50,7 @@
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>
-                            <img src="{{asset($posyandu->path_logo)}}" style="max-width: 50px; max-width: 50px;" alt="User Image">
+                            <img src="{{$posyandu->path_logo}}" style="max-width: 50px; max-width: 50px;" alt="User Image">
                             </td>
                             <td>{{$posyandu->nama_posyandu}}</td>
                             <td>{{$posyandu->jumlah_penduduk}}</td>

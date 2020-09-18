@@ -18,7 +18,7 @@ class KegiatanPosyanduController extends Controller
             'thumbnail' => 'mimes:jpeg,jpg,png|max:2000'
         ]);
 
-        $path = $request->file('thumbnail')->store('images');
+        $path = $request->file('thumbnail')->store('public/images');
 
         KegiatanPosyandu::create([
             'judul_kegiatan' => $request->judul_kegiatan,
@@ -64,7 +64,7 @@ class KegiatanPosyanduController extends Controller
                 'thumbnail' => 'mimes:jpeg,jpg,png|max:2000'
             ]);
             $pos->delete_photo();
-            $path = $request->file('thumbnail')->store('images');
+            $path = $request->file('thumbnail')->store('public/images');
             $pos->update(['thumbnail' => $path]);
         }
         $pos->update([

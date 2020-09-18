@@ -70,7 +70,7 @@
             @foreach($posyandu->kegiatans as $k)
             <div class="news-card" style="width: 500px;">
                 <a href="{{route('front_posyandu_detail',['id'=> $k->id])}}" class="news-card__card-link"></a>
-                <img src="{{asset($k->path_logo)}}" alt="" class="news-card__image">
+                <img src="{{$k->path_logo}}" alt="" class="news-card__image">
                 <div class="news-card__text-wrapper">
                     <h2 class="news-card__title">{{$k->judul_kegiatan}}</h2>
                     <p class="text-white font-weight-bold">{{$k->date_format}}</p>

@@ -3,6 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
+
+// use Illuminate\Support\Facades\Storage;
 
 class Posyandu extends Model
 {
@@ -31,7 +34,7 @@ class Posyandu extends Model
 
     public function getPathLogoAttribute()
     {
-        return 'storage/' . $this->logo_posyandu;
+        return Storage::url($this->logo_posyandu);
     }
 
     public function delete_photo(){
