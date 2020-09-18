@@ -14,7 +14,7 @@ class BeritaController extends Controller
     }
 
     public function ListBerita(){
-        $berita=Berita::paginate(6);
+        $berita=Berita::orderByDesc('id')->paginate(6);
         return view('Front.pages.listberita', compact('berita'));
     }
 }
