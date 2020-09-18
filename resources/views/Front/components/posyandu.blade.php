@@ -11,13 +11,13 @@
         <div class="row">
             @foreach($posyandus as $p)
             <div class="news-card" style="width: 500px;">
-                <a href="#" class="news-card__card-link"></a>
+                <a href="{{route('front_posyandu_index',['id'=>$p->id])}}" class="news-card__card-link"></a>
                 <img src="{{asset($p->path_logo)}}" alt="" class="news-card__image">
                 <div class="news-card__text-wrapper">
                     <h2 class="news-card__title">{{$p->nama_posyandu}}</h2>
                     <p class="text-white font-weight-bold">Jumlah penduduk terdaftar {{$p->jumlah_penduduk}}</p>
                     <div class="news-card__details-wrapper">
-                        <a href="#" class="news-card__read-more">Kegiatan <i class="fas fa-long-arrow-alt-right"></i></a>
+                        <a href="{{route('front_posyandu_index',['id'=>$p->id])}}" class="news-card__read-more">Kegiatan <i class="fas fa-long-arrow-alt-right"></i></a>
                     </div>
                 </div>
             </div>

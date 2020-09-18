@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Posyandu extends Model
 {
     protected $guarded = [];
-    protected $appends = ['jumlah_penduduk', 'path_logo'];
+    protected $appends = ['jumlah_penduduk', 'path_logo', 'jumlah_kegiatan'];
 
     public function penduduks()
     {
@@ -22,6 +22,11 @@ class Posyandu extends Model
     public function getJumlahPendudukAttribute()
     {
         return $this->penduduks()->count();
+    }
+
+    public function getJumlahKegiatanAttribute()
+    {
+        return $this->kegiatans()->count();
     }
 
     public function getPathLogoAttribute()

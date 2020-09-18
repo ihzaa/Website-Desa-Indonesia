@@ -30,4 +30,5 @@ Route::prefix('')->namespace('Front')->group(function (){
     Route::get('', 'FrontController@index')->name('front_dashboard');
     Route::get('berita/{id}', 'FrontController@ShowBerita')->name('front_berita_show');
     Route::get('tentangkami/{id}', 'FrontController@show')->name('front_tentang_kami');
+    Route::get('posyandu/{id}', 'PosyanduController@index')->name('front_posyandu_index');
 });
