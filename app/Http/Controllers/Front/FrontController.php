@@ -16,13 +16,14 @@ class FrontController extends Controller
     {
         $perangkats = PerangkatDesa::all();
         $bpds = BPD::all();
-        $berita = Berita::all();
+        $berita = Berita::all()->sortByDesc('id')->take(3);
         $qna = QnA::all();
 
         $penduduks = Penduduk::all();
         $pria = Penduduk::where('jenis_kelamin', 'laki-laki')->get();
         $wanita = Penduduk::where('jenis_kelamin', 'perempuan')->get();
         $kematians = Penduduk::where('id_kematian', '!=', null)->get();
+        
 
         $homes = Home::with([
             'home_category'
@@ -45,11 +46,5 @@ class FrontController extends Controller
         } else {
             return view('Front.pages.tentangkamidetail', compact('homes', 'beritas'));
         }
-    }
-
-    public function ShowBerita($id)
-    {
-        $berita = Berita::where('id', $id)->first();
-        return view('Front.pages.berita', compact('berita'));
     }
 }

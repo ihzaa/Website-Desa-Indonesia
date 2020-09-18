@@ -27,11 +27,13 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
-            @else
-                <div style="width: 100%">
-                    <p class="text-center text-secondary">Belum ada data</p>
                 </div>
+            </div>
+            @endforeach
+            @else
+            <div style="width: 100%">
+                <p class="text-center text-secondary">Belum ada data</p>
+            </div>
             @endif
 
         </div>
