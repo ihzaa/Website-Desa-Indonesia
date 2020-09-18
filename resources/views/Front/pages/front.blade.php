@@ -1,7 +1,7 @@
 @extends('Front.master')
 
 @section('css_before')
-<link rel="stylesheet" href="{{asset('Front/css/components/news.css')}}">
+    <link rel="stylesheet" href="{{asset('Front/css/components/news.css')}}">
 @endsection
 
 @section('hero')
@@ -33,65 +33,61 @@
                     <img src="{{asset('Front/img/hero-img.png')}}" class="img-fluid animated" alt="">
                 </div>
             </div>
-            <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-                <img src="{{asset('Front/img/hero-img.png')}}" class="img-fluid animated" alt="">
-            </div>
         </div>
-    </div>
 
-</section>
+    </section>
 @endsection
 
 @section('main')
-<!-- ======= Cliens Section ======= -->
-@include('Front.components.cliens')
-<!-- End Cliens Section -->
+    <!-- ======= Cliens Section ======= -->
+    {{--    @include('Front.components.cliens')--}}
+    <!-- End Cliens Section -->
 
-<!-- ======= Grafik Pertumbuhan Section ======= -->
-@include('Front.components.grafikpertumbuhan')
-<!-- End Grafik Pertumbuhan Section -->
+    <!-- ======= Grafik Pertumbuhan Section ======= -->
+    @include('Front.components.grafikpertumbuhan')
+    <!-- End Grafik Pertumbuhan Section -->
 
-<!-- ======= Services Section ======= -->
-@include('Front.components.berita')
-<!-- End Services Section -->
+    <!-- ======= Services Section ======= -->
+    @include('Front.components.berita')
+    <!-- End Services Section -->
 
-<!-- ======= Portfolio Section ======= -->
-@include('Front.components.tentangkami')
-<!-- End Portfolio Section -->
+    <!-- ======= Portfolio Section ======= -->
+    @include('Front.components.tentangkami')
+    <!-- End Portfolio Section -->
 
-<!-- ======= Perangkat Desa Section ======= -->
-@include('Front.components.perangkatdesa')
-<!-- End Perangkat Desa Section -->
+    <!-- ======= Perangkat Desa Section ======= -->
+    @include('Front.components.perangkatdesa')
+    <!-- End Perangkat Desa Section -->
 
-<!-- ======= BPD Section ======= -->
-@include('Front.components.bpd')
-<!-- End Perangkat Desa Section -->
+    <!-- ======= BPD Section ======= -->
+    @include('Front.components.bpd')
+    <!-- End Perangkat Desa Section -->
 
-<!-- ======= POSYANDU Section ======= -->
-@include('Front.components.posyandu')
-<!-- End POSYANDU Section -->
+    <!-- ======= POSYANDU Section ======= -->
+    @include('Front.components.posyandu')
+    <!-- End POSYANDU Section -->
 
-<!-- ======= Cta Section ======= -->
-@include('Front.components.cta')
-<!-- End Cta Section -->
+    <!-- ======= Cta Section ======= -->
+    @include('Front.components.cta')
+    <!-- End Cta Section -->
 
-<!-- ======= About Us Section ======= -->
-@include('Front.components.aboutus')
-<!-- End About Us Section -->
+    <!-- ======= About Us Section ======= -->
+    @include('Front.components.aboutus')
+    <!-- End About Us Section -->
 
-<!-- ======= Why Us Section ======= -->
-@include('Front.components.whyus')
-<!-- End Why Us Section -->
+    <!-- ======= Why Us Section ======= -->
+    @include('Front.components.whyus')
+    <!-- End Why Us Section -->
 
-<!-- ======= Pricing Section ======= -->
-@include('Front.components.pricing')
-<!-- End Pricing Section -->
+    <!-- ======= Pricing Section ======= -->
+    @include('Front.components.pricing')
+    <!-- End Pricing Section -->
 
-<!-- ======= Frequently Asked Questions Section ======= -->
-@include('Front.components.faq')
-<!-- End Frequently Asked Questions Section -->
+    <!-- ======= Frequently Asked Questions Section ======= -->
+    @include('Front.components.faq')
+    <!-- End Frequently Asked Questions Section -->
 
-<!-- ======= Contact Section ======= -->
-@include('Front.components.contact')
-<!-- End Contact Section -->
+    <!-- ======= Contact Section ======= -->
+    @include('Front.components.contact')
+    <!-- End Contact Section -->
 @endsection
