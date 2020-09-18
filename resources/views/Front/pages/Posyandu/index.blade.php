@@ -16,7 +16,7 @@
 <section id="breadcrumbs" class="breadcrumbs">
     <div class="container">
         <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="{{route('front_dashboard')}}">Home</a></li>
             <li>Detail Posyandu</li>
         </ol>
         <h1 style="color: #37517e">Posyandu {{$posyandu->nama_posyandu}}</h1 style="color: #37517e">
@@ -69,13 +69,13 @@
 
             @foreach($posyandu->kegiatans as $k)
             <div class="news-card" style="width: 500px;">
-                <a href="#" class="news-card__card-link"></a>
+                <a href="{{route('front_posyandu_detail',['id'=> $k->id])}}" class="news-card__card-link"></a>
                 <img src="{{asset($k->path_logo)}}" alt="" class="news-card__image">
                 <div class="news-card__text-wrapper">
                     <h2 class="news-card__title">{{$k->judul_kegiatan}}</h2>
                     <p class="text-white font-weight-bold">{{$k->date_format}}</p>
                     <div class="news-card__details-wrapper">
-                        <a href="#" class="news-card__read-more">Detail <i class="fas fa-long-arrow-alt-right"></i></a>
+                        <a href="{{route('front_posyandu_detail',['id'=> $k->id])}}" class="news-card__read-more">Detail <i class="fas fa-long-arrow-alt-right"></i></a>
                     </div>
                 </div>
             </div>

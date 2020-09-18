@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class KegiatanPosyandu extends Model
 {
     protected $guarded = [];
-    protected $appends = ['path_logo','date_format'];
+    protected $appends = ['path_logo','date_format','date_kegiatan'];
 
     public function posyandu()
     {
@@ -27,6 +27,11 @@ class KegiatanPosyandu extends Model
         }
     }
 
+    public function getDateKegiatanAttribute()
+    {
+        return Carbon::parse($this->tanggal_kegiatan)->translatedFormat('l, d F Y');
+    }
+    
     public function getDateFormatAttribute()
     {
         return Carbon::parse($this->created_at)->translatedFormat('l, d F Y') . 

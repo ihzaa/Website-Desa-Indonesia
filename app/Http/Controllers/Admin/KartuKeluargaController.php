@@ -23,7 +23,7 @@ class KartuKeluargaController extends Controller
 
     public function form_edit($id)
     {
-        $kk = KartuKeluarga::find($id);
+        $kk = KartuKeluarga::where('id',$id);
         if($kk==null){
             return redirect(route('data_kk_index'))->with('status', 'Data KK tidak ditemukan!');
         }
