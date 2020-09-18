@@ -66,7 +66,7 @@
                                    style="font-size: 0.8em">{{\Carbon\Carbon::parse($brt->created_at)->translatedFormat('d M Y')}}</p>
                                 <p class="mb-0 text-uppercase text-secondary font-weight-normal"
                                    style="font-size: 0.9em;">{{substr($brt->judul_berita, 0, 75) . "..."}}</p>
-                                <a href="{{route('front_berita_show', ['id' => $brt->id])}}">
+                                <a href="{{route('berita_show', ['id' => $brt->id])}}">
                                     <p style="font-size: 0.8em" class="mb-0 mt-1 text-right">Selengkapnya</p>
                                 </a>
                             </div>

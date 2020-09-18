@@ -21,16 +21,17 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/augie-mirror" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18c1ceb2-349f-4add-9a9a-b07e9962f6f2" name="Default Changelist" comment="Tambah fitur kritik dan saran">
+    <list default="true" id="18c1ceb2-349f-4add-9a9a-b07e9962f6f2" name="Default Changelist" comment="Remake UI Front">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Assets/Front/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Assets/Front/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/Assets/Logo/logo_peta.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Front/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Front/pages/front.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/pages/front.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Front/components/tentangkami.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/components/tentangkami.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Front/pages/tentangkamidetail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/pages/tentangkamidetail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +230,7 @@
       <workItem from="1600178662547" duration="2852000" />
       <workItem from="1600223235692" duration="10394000" />
       <workItem from="1600277295724" duration="22055000" />
-      <workItem from="1600411448495" duration="5276000" />
+      <workItem from="1600411448495" duration="7065000" />
     </task>
     <task id="LOCAL-00001" summary="conflict">
       <created>1599661331865</created>
@@ -322,7 +323,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600344586499</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Remake UI Front">
+      <created>1600421676121</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1600421676121</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,7 +341,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/augie-mirror" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -352,17 +372,18 @@
     <MESSAGE value="remake UI" />
     <MESSAGE value="kari bosq" />
     <MESSAGE value="Tambah fitur kritik dan saran" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tambah fitur kritik dan saran" />
+    <MESSAGE value="Remake UI Front" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remake UI Front" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600315947232">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600315947232" />
-    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog" timestamp="1600411910183">
+    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog" timestamp="1600423352852">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600411910183" />
+    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600423352852" />
     <state x="1220" y="275" key="FileChooserDialogImpl" timestamp="1600344816094">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -379,10 +400,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="922" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599981863237" />
-    <state x="1009" y="252" key="Vcs.Push.Dialog.v2" timestamp="1600421666873">
+    <state x="1009" y="252" key="Vcs.Push.Dialog.v2" timestamp="1600421681448">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1009" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600421666873" />
+    <state x="1009" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600421681448" />
     <state x="668" y="172" key="VcsDiffUtil.ChangesDialog" timestamp="1600210319097">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

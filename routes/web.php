@@ -27,12 +27,13 @@ Route::prefix('4dm1n')->namespace('Admin')->middleware('auth:admin')->group(func
 //ROUTE FRONT
 Route::prefix('')->namespace('Front')->group(function (){
     Route::get('', 'FrontController@index')->name('front_dashboard');
-    
+
     Route::get('tentangkami/{id}', 'FrontController@showTentangKami')->name('front_tentang_kami');
-    
+
 
     Route::prefix('berita')->group(function(){
         Route::get('', 'BeritaController@ListBerita')->name('berita_list');
         Route::get('{id}', 'BeritaController@ShowBerita')->name('berita_show');
+        Route::get('tentangkami/{id}', 'FrontController@showTentangKami')->name('front_tentang_kami');
     });
 });

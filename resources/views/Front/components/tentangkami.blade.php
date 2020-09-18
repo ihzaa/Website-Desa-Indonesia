@@ -16,9 +16,9 @@
             <li data-filter=".filter-wilayahdesa">Wilayah</li>
         </ul>
 
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+        <div class="row justify-content-center portfolio" data-aos="fade-up" data-aos-delay="200">
             @foreach($homes->where('home_category_id', 1) as $home)
-                <div class="col-lg-4 col-md-6 portfolio-item filter-visimisi">
+                <div class="col-lg-5 col-md-7 portfolio-item filter-visimisi">
                     <div class="portfolio-img"><img src="{{url('storage/images/home/' . $home->image)}}"
                                                     class="img-fluid" alt="{{$home -> title}}">
                     </div>
