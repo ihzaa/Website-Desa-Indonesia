@@ -49,7 +49,7 @@
                         </div>
                         <div class="form-group">
                             <label>Thumbnail Kegiatan</label>
-                            <img src="{{asset($kegiatan->path_logo)}}" style="max-width: 200px; max-width: 200px;" alt="User Image">
+                            <img src="{{$kegiatan->path_logo}}" style="max-width: 200px; max-width: 200px;" alt="User Image">
                         </div>
                         <div class="form-group">
                             <label>Update Thumbnail Kegiatan</label>
