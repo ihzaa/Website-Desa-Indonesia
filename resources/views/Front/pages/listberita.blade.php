@@ -28,7 +28,7 @@
                         </div>
                         <div class="col-md-12 col-lg-12 mt-2">
                             <h4><a
-                                    href="">{{strlen($data->judul_berita) > 100 ? substr($data->judul_berita,0,100)."..." : $data->judul_berita}}</a>
+                                    href="{{route('berita_show', $data->id)}}">{{strlen($data->judul_berita) > 100 ? substr($data->judul_berita,0,100)."..." : $data->judul_berita}}</a>
                             </h4>
                             <span>{{\Carbon\Carbon::parse($data->created_at)->translatedFormat('d, F Y')}}</span>
                             <a href="{{route('berita_show', $data->id)}}" class="btn-learn-more"
