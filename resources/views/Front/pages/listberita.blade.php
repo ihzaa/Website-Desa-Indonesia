@@ -14,33 +14,34 @@
     </div>
 </section><!-- End Breadcrumbs -->
 
-@foreach($berita as $data)
+
 <section class="inner-page team" data-aos="400" style="margin-top: -75px;">
     <div class="container" data-aos="fade-up">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="col-sm-12 col-md-12 col-lg-3">
-                        <img src="{{Storage::url('images/berita/thumbnails')}}/{{$data->thumbnail_berita}}" alt=""
-                            height="150px" width="250px">
-                    </div>
-                    <div class="member-info row">
-                        <div class="col-sm-12 col-md-12 col-lg-9">
+            @foreach($berita as $data)
+            <div class=" col-lg-6 col-md-6 p-3">
+                <div class="member align-items-start" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-6">
+                            <img src="{{Storage::url('images/berita/thumbnails')}}/{{$data->thumbnail_berita}}" alt=""
+                                height="150px" width="250px">
+                        </div>
+                        <div class="col-md-12 col-lg-12 mt-2">
                             <h4><a
-                                    href="">{{strlen($data->judul_berita) > 100 ? substr($data->judul_berita,0,150)."..." : $data->judul_berita}}</a>
+                                    href="">{{strlen($data->judul_berita) > 100 ? substr($data->judul_berita,0,100)."..." : $data->judul_berita}}</a>
                             </h4>
                             <span>{{\Carbon\Carbon::parse($data->created_at)->translatedFormat('d, F Y')}}</span>
                             <a href="{{route('berita_show', $data->id)}}" class="btn-learn-more"
-                                style="margin-top: 10px">Baca Selengkapnya</a>
+                                style="margin-top: 10px">Baca
+                                Selengkapnya</a>
                         </div>
                     </div>
-
                 </div>
             </div>
+            @endforeach
         </div>
     </div>
 </section>
-@endforeach
 
 <div class="container">
     <div class="d-flex justify-content-end mb-5 beritalink">

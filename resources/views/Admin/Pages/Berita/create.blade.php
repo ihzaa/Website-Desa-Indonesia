@@ -49,13 +49,17 @@
                     @csrf
                     <div class="card-body pad">
                         <div class="form-group">
-                            <label for="judul_berita">Judul Berita</label>
+                            <label for="judul_berita">Judul Berita</label><small> (harus diisi)</small>
+                            <div id="validationjudul"></div>
                             <input type="text" name="judul_berita" class="form-control" id="judul_berita"
-                                placeholder="Masukkan judul berita">
+                                placeholder="Masukkan judul berita" required>
+                            <small>Buat judul dengan maksimal 100 karakter untuk maksimalkan tampilan</small>
                         </div>
                         <div class="form-group">
-                            <label for="thumbnail_berita">Thumbnail Berita</label>
-                            <input type="file" accept="image/jpeg,image/png" name="thumbnail_berita" class="form-control">
+                            <label for="thumbnail_berita">Thumbnail Berita</label><small> (harus diisi)</small>
+                            <div id="validationthumbnail"></div>
+                            <input type="file" id="thumbnail_berita" accept="image/jpeg,image/png" name="thumbnail_berita"
+                                class="form-control" required>
                             <ul>
                                 <li>
                                     <small>File yang diterima : .jpeg / .jpg / .png</small>
@@ -64,15 +68,17 @@
                                     <small>Ukuran gambar maksimal 2mb</small>
                                 </li>
                                 <li>
-                                    <small>Gambar yang disarankan memiliki ukuran 1280*720</small>
+                                    <small>Gambar yang disarankan memiliki ukuran 2:3 (150px * 250px)</small>
                                 </li>
                             </ul>
                         </div>
                         <div class="form-group">
-                            <label for="konten_berita">Konten Berita</label>
+                            <label for="konten_berita">Konten Berita</label><small> (harus diisi)</small>
+                            <div id="validationberita"></div>
                             <textarea id="konten_berita" name="konten_berita" class="textarea mb-3"
                                 placeholder="Place some text here"
-                                style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"
+                                required data-msg="Please write something"></textarea>
                         </div>
 
 
@@ -105,5 +111,20 @@
             height: 500
         })
     })
+
+    $('.btn').on('click', function(){
+        if ($('.textarea').summernote('isEmpty')) {
+            $('#validationberita').text('Anda belum mengisikan konten, silakan isi terlebih dahulu').css({'color' : 'red', 'margin-bottom' : '5px', 'font-size' : '10pt', 'font-style' : 'italic'});
+        }
+        if ($('#judul_berita').val().length == 0){
+            $('#validationjudul').text('Anda belum mengisikan judul, silakan isi terlebih dahulu').css({'color' : 'red', 'margin-bottom' : '5px', 'font-size' : '10pt', 'font-style' : 'italic'});
+        }
+
+        if ($('#thumbnail_berita').val().length == 0){
+            $('#validationthumbnail').text('Anda belum unggah thumbnail, silakan isi terlebih dahulu').css({'color' : 'red', 'margin-bottom' : '5px', 'font-size' : '10pt', 'font-style' : 'italic'});
+        }
+
+    })
+
 </script>
 @endsection
