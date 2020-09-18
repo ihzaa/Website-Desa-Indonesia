@@ -169,7 +169,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../IKMarket-API" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -181,11 +181,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\website-desa-indonesia" />
       <recent name="C:\xampp\htdocs\website-desa-indonesia\resources\views\Admin\Pages\KritikSaran" />
       <recent name="C:\xampp\htdocs\website-desa-indonesia\resources\views\Admin\Pages" />
       <recent name="C:\xampp\htdocs\website-desa-indonesia\public\Assets\Logo" />
       <recent name="C:\xampp\htdocs\website-desa-indonesia\resources\views\Admin\Pages\QnA" />
+      <recent name="C:\xampp\htdocs\website-desa-indonesia\public\Assets\Front\img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\website-desa-indonesia\resources\views\Admin\Pages\Home" />
@@ -228,7 +228,6 @@
       <workItem from="1600223235692" duration="10394000" />
       <workItem from="1600277295724" duration="22055000" />
       <workItem from="1600411448495" duration="7065000" />
-      <workItem from="1600443400278" duration="1457000" />
     </task>
     <task id="LOCAL-00001" summary="conflict">
       <created>1599661331865</created>
@@ -339,7 +338,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/augie-mirror" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -366,18 +377,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600315947232" />
-    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog" timestamp="1600423352852">
+    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog" timestamp="1600445013194">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600423352852" />
+    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600445013194" />
     <state x="1220" y="275" key="FileChooserDialogImpl" timestamp="1600344816094">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1220" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1600344816094" />
-    <state x="590" y="274" key="MultipleFileMergeDialog" timestamp="1600181083428">
+    <state x="184" y="86" key="MergeDialog" timestamp="1600444935761">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="590" y="274" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600181083428" />
+    <state x="184" y="86" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600444935761" />
+    <state x="590" y="274" key="MultipleFileMergeDialog" timestamp="1600444940987">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="590" y="274" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600444940987" />
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1600212780459">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
