@@ -40,12 +40,19 @@
             </div>
             @endforeach
         </div>
+        <div class="row justify-content-end mt-4">
+            <div class="col-12">
+                <div class="float-right d-flex">
+                    {!! $berita->onEachSide(-1)->links() !!}
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
 <div class="container">
-    <div class="d-flex justify-content-end mb-5 beritalink">
-        {!! $berita->links() !!}
+    <div class="justify-content-end mb-5 beritalink">
+
     </div>
 </div>
 

@@ -53,7 +53,7 @@
             <ul>
                 <li class="active"><a href="{{url('/')}}">Home</a></li>
                 <li><a href="{{url('/#about')}}">About</a></li>
-                <li><a href="{{url('/#services')}}">Services</a></li>
+                <li><a href="{{url('/#berita')}}">Berita</a></li>
                 <li class="drop-down"><a href="">Tentang Kami</a>
                     <ul>
                         <li><a href="{{url('/#tentangkami')}}">Visi Misi</a></li>
