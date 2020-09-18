@@ -1117,8 +1117,6 @@
                 "md",
                 "parser"
             ],
-<<<<<<< HEAD
-=======
             "funding": [
                 {
                     "url": "https://enjoy.gitstore.app/repositories/thephpleague/commonmark",
@@ -1145,7 +1143,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> zaki
             "time": "2020-09-13T14:44:46+00:00"
         },
         {
@@ -1432,8 +1429,6 @@
                 "datetime",
                 "time"
             ],
-<<<<<<< HEAD
-=======
             "funding": [
                 {
                     "url": "https://opencollective.com/Carbon",
@@ -1444,7 +1439,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> zaki
             "time": "2020-09-11T19:00:58+00:00"
         },
         {
@@ -2150,15 +2144,12 @@
                 "queue",
                 "set"
             ],
-<<<<<<< HEAD
-=======
             "funding": [
                 {
                     "url": "https://github.com/ramsey",
                     "type": "github"
                 }
             ],
->>>>>>> zaki
             "time": "2020-09-10T20:58:17+00:00"
         },
         {
@@ -2529,8 +2520,6 @@
             ],
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2545,7 +2534,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> zaki
             "time": "2020-09-07T11:33:47+00:00"
         },
         {
@@ -2737,8 +2725,6 @@
                 "interoperability",
                 "standards"
             ],
-<<<<<<< HEAD
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2753,7 +2739,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> zaki
             "time": "2020-09-07T11:33:47+00:00"
         },
         {
@@ -3856,8 +3841,6 @@
                 "interoperability",
                 "standards"
             ],
-<<<<<<< HEAD
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3872,7 +3855,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> zaki
             "time": "2020-09-07T11:33:47+00:00"
         },
         {
@@ -4083,8 +4065,6 @@
                 "interoperability",
                 "standards"
             ],
-<<<<<<< HEAD
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4099,7 +4079,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> zaki
             "time": "2020-09-07T11:33:47+00:00"
         },
         {
