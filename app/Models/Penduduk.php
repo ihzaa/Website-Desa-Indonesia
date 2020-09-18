@@ -51,7 +51,7 @@ class Penduduk extends Model
         if($nik == NULL){
             return 'belum ada data nik';
         }else{
-            return $nik;
+            return $nik->nik;
         }
     }
 
