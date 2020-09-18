@@ -14,6 +14,11 @@ class Posyandu extends Model
         return $this->belongsToMany(Penduduk::class,  PosyanduPenduduk::class);
     }
 
+    public function kegiatans()
+    {
+        return $this->hasMany(KegiatanPosyandu::class);
+    }
+
     public function getJumlahPendudukAttribute()
     {
         return $this->penduduks()->count();

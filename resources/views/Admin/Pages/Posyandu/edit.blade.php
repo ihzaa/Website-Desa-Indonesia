@@ -58,10 +58,50 @@
                     <td>{{$p->shdrt}}</td>
                     <td>{{$p->gol_darah}}</td>
                     <td>
-                        <button type="button" data-toggle="modal" data-target="#modal-delete" data-id="{{$p->id}}" 
-                            class="hapus-modal btn btn-danger hapus-penduduk" data-nama="{{$p->nama}}" >
+                        <button type="button" data-toggle="modal" data-target="#modal-delete" data-id="{{$p->id}}" class="hapus-modal btn btn-danger hapus-penduduk" data-nama="{{$p->nama}}">
                             <i class="fas fa-ban"></i> Hapus
                         </button>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Kegiatan di Posyandu {{$posyandu->nama_posyandu}}</h3>
+        <div class="card-tools">
+            <a href="{{route('kegiatan_posyandu.detail',['posyandu'=>$posyandu->id])}}" class="btn btn-block btn-success">
+                <i class="fas fa-plus-square"></i> Tambah Kegiatan
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
+        <table id="kegiatan_posyandu" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Nama Kegiatan</th>
+                    <th>Tanggal Kegiatan</th>
+                    <th>Tanggal Dibuat</th>
+                    <th style="width: 20%">Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($posyandu->kegiatans as $p)
+                <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$p->judul_kegiatan}}</td>
+                    <td>{{$p->tanggal_kegiatan}}</td>
+                    <td>{{$p->created_at}}</td>
+                    <td>
+                        <a class="btn btn-block btn-info" href="{{route('kegiatan_posyandu.edit',['id_keg'=>$p->id,'id_pos'=>$posyandu->id])}}">
+                            <i class="fas fa-edit"></i> Edit Kegiatan
+                        </a>
+                        <a class="btn btn-block btn-danger" href="{{route('posyandu.index')}}">
+                            <i class="fas fa-ban"></i> Hapus Kegiatan
+                        </a>
                     </td>
                 </tr>
                 @endforeach
@@ -226,6 +266,7 @@
 <script>
     $(function() {
         $('#example1').DataTable();
+        $('#kegiatan_posyandu').DataTable();
         var notif_search = $('#notif_search');
         notif_search.attr("hidden", true);
         var table_penduduk = $('#example2').DataTable({

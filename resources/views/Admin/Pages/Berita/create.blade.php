@@ -4,8 +4,8 @@
 
 @section('breadcumb')
 <li class="breadcrumb-item"><a href="{{route('admin_dashboard')}}">Home</a></li>
-<li class="breadcrumb-item"><a href="{{route('admin_berita_index')}}">Berita</a></li>
-<li class="breadcrumb-item active">Tambah Berita</a></li>
+<li class="breadcrumb-item"><a href="{{route('admin_berita_index')}}">Posyandu {{$posyandu->nama_posyandu}}</a></li>
+<li class="breadcrumb-item active">Tambah Kegiatan</a></li>
 @endsection
 
 @section('css_before')

@@ -7,6 +7,7 @@ use App\Models\BPD;
 use App\Models\Home;
 use App\Models\PerangkatDesa;
 use App\Models\Berita;
+use App\Models\Posyandu;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -16,12 +17,12 @@ class FrontController extends Controller
         $perangkats = PerangkatDesa::all();
         $bpds = BPD::all();
         $berita = Berita::all();
-
+        $posyandus = Posyandu::all();
         $homes = Home::with([
             'home_category'
         ])->get();
 
-        return view('Front.pages.front', compact('homes','perangkats', 'bpds', 'berita'));
+        return view('Front.pages.front', compact('homes','perangkats', 'bpds', 'berita','posyandus'));
     }
 
     public function show($id)

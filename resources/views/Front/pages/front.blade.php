@@ -213,6 +213,10 @@
 @include('Front.components.berita')
 <!-- End Services Section -->
 
+<!-- ======= POSYANDU Section ======= -->
+@include('Front.components.posyandu')
+<!-- End POSYANDU Section -->
+
 <!-- ======= Cta Section ======= -->
 <section id="cta" class="cta">
     <div class="container" data-aos="zoom-in">
