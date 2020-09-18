@@ -56,6 +56,7 @@
                 <li class="active"><a href="{{url('/')}}">Home</a></li>
                 <li><a href="{{url('/#grafik')}}">Pertumbuhan</a></li>
                 <li><a href="{{url('/#berita')}}">Berita</a></li>
+                <li><a href="{{url('/#posyandus')}}">Posyandu</a></li>
                 <li class="drop-down"><a href="">Tentang Kami</a>
                     <ul>
                         <li><a href="{{url('/#tentangkami')}}">Visi Misi</a></li>

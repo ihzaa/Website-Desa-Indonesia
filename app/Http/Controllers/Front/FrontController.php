@@ -9,6 +9,8 @@ use App\Models\Penduduk;
 use App\Models\PerangkatDesa;
 use App\Models\Berita;
 use App\Models\QnA;
+use App\Models\Posyandu;
+use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
@@ -25,12 +27,14 @@ class FrontController extends Controller
         $kematians = Penduduk::where('id_kematian', '!=', null)->get();
         
 
+       
+        $posyandus = Posyandu::all();
         $homes = Home::with([
             'home_category'
         ])->get();
 
         return view('Front.pages.front', compact('homes', 'perangkats', 'bpds', 'berita',
-            'penduduks', 'pria', 'wanita', 'kematians', 'qna'));
+            'penduduks', 'pria', 'wanita', 'kematians', 'qna','posyandus'));
     }
 
     public function showTentangKami($id)

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,10 +30,12 @@ Route::prefix('')->namespace('Front')->group(function (){
     Route::get('', 'FrontController@index')->name('front_dashboard');
     
     Route::get('tentangkami/{id}', 'FrontController@showTentangKami')->name('front_tentang_kami');
-    
+    Route::get('posyandu/{id}', 'PosyanduController@index')->name('front_posyandu_index');
+    Route::get('posyandu/detail/{id}', 'PosyanduController@detail_kegiatan')->name('front_posyandu_detail');
 
     Route::prefix('berita')->group(function(){
         Route::get('', 'BeritaController@ListBerita')->name('berita_list');
         Route::get('{id}', 'BeritaController@ShowBerita')->name('berita_show');
     });
 });
+    

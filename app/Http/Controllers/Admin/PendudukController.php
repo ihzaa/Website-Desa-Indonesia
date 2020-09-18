@@ -111,7 +111,7 @@ class PendudukController extends Controller
             $id_kematian = Kematian::insertGetId([
                 'tanggal_kematian' => $tanggal_kematian,
             ]);
-            $p->update(['id_kematian'=>$id_kematian]);
+            $p->update(['id_kematian'=>$id_kematian,'status_hidup'=>'mati']);
         } else if ($p_relate_before->kematian != null & $tanggal_kematian != null) {
             $p_relate_before->kematian->update(
                 [
