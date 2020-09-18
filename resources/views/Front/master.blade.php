@@ -46,7 +46,11 @@
 <header id="header" class="fixed-top @yield('header')">
     <div class="container d-flex align-items-center">
 
-        <h1 class="logo mr-auto"><a href="{{url('/')}}">Desa Sangen</a></h1>
+        <div class="logo mr-auto row">
+            <img src="{{asset('Logo/logo_madiun.png')}}" alt=""
+                 class="img-fluid ml-2">
+            <h1 class="ml-4"><a href="{{url('/')}}">Desa Sangen</a></h1>
+        </div>
         <!-- Uncomment below if you prefer to use an image logo -->
         {{--<a href="index.html" class="logo mr-auto"><img src="{{asset('Front/img/favicon.png')}}" alt=""
         class="img-fluid"></a>--}}
@@ -71,8 +75,8 @@
             </ul>
         </nav><!-- .nav-menu -->
 
-{{--        <a href="{{route('front_index_surat_permohonan')}}" class="get-started-btn scrollto" style="font-size: 0.7em">Surat--}}
-{{--            Permohonan</a>--}}
+        {{--        <a href="{{route('front_index_surat_permohonan')}}" class="get-started-btn scrollto" style="font-size: 0.7em">Surat--}}
+        {{--            Permohonan</a>--}}
 
     </div>
 </header><!-- End Header -->
