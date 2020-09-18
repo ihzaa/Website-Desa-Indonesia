@@ -34,7 +34,7 @@
         </div>
 
         <div class="text-center mt-4">
-            <a href="{{route('berita_list')}}" class="btn-learn-more" style="margin-top: 10px">Lihat Berita Lainnya...</a>
+            <a href="{{route('berita_list')}}" class="btn-learn-more mt-4">Lihat Berita Lainnya...</a>
         </div>
     </div>
 </section>

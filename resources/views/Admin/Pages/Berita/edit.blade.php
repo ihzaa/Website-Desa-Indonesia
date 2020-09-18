@@ -55,7 +55,7 @@
                                 placeholder="Masukkan judul berita" value="{{$berita->judul_berita}}">
                         </div>
                         <div class="form-group">
-                            <label for="thumbnail_berita">Thumbnail Berita</label>
+                            <label for="thumbnail_berita">Thumbnail Berita</label><small> (tidak perlu diisi jika tidak ada perubahan)</small>
                             <input type="file" name="thumbnail_berita" class="form-control">
                             <ul>
                                 <li>
@@ -65,7 +65,7 @@
                                     <small>Ukuran gambar maksimal 2mb</small>
                                 </li>
                                 <li>
-                                    <small>Gambar yang disarankan memiliki ukuran 1280*720</small>
+                                    <small>Gambar yang disarankan memiliki ukuran 2:3 (150px * 250px)</small>
                                 </li>
                             </ul>
                         </div>
