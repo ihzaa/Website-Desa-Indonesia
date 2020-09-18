@@ -12,7 +12,8 @@
             <li>Detail Berita</li>
         </ol>
         <h1 style="color: #37517e">{{$berita->judul_berita}}</h1 style="color: #37517e">
-        <small>{{\Carbon\Carbon::parse($berita->created_at)->translatedFormat('l, d F Y')}} | {{\Carbon\Carbon::parse($berita->created_at)->translatedFormat('H:i')}} WIB</small>
+        <small>{{\Carbon\Carbon::parse($berita->created_at)->translatedFormat('l, d F Y')}} |
+            {{\Carbon\Carbon::parse($berita->created_at)->translatedFormat('H:i')}} WIB</small>
     </div>
 </section><!-- End Breadcrumbs -->
 
@@ -22,4 +23,13 @@
     </div>
 </section>
 
+@endsection
+
+@section('js_after')
+<script>
+    $(document).ready(function () {
+        $("img").addClass("img-responsive");
+        $("img").css("max-width", "100%");
+    });
+</script>
 @endsection
