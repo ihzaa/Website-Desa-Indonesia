@@ -13,7 +13,7 @@
                      data-aos="fade-up" data-aos-delay="200">
                     <div class="row justify-content-center justify-content-lg-start mt-3">
                         @if($setting->logo_kabupaten !== null)
-                            <img src="{{url('storage/images/logo') . "/" . $setting->logo_kabupaten}}" alt="Logo Madiun"
+                            <img src="{{url('storage/images/logo') . "/" . $setting->logo_kabupaten}}" alt="Logo Kabupaten"
                                  class="img-fluid"
                                  style="max-height: 80px">
                         @endif
@@ -25,7 +25,7 @@
                                  style="max-height: 80px">
                         @endif
                         @if($setting->logo_maskot !== null)
-                            <img src="{{url('storage/images/logo') . "/" . $setting->logo_maskot}}" alt="Logo Silat"
+                            <img src="{{url('storage/images/logo') . "/" . $setting->logo_maskot}}" alt="Logo Maskot"
                                  class="img-fluid ml-5"
                                  style="max-height: 80px">
                         @endif
@@ -33,7 +33,7 @@
                     <h1 class="mt-4">Desa {{$setting->nama_desa}}</h1>
                     <h2>Layanan Sistem Informasi dan Manajemen Tata Kelola Desa {{$setting->nama_desa}},
                         Kecamatan {{$setting->kecamatan}}
-                        <br>Kabupaten {{$setting->kabupaten}}</h2>
+                        <br>{{$setting->kabupaten}}</h2>
                     <div class="d-lg-flex">
                         <a href="{{route('front_index_surat_permohonan')}}" class="btn-get-started scrollto">Surat
                             Permohonan</a>
