@@ -1,3 +1,8 @@
+@php
+    use App\Models\Setting;
+    $setting = Setting::orderBy('id', 'desc')->first();
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,13 +10,13 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Desa Sangen @yield('title')</title>
+    <title>Desa {{$setting->nama_desa}} @yield('title')</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{asset('Logo/logo_madiun.png')}}" rel="icon">
-    <link href="{{asset('Logo/logo_madiun.png')}}" rel="apple-touch-icon">
+    <link href="{{url('storage/images/logo') . "/" . $setting->logo_kabupaten}}" rel="icon">
+    <link href="{{url('storage/images/logo') . "/" . $setting->logo_kabupaten}}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link
@@ -47,9 +52,9 @@
     <div class="container d-flex align-items-center">
 
         <div class="logo mr-auto row">
-            <img src="{{asset('Logo/logo_madiun.png')}}" alt=""
+            <img src="{{url('storage/images/logo') . "/" . $setting->logo_kabupaten}}" alt=""
                  class="img-fluid ml-2">
-            <h1 class="ml-4"><a href="{{url('/')}}">Desa Sangen</a></h1>
+            <h1 class="ml-4"><a href="{{url('/')}}">Desa {{$setting->nama_desa}}</a></h1>
         </div>
         <!-- Uncomment below if you prefer to use an image logo -->
         {{--<a href="index.html" class="logo mr-auto"><img src="{{asset('Front/img/favicon.png')}}" alt=""
@@ -113,13 +118,12 @@
             <div class="row">
 
                 <div class="col-lg-3 col-md-6 footer-contact">
-                    <h3>Desa Sangen</h3>
+                    <h3>Desa {{$setting->nama_desa}}</h3>
                     <p>
-                        Jl. Raya Ponorogo - Madiun No.10
-                        Kembangsore, Sangen, Kec. Geger <br>
-                        Madiun, Jawa Timur 63171 <br><br>
-                        <strong>Telepon:</strong> +1 5589 55488 55<br>
-                        <strong>Email:</strong> info@example.com<br>
+                        {!! $setting->alamat_lengkap !!} <br><br>
+                        <strong>Whatsapp:</strong> {{$setting->no_wa}}<br>
+                        <strong>Telepon:</strong> {{$setting->no_telepon}}<br>
+                        <strong>Email:</strong> {{$setting->email}}<br>
                     </p>
                 </div>
 

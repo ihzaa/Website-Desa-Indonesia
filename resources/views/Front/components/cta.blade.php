@@ -8,7 +8,7 @@
                     langsung terhubung ke perangkat desa setempat selama 1 x 24 Jam Melalui aplikasi Whatsapp</p>
             </div>
             <div class="col-lg-3 cta-btn-container text-center">
-                <a class="cta-btn align-middle" target="_blank" href="https://wa.me/+6289515508020/">Hubungi
+                <a class="cta-btn align-middle" target="_blank" href="https://wa.me/{{$setting->no_wa}}">Hubungi
                     Sekarang</a>
             </div>
         </div>

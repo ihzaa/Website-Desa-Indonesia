@@ -1,3 +1,8 @@
+@php
+    use App\Models\Setting;
+    $setting = Setting::select('logo_kabupaten')->orderBy('id', 'desc')->first()
+@endphp
+
 <!DOCTYPE html>
 <html>
 
@@ -9,8 +14,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Favicons -->
-    <link href="{{asset('Logo/logo_madiun.png')}}" rel="icon">
-    <link href="{{asset('Logo/logo_madiun.png')}}" rel="apple-touch-icon">
+    <link href="{{url('storage/images/logo') . "/" . $setting->logo_kabupaten}}" rel="icon">
+    <link href="{{url('storage/images/logo') . "/" . $setting->logo_kabupaten}}" rel="apple-touch-icon">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('Admin/plugins/fontawesome-free/css/all.min.css')}}">

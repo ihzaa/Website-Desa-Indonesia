@@ -38,5 +38,15 @@ class DatabaseSeeder extends Seeder
                 'category_name' => 'Wilayah Desa'
             ]
         ]);
+
+        DB::table('settings')->insert([
+            'nama_desa' => 'Default',
+            'kecamatan' => 'Default',
+            'kabupaten' => 'Default',
+            'alamat_lengkap' => 'Jl.Default',
+            'no_wa' => '089512312312',
+            'no_telepon' => '032112312312',
+            'email' => 'default@gmail.com'
+        ]);
     }
 }

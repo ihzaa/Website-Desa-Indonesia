@@ -127,6 +127,15 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('admin_pengaturan')}}"
+                       class="nav-link {{request()->is('*pengaturan*')? 'active':''}}">
+                        <i class="nav-icon fas fa-tools"></i>
+                        <p>
+                            Pengaturan
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

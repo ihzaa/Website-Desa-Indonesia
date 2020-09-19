@@ -32,4 +32,10 @@ Route::prefix('4dm1n')->namespace('Admin')->middleware('auth:admin')->group(func
 
     Route::get('kritiksaran', 'KritikSaranController@index')->name('admin_kritiksaran');
     Route::post('kritiksaran', 'KritikSaranController@store')->name('admin_kritiksaran_post');
+
+    Route::get('pengaturan', 'SettingsController@index')->name('admin_pengaturan');
+    Route::put('pengaturan/{id}', 'SettingsController@update')->name('admin_pengaturan_umum_update');
+    Route::put('pengaturan/{id}/password', 'SettingsController@updatepassword')->name('admin_pengaturan_password_update');
+    Route::post('pengaturan/{id}/kabupaten', 'SettingsController@storekabupatenlogo')->name('admin_pengaturan_logo_kabupaten');
+    Route::post('pengaturan/{id}/maskot', 'SettingsController@storemaskotlogo')->name('admin_pengaturan_logo_maskot');
 });

@@ -10,6 +10,7 @@ use App\Models\PerangkatDesa;
 use App\Models\Berita;
 use App\Models\QnA;
 use App\Models\Posyandu;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -20,12 +21,12 @@ class FrontController extends Controller
         $bpds = BPD::all();
         $berita = Berita::all()->sortByDesc('id')->take(3);
         $qna = QnA::all();
+        $setting = Setting::orderBy('id', 'desc')->first();
 
         $penduduks = Penduduk::all();
         $pria = Penduduk::where('jenis_kelamin', 'laki-laki')->get();
         $wanita = Penduduk::where('jenis_kelamin', 'perempuan')->get();
         $kematians = Penduduk::where('id_kematian', '!=', null)->get();
-
 
 
         $posyandus = Posyandu::all();
@@ -34,7 +35,7 @@ class FrontController extends Controller
         ])->get();
 
         return view('Front.pages.front', compact('homes', 'perangkats', 'bpds', 'berita',
-            'penduduks', 'pria', 'wanita', 'kematians', 'qna','posyandus'));
+            'penduduks', 'pria', 'wanita', 'kematians', 'qna','posyandus', 'setting'));
     }
 
     public function showTentangKami($id)

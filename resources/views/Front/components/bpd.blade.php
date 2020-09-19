@@ -2,7 +2,7 @@
     <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-            <h2>Badan Permusyawaratan Desa Sangen</h2>
+            <h2>Badan Permusyawaratan Desa</h2>
         </div>
 
         <div class="row justify-content-center">

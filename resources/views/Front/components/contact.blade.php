@@ -15,20 +15,19 @@
                     <div class="address">
                         <i class="icofont-google-map"></i>
                         <h4>Lokasi:</h4>
-                        <p>Jl. Raya Ponorogo - Madiun No.10, Kembangsore, Sangen, Kec. Geger, Madiun, Jawa Timur
-                            63171</p>
+                        <p>{{$setting->alamat_lengkap}}</p>
                     </div>
 
                     <div class="email">
                         <i class="icofont-envelope"></i>
                         <h4>Email:</h4>
-                        <p>info@gmail.com</p>
+                        <p>{{$setting->email}}</p>
                     </div>
 
                     <div class="phone">
                         <i class="icofont-phone"></i>
                         <h4>Telepon:</h4>
-                        <p>+1 5589 55488 55s</p>
+                        <p>{{$setting->no_telepon}}</p>
                     </div>
 
                     <iframe
