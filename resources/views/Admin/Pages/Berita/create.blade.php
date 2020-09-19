@@ -5,7 +5,7 @@
 @section('breadcumb')
 <li class="breadcrumb-item"><a href="{{route('admin_dashboard')}}">Home</a></li>
 <li class="breadcrumb-item"><a href="{{route('admin_berita_index')}}">Berita</a></li>
-<li class="breadcrumb-item active">Tambah Kegiatan</a></li>
+<li class="breadcrumb-item active">Tambah Berita</a></li>
 @endsection
 
 @section('css_before')
@@ -103,6 +103,7 @@
 
 @section('js_after')
 <script src="{{asset('Admin/plugins/summernote/summernote-bs4.min.js')}}"></script>
+
 <script>
     $(function () {
         // Summernote
