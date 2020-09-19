@@ -63,10 +63,10 @@
                 <li><a href="{{url('/#posyandus')}}">Posyandu</a></li>
                 <li class="drop-down"><a href="">Tentang Kami</a>
                     <ul>
-                        <li><a href="{{url('/#tentangkami')}}">Visi Misi</a></li>
-                        <li><a href="{{url('/#tentangkami')}}">Sejarah Desa</a></li>
-                        <li><a href="{{url('/#tentangkami')}}">Profil Desa</a></li>
-                        <li><a href="{{url('/#tentangkami')}}">Wilayah Desa</a></li>
+                        <li><a href="{{url('/#portfolio')}}">Visi Misi</a></li>
+                        <li><a href="{{url('/#portfolio')}}">Sejarah Desa</a></li>
+                        <li><a href="{{url('/#portfolio')}}">Profil Desa</a></li>
+                        <li><a href="{{url('/#portfolio')}}">Wilayah Desa</a></li>
                         <li><a href="{{url('/#perangkatdesa')}}">Perangkat Desa</a></li>
                     </ul>
                 </li>

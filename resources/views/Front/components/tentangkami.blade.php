@@ -1,4 +1,4 @@
-<section id="tentangkami" class="portfolio">
+<section id="portfolio" class="portfolio">
     <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -9,16 +9,17 @@
         </div>
 
         <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
-{{--            <li data-filter="*" class="filter-active">Semua</li>--}}
-            <li data-filter=".filter-visimisi" class="filter-active">Visi Misi</li>
+            <li data-filter="*" class="filter-active">Semua</li>
+            <li data-filter=".filter-visimisi">Visi Misi</li>
             <li data-filter=".filter-sejarahdesa">Sejarah</li>
             <li data-filter=".filter-profildesa">Profil</li>
             <li data-filter=".filter-wilayahdesa">Wilayah</li>
         </ul>
 
-        <div class="row justify-content-center portfolio" data-aos="fade-up" data-aos-delay="200">
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
             @foreach($homes->where('home_category_id', 1) as $home)
-                <div class="col-lg-5 col-md-7 portfolio-item filter-visimisi">
+                <div class="col-md-6 portfolio-item filter-visimisi">
                     <div class="portfolio-img"><img src="{{url('storage/images/home/' . $home->image)}}"
                                                     class="img-fluid" alt="{{$home -> title}}">
                     </div>
@@ -35,7 +36,7 @@
             @endforeach
 
             @foreach($homes->where('home_category_id', 2) as $home)
-                <div class="col-lg-4 col-md-6 portfolio-item filter-sejarahdesa">
+                <div class="col-md-6 portfolio-item filter-sejarahdesa">
                     <div class="portfolio-img"><img src="{{url('storage/images/home/' . $home->image)}}"
                                                     class="img-fluid" alt="{{$home -> title}}">
                     </div>
@@ -52,7 +53,7 @@
             @endforeach
 
             @foreach($homes->where('home_category_id', 3) as $home)
-                <div class="col-lg-4 col-md-6 portfolio-item filter-profildesa">
+                <div class="col-md-6 portfolio-item filter-profildesa">
                     <div class="portfolio-img"><img src="{{url('storage/images/home/' . $home->image)}}"
                                                     class="img-fluid" alt="{{$home -> title}}">
                     </div>
@@ -69,9 +70,9 @@
             @endforeach
 
             @foreach($homes->where('home_category_id', 4) as $home)
-                <div class="col-lg-4 col-md-6 portfolio-item filter-wilayahdesa">
-                    <div class="portfolio-img"><img src="{{asset('Front/img/portfolio/portfolio-1.jpg')}}"
-                                                    class="img-fluid" alt="">
+                <div class="col-md-6 portfolio-item filter-wilayahdesa">
+                    <div class="portfolio-img"><img src="{{url('storage/images/home/' . $home->image)}}"
+                                                    class="img-fluid" alt="{{$home -> title}}">
                     </div>
                     <div class="portfolio-info">
                         <h4>{{$home -> title}}</h4>
@@ -84,7 +85,7 @@
                     </div>
                 </div>
             @endforeach
-        </div>
 
+        </div>
     </div>
 </section>

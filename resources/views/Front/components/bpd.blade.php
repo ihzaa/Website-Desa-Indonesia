@@ -8,7 +8,7 @@
         <div class="row justify-content-center">
             @if(count($bpds) !== 0)
                 @foreach($bpds as $bpd)
-                    <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-lg-3 col-md-5 col-9" data-aos="fade-up" data-aos-delay="100">
                         <div class="card mb-5 mb-lg-0">
                             <div class="card-body">
                                 <h4 class="card-title text-muted text-uppercase text-center">{{$bpd->nama}}</h4>
@@ -16,7 +16,7 @@
                                 <div class="row justify-content-center">
                                     <img class="img-fluid"
                                          src="{{url('storage/images/bpd/' . $bpd->photo)}}"
-                                         style="width: 70%;height: 12rem;object-fit: cover;" alt="{{$bpd->nama}}">
+                                         style="width: 70%;height: 12rem;object-fit: scale-down;" alt="{{$bpd->nama}}">
                                 </div>
                                 <hr class="mb-3">
                                 <div class="text-center">
