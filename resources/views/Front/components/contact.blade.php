@@ -31,7 +31,7 @@
                     </div>
 
                     <iframe
-                        src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=sangen+(My%20Business%20Name)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                        src="{!! $setting->maps !!}"
                         frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
                 </div>
 

@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
         DB::table('settings')->insert([
             'nama_desa' => 'Default',
             'kecamatan' => 'Default',
-            'kabupaten' => 'Default',
+            'kabupaten' => 'Kota Default',
             'alamat_lengkap' => 'Jl.Default',
             'no_wa' => '089512312312',
             'no_telepon' => '032112312312',

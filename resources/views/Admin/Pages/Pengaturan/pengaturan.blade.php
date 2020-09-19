@@ -47,9 +47,27 @@
                                 </div>
                                 <div class="col">
                                     <label for="namakabupaten">Nama Kabupaten / Kota</label>
-                                    <input type="text" class="form-control" id="namakabupaten"
-                                           placeholder="Kabupaten / Kota" name="kabupaten"
-                                           value="{{$setting->kabupaten}}" required>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <select class="form-control mr-sm-2" id="namakabupaten" name="clskabupaten">
+                                                <option value="Kota"
+                                                        @if(explode(' ', $setting->kabupaten)[0] === 'Kota')
+                                                        selected
+                                                    @endif
+                                                >Kota
+                                                </option>
+                                                <option value="Kabupaten"
+                                                        @if(explode(' ', $setting->kabupaten)[0] === 'Kabupaten')
+                                                        selected
+                                                    @endif
+                                                >Kabupaten
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <input type="text" class="form-control" id="namakabupaten"
+                                               placeholder="Kabupaten / Kota" name="kabupaten"
+                                               value="{{explode(' ', $setting->kabupaten)[1]}}" required>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -70,6 +88,9 @@
                             <label for="alamat" class="mt-3">Alamat Lengkap</label>
                             <textarea type="text" class="form-control" id="alamat" name="alamat_lengkap" rows="10"
                                       placeholder="Alamat Lengkap" required>{{$setting->alamat_lengkap}}</textarea>
+                            <label for="maps" class="mt-3">IFrame Maps</label>
+                            <textarea type="text" class="form-control" id="alamat" name="maps" rows="10"
+                                      placeholder="IFrame Maps" required>{{$setting->maps}}</textarea>
                         </div>
                     </div>
                     <div class="card-footer">

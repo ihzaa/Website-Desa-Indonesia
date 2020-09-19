@@ -25,11 +25,12 @@ class SettingsController extends Controller
             ->update([
                 'nama_desa' => $request->nama_desa,
                 'kecamatan' => $request->kecamatan,
-                'kabupaten' => $request->kabupaten,
+                'kabupaten' => $request->clskabupaten . ' ' . $request->kabupaten,
                 'alamat_lengkap' => $request->alamat_lengkap,
                 'no_wa' => $request->no_wa,
                 'no_telepon' => $request->no_telepon,
                 'email' => $request->email,
+                'maps' => $request->maps
             ]);
 
         return redirect()->back()->with('status', 'Data Berhasil Diupdate');

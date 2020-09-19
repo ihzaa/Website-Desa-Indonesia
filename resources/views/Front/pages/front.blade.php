@@ -12,14 +12,23 @@
                 <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
                      data-aos="fade-up" data-aos-delay="200">
                     <div class="row justify-content-center justify-content-lg-start mt-3">
-                        <img src="{{url('storage/images/logo') . "/" . $setting->logo_kabupaten}}" alt="Logo Madiun"
-                             class="img-fluid"
-                             style="max-height: 80px">
-                        <img src="{{asset('Logo/logo_garuda.png')}}" alt="Logo Garuda" class="img-fluid ml-5"
-                             style="max-height: 80px">
-                        <img src="{{url('storage/images/logo') . "/" . $setting->logo_maskot}}" alt="Logo Silat"
-                             class="img-fluid ml-5"
-                             style="max-height: 80px">
+                        @if($setting->logo_kabupaten !== null)
+                            <img src="{{url('storage/images/logo') . "/" . $setting->logo_kabupaten}}" alt="Logo Madiun"
+                                 class="img-fluid"
+                                 style="max-height: 80px">
+                        @endif
+                        @if($setting->logo_kabupaten !== null)
+                            <img src="{{asset('Logo/logo_garuda.png')}}" alt="Logo Garuda" class="img-fluid ml-5"
+                                 style="max-height: 80px">
+                        @else
+                            <img src="{{asset('Logo/logo_garuda.png')}}" alt="Logo Garuda" class="img-fluid"
+                                 style="max-height: 80px">
+                        @endif
+                        @if($setting->logo_maskot !== null)
+                            <img src="{{url('storage/images/logo') . "/" . $setting->logo_maskot}}" alt="Logo Silat"
+                                 class="img-fluid ml-5"
+                                 style="max-height: 80px">
+                        @endif
                     </div>
                     <h1 class="mt-4">Desa {{$setting->nama_desa}}</h1>
                     <h2>Layanan Sistem Informasi dan Manajemen Tata Kelola Desa {{$setting->nama_desa}},

@@ -25,22 +25,14 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18c1ceb2-349f-4add-9a9a-b07e9962f6f2" name="Default Changelist" comment="Responsive perangkatdesa,bpd. Fixing class navbar">
-      <change afterPath="$PROJECT_DIR$/resources/views/Admin/Pages/Pengaturan/pengaturan.blade.php" afterDir="false" />
+    <list default="true" id="18c1ceb2-349f-4add-9a9a-b07e9962f6f2" name="Default Changelist" comment="Jalankan php artisan migrate:fresh --seed. Add Feature General Setting">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/FrontController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/FrontController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/SettingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/SettingsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_19_143205_create_settings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_19_143205_create_settings_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Template/Components/Sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Template/Components/Sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Template/all.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Template/all.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Front/components/bpd.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/components/bpd.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/Pages/Pengaturan/pengaturan.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/Pages/Pengaturan/pengaturan.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Front/components/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/components/contact.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Front/components/cta.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/components/cta.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Front/components/grafikpertumbuhan.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/components/grafikpertumbuhan.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Front/components/perangkatdesa.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/components/perangkatdesa.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Front/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/master.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Front/pages/front.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Front/pages/front.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web-augie.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web-augie.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,7 +234,7 @@
       <workItem from="1600411448495" duration="7065000" />
       <workItem from="1600448542520" duration="54000" />
       <workItem from="1600479057392" duration="1382000" />
-      <workItem from="1600488464079" duration="19194000" />
+      <workItem from="1600488464079" duration="22473000" />
     </task>
     <task id="LOCAL-00001" summary="conflict">
       <created>1599661331865</created>
@@ -363,7 +355,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600499718457</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Jalankan php artisan migrate:fresh --seed. Add Feature General Setting">
+      <created>1600527258782</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1600527258782</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -397,17 +396,18 @@
     <MESSAGE value="Conflict kok terus, ndak mblenger aa pean" />
     <MESSAGE value="innitttt" />
     <MESSAGE value="Responsive perangkatdesa,bpd. Fixing class navbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Responsive perangkatdesa,bpd. Fixing class navbar" />
+    <MESSAGE value="Jalankan php artisan migrate:fresh --seed. Add Feature General Setting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Jalankan php artisan migrate:fresh --seed. Add Feature General Setting" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600526477588">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600526477588" />
-    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog" timestamp="1600501120651">
+    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog" timestamp="1600531399179">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600501120651" />
+    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600531399179" />
     <state x="1220" y="275" key="FileChooserDialogImpl" timestamp="1600445494663">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -428,10 +428,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="922" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599981863237" />
-    <state x="1009" y="252" key="Vcs.Push.Dialog.v2" timestamp="1600499754566">
+    <state x="1009" y="252" key="Vcs.Push.Dialog.v2" timestamp="1600527272904">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1009" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600499754566" />
+    <state x="1009" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600527272904" />
     <state x="668" y="172" key="VcsDiffUtil.ChangesDialog" timestamp="1600210319097">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -18,12 +18,13 @@ class CreateSettingsTable extends Migration
             $table->string('nama_desa')->nullable();
             $table->string('kecamatan')->nullable();
             $table->string('kabupaten')->nullable();
-            $table->string('alamat_lengkap')->nullable();
+            $table->text('alamat_lengkap')->nullable();
             $table->string('no_wa')->nullable();
             $table->string('no_telepon')->nullable();
             $table->string('email')->nullable();
             $table->string('logo_kabupaten')->nullable();
             $table->string('logo_maskot')->nullable();
+            $table->text('maps')->nullable();
             $table->timestamps();
         });
     }
