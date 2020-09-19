@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class KegiatanPosyandu extends Model
 {
@@ -17,7 +18,7 @@ class KegiatanPosyandu extends Model
 
     public function getPathLogoAttribute()
     {
-        return 'storage/' . $this->thumbnail;
+        return Storage::url($this->thumbnail);
     }
 
     public function delete_photo()

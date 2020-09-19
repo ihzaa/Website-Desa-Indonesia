@@ -33,7 +33,7 @@ class PosyanduController extends Controller
             'logo_posyandu' => 'mimes:jpeg,jpg,png|max:2000'
         ]);
 
-        $path = $request->file('logo_posyandu')->store('images');
+        $path = $request->file('logo_posyandu')->store('public/images');
 
         Posyandu::create([
             'logo_posyandu' => $path,
@@ -70,7 +70,7 @@ class PosyanduController extends Controller
                 'logo_posyandu' => 'mimes:jpeg,jpg,png|max:2000'
             ]);
             $pos->delete_photo();
-            $path = $request->file('logo_posyandu')->store('images');
+            $path = $request->file('logo_posyandu')->store('public/images');
             $pos->update(['logo_posyandu' => $path]);
         }
         $pos->update(['nama_posyandu' => $request->nama_posyandu]);

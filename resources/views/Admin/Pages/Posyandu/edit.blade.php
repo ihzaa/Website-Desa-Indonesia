@@ -126,7 +126,7 @@
                     </div>
                     <div class="form-group">
                         <label>Logo Posyandu</label><br>
-                        <img src="{{asset($posyandu->path_logo)}}" style="max-width: 200px; max-width: 200px;" alt="User Image">
+                        <img src="{{$posyandu->path_logo}}" style="max-width: 200px; max-width: 200px;" alt="User Image">
                     </div>
                     <div class="form-group">
                         <label>Update Logo (Maximal 2MB)</label>

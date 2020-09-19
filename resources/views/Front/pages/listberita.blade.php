@@ -4,7 +4,7 @@
 
 @section('main')
 <!-- ======= Breadcrumbs ======= -->
-<section id="breadcrumbs" class="breadcrumbs" style="margin-bottom: 80px;">
+<section id="breadcrumbs" class="breadcrumbs">
     <div class="container">
         <ol>
             <li><a href="{{route('front_dashboard')}}">Home</a></li>
@@ -15,12 +15,12 @@
 </section><!-- End Breadcrumbs -->
 
 
-<section class="inner-page team" data-aos="400" style="margin-top: -75px;">
+<section class="inner-page berita mt-1" data-aos="400" style="margin-top: -75px;">
     <div class="container" data-aos="fade-up">
         <div class="row">
             @foreach($berita as $data)
             <div class=" col-lg-6 col-md-6 p-3">
-                <div class="member align-items-start" data-aos="zoom-in" data-aos-delay="400">
+                <div class="detailberita align-items-start" data-aos="zoom-in" data-aos-delay="400">
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-6">
                             <img src="{{Storage::url('images/berita/thumbnails')}}/{{$data->thumbnail_berita}}" alt=""
