@@ -25,9 +25,9 @@ class FrontController extends Controller
         $pria = Penduduk::where('jenis_kelamin', 'laki-laki')->get();
         $wanita = Penduduk::where('jenis_kelamin', 'perempuan')->get();
         $kematians = Penduduk::where('id_kematian', '!=', null)->get();
-        
 
-       
+
+
         $posyandus = Posyandu::all();
         $homes = Home::with([
             'home_category'
