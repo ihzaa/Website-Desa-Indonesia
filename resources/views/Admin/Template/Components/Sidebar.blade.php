@@ -87,6 +87,17 @@
                     </a>
                 </li>
 
+
+                <li class="nav-item">
+                    <a href="{{route('admin_transparansi_index')}}"
+                       class="nav-link {{request()->is('*transparansi*')? 'active':''}}">
+                        <i class="nav-icon fas fa-money-bill-wave"></i></i>
+                        <p>
+                            Transparansi Desa
+                        </p>
+                    </a>
+                </li>
+
                 <li class="nav-header">LAYANAN ADMINISTRATIF</li>
                 <li class="nav-item">
                     <a href="{{route('data_kk_index')}}"
