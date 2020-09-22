@@ -9,6 +9,8 @@ class SisaPendapatanDesa extends Model
 {
     use SoftDeletes;
 
+    protected $fillable=['sisa_pendapatan'];
+
     public function transpransidesa(){
         return $this->hasMany(TransparansiDanaDesa::class);
     }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBelanjaDesaTable extends Migration
+class CreatePendapatanDesaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,9 @@ class CreateBelanjaDesaTable extends Migration
      */
     public function up()
     {
-        Schema::create('belanja_desas', function (Blueprint $table) {
+        Schema::create('pendapatan_desas', function (Blueprint $table) {
             $table->increments('id');
-            $table->bigInteger('total_belanja');
-            $table->integer('jenis_belanja_id')
-            ->unsigned();
-            $table->foreign('jenis_belanja_id')
-            ->references('id')
-            ->on('jenis_belanjas')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
+            $table->bigInteger('total_pendapatan');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -35,6 +28,6 @@ class CreateBelanjaDesaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('belanja_desas');
+        Schema::dropIfExists('pendapatan_desas');
     }
 }

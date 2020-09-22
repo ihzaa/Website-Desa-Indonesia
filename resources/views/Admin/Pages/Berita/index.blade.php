@@ -96,7 +96,7 @@
             "autoWidth": false
         });
 
-        $(".deleteModal").click(function (e) {
+        $(document).on("click", ".deleteModal", function(){
             let id = $(this).attr("id")
             $('#formDelete').attr('action', '/4dm1n/berita/' + id)
         });

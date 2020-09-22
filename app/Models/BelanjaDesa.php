@@ -8,11 +8,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class BelanjaDesa extends Model
 {
     use SoftDeletes;
+    protected $fillable=['total_belanja', 'jenis_belanja_id'];
+
     public function jenisbelanja(){
-        return $this->belongsTo(JenisBelanja::class);
+        return $this->hasMany(JenisBelanja::class);
     }
 
-    public function transpransidesa(){
+    public function transparansidesa(){
         return $this->hasMany(TransparansiDanaDesa::class);
     }
 }

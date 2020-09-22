@@ -17,6 +17,12 @@ class CreateJenisBelanjaTable extends Migration
             $table->increments('id');
             $table->text('jenis_belanja');
             $table->bigInteger('nominal_belanja');
+            $table->integer('belanja_desa_id')->unsigned();
+            $table->foreign('belanja_desa_id')
+            ->references('id')
+            ->on('belanja_desas')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

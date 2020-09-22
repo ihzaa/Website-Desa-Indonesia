@@ -17,6 +17,12 @@ class CreateJenisPembiayaanTable extends Migration
             $table->increments('id');
             $table->text('jenis_pembiayaan');
             $table->bigInteger('nominal_pembiayaan');
+            $table->integer('pembiayaan_desa_id')->unsigned();
+            $table->foreign('pembiayaan_desa_id')
+            ->references('id')
+            ->on('pembiayaan_desas')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

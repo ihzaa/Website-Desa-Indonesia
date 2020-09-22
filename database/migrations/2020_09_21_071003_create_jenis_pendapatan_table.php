@@ -17,6 +17,12 @@ class CreateJenisPendapatanTable extends Migration
             $table->increments('id');
             $table->text('jenis_pendapatan');
             $table->bigInteger('nominal_pendapatan');
+            $table->integer('pendapatan_desa_id')->unsigned();
+            $table->foreign('pendapatan_desa_id')
+            ->references('id')
+            ->on('pendapatan_desas')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

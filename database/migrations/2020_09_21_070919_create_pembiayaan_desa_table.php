@@ -16,13 +16,6 @@ class CreatePembiayaanDesaTable extends Migration
         Schema::create('pembiayaan_desas', function (Blueprint $table) {
             $table->increments('id');
             $table->bigInteger('total_pembiayaan');
-            $table->integer('jenis_pembiayaan_id')
-            ->unsigned();
-            $table->foreign('jenis_pembiayaan_id')
-            ->references('id')
-            ->on('jenis_pembiayaans')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

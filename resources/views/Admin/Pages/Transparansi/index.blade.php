@@ -56,16 +56,17 @@
             <tbody>
                 @foreach($transparansi as $data)
                 <tr>
+
                     <td>{{$loop->iteration}}</td>
                     <td>{{$data->tahun}}</td>
-                    <td>{{$data->sisa_pendapatan_id != null ? $data->sisa_pendapatan_id : 'Data belum dikelola' }}</td>
-                    <td>{{$data->pendapatan_desa_id != null ? $data->pendapatan_desa_id : 'Data belum dikelola' }}</td>
-                    <td>{{$data->pembiayaan_desa_id != null ? $data->pembiayaan_desa_id : 'Data belum dikelola' }}</td>
-                    <td>{{$data->belanja_desa_id != null ? $data->belanja_desa_id : 'Data belum dikelola' }}</td>
+                    <td>{{$data->sisapendapatan->total_sisa_pendapatan != null ? $data->sisapendapatan->sisa_pendapatan : 'Data belum dikelola' }}</td>
+                    <td>{{$data->pendapatandesa->total_pendapatan != null ? $data->pendapatandesa->total_pendapatan : 'Data belum dikelola' }}</td>
+                    <td>{{$data->pembiayaandesa->total_pembiayaan != null ? $data->pembiayaandesa->total_pembiayaan : 'Data belum dikelola' }}</td>
+                    <td>{{$data->belanjadesa->total_belanja != null ? $data->belanjadesa->total_belanja : 'Data belum dikelola' }}</td>
                     <td>
-                        <a href="{{route('admin_transparansi_edit', $data->id)}}" class="btn btn-warning">Kelola Data</a>
-                        <button class="btn btn-danger ml-2 deleteModal" data-toggle="modal" data-target="#deleteModal"
-                            id="{{$data->id}}">Hapus</button>
+                        <a href="{{route('admin_kelola_transparansi', $data->id)}}" class="btn btn-warning">Kelola Data</button>
+                        <a class="btn btn-danger ml-2 deleteModal text-white" data-toggle="modal" data-target="#deleteModal"
+                            id="{{$data->id}}">Hapus</a>
                     </td>
                 </tr>
                 @endforeach
@@ -92,7 +93,7 @@
                         <label for="tahun">Tahun</label>
                         <div class="input-group date" data-target-input="nearest">
                             <input type="text" name="tahun" id="tahun" class="form-control datetimepicker-input"
-                                data-target="#tahun" data-toggle="datetimepicker" required autocomplete="off"/>
+                                data-target="#tahun" data-toggle="datetimepicker" required autocomplete="off" />
                             <div class="input-group-append" data-target="#tahun" data-toggle="datetimepicker">
                                 <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
                             </div>
@@ -101,7 +102,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-light" data-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-success">Kirim Data</button>
+                    <button type="submit" class="btn btn-success">Buat Data</button>
                 </div>
             </form>
         </div>
@@ -134,6 +135,8 @@
     </div>
 </div>
 
+
+
 @endsection
 
 @section('js_after')
@@ -152,7 +155,7 @@
 
         $(".deleteModal").click(function (e) {
             let id = $(this).attr("id")
-            $('#formDelete').attr('action', '/4dm1n/berita/' + id)
+            $('#formDelete').attr('action', '/4dm1n/transparansi/' + id)
         });
 
         window.setTimeout(function () {

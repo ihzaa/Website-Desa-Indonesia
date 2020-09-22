@@ -15,7 +15,7 @@ class CreateTransparansiDanaDesaTable extends Migration
     {
         Schema::create('transparansi_dana_desas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('tahun');
+            $table->integer('tahun')->unique();
 
             $table->integer('sisa_pendapatan_id')
             ->unsigned()->nullable();

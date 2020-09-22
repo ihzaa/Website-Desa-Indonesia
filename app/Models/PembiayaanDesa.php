@@ -9,12 +9,13 @@ class PembiayaanDesa extends Model
 {
 
     use SoftDeletes;
+    protected $fillable=['total_pembiayaan', 'jenis_pembiayaan_id'];
 
     public function jenispembiayaan(){
-        return $this->belongsTo(JenisPembiayaan::class);
+        return $this->hasMany(JenisPembiayaan::class);
     }
 
-    public function transpransidesa(){
+    public function transparansidesa(){
         return $this->hasMany(TransparansiDanaDesa::class);
     }
 }
