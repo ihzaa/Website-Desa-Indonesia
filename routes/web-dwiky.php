@@ -21,6 +21,8 @@ Route::namespace ('Admin')->middleware('auth:admin')->group(function () {
         'update' => 'admin_transparansi_update',
     ]);
 
+    Route::post('4dm1n/transparansi/switch/{id}', 'TransparansiController@SwitchToggle')->name('admin_transparansi_toggle');
+    
     Route::prefix('4dm1n/transparansi/kelola/{id}')->group(function () {
         Route::get('', 'TransparansiController@KelolaTransparansi')->name('admin_kelola_transparansi');
         Route::prefix('pendapatan')->group(function(){

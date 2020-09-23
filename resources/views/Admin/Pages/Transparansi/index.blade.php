@@ -9,6 +9,7 @@
 
 @section('css_before')
 <link rel="stylesheet" href="{{asset('Admin/plugins/tempusdominus/tempusdominus.min.css')}}">
+<link rel="stylesheet" href="{{asset('Admin/plugins/bootstrap-toggle/bootstrap-toggle.min.css')}}">
 @endsection
 
 @section('content')
@@ -45,12 +46,13 @@
             <thead>
                 <tr>
                     <th width="5%">#</th>
-                    <th width="6%">Tahun</th>
-                    <th style="width: 200px;">Sisa Pendapatan</th>
-                    <th style="width: 200px;">Pendapatan Desa</th>
-                    <th style="width: 200px;">Pembiayaan Desa</th>
-                    <th style="width: 200px;">Belanja Desa</th>
-                    <th style="width: 150px;">Action</th>
+                    <th width="5%">Tahun</th>
+                    <th width="10%">Publikasi</th>
+                    <th width="15%">Sisa Pendapatan</th>
+                    <th width="15%">Pendapatan Desa</th>
+                    <th width="15%">Pembiayaan Desa</th>
+                    <th width="15%">Belanja Desa</th>
+                    <th style="width: 20%;">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -59,14 +61,28 @@
 
                     <td>{{$loop->iteration}}</td>
                     <td>{{$data->tahun}}</td>
-                    <td>{{$data->sisapendapatan->total_sisa_pendapatan != null ? $data->sisapendapatan->sisa_pendapatan : 'Data belum dikelola' }}</td>
-                    <td>{{$data->pendapatandesa->total_pendapatan != null ? $data->pendapatandesa->total_pendapatan : 'Data belum dikelola' }}</td>
-                    <td>{{$data->pembiayaandesa->total_pembiayaan != null ? $data->pembiayaandesa->total_pembiayaan : 'Data belum dikelola' }}</td>
-                    <td>{{$data->belanjadesa->total_belanja != null ? $data->belanjadesa->total_belanja : 'Data belum dikelola' }}</td>
                     <td>
-                        <a href="{{route('admin_kelola_transparansi', $data->id)}}" class="btn btn-warning">Kelola Data</button>
-                        <a class="btn btn-danger ml-2 deleteModal text-white" data-toggle="modal" data-target="#deleteModal"
-                            id="{{$data->id}}">Hapus</a>
+                        <form action="{{route('admin_transparansi_toggle', $data->id)}}" id="formToggle" method="POST">
+                            @csrf
+                            <input type="checkbox" name="is_active" id="switchToggle" class="switchToggle"
+                                {{$data->is_active == 0? '': 'checked'}} data-toggle="toggle" data-on="Aktif"
+                                data-off="Nonaktif" data-onstyle="success" onChange="this.form.submit()" data-offstyle="danger">
+                        </form>
+                    </td>
+                    <td>{{$data->sisapendapatan->total_sisa_pendapatan != null ? $data->sisapendapatan->sisa_pendapatan : 'Data belum dikelola' }}
+                    </td>
+                    <td>{{$data->pendapatandesa->total_pendapatan != null ? $data->pendapatandesa->total_pendapatan : 'Data belum dikelola' }}
+                    </td>
+                    <td>{{$data->pembiayaandesa->total_pembiayaan != null ? $data->pembiayaandesa->total_pembiayaan : 'Data belum dikelola' }}
+                    </td>
+                    <td>{{$data->belanjadesa->total_belanja != null ? $data->belanjadesa->total_belanja : 'Data belum dikelola' }}
+                    </td>
+                    <td>
+                        <a href="{{route('admin_kelola_transparansi', $data->id)}}" class="btn btn-warning"><i
+                                class="fas fa-tools"></i> &nbsp;Kelola Data</button>
+                            <a class="btn btn-danger ml-2 deleteModal text-white" data-toggle="modal"
+                                data-target="#deleteModal" id="{{$data->id}}"><i class="fas fa-trash"></i>
+                                &nbsp;Hapus</a>
                     </td>
                 </tr>
                 @endforeach
@@ -146,12 +162,15 @@
 <script src="{{asset('Admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
 <script src="{{asset('Admin/plugins/moment/moment.min.js')}}"></script>
 <script src="{{asset('Admin/plugins/tempusdominus/tempusdominus.min.js')}}"></script>
+<script src="{{asset('Admin/plugins/bootstrap-toggle/bootstrap-toggle.min.js')}}"></script>
 <script>
     $(function () {
         $("#dfUsageTable").DataTable({
             "responsive": true,
             "autoWidth": false
         });
+
+
 
         $(".deleteModal").click(function (e) {
             let id = $(this).attr("id")
@@ -169,5 +188,4 @@
         });
     });
 </script>
-
 @endsection

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class TransparansiDanaDesa extends Model
 {
     use SoftDeletes;
-    protected $fillable=['tahun', 'pendapatan_desa_id', 'pembiayaan_desa_id', 'belanja_desa_id', 'sisa_pendapatan_id'];
+    protected $fillable=['tahun', 'is_active', 'pendapatan_desa_id', 'pembiayaan_desa_id', 'belanja_desa_id', 'sisa_pendapatan_id'];
 
     public function sisapendapatan(){
         return $this->belongsTo(SisaPendapatanDesa::class, 'sisa_pendapatan_id');

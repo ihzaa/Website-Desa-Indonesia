@@ -10,6 +10,7 @@ use App\Models\PerangkatDesa;
 use App\Models\Berita;
 use App\Models\QnA;
 use App\Models\Posyandu;
+use App\Models\TransparansiDanaDesa;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 
@@ -22,12 +23,11 @@ class FrontController extends Controller
         $berita = Berita::all()->sortByDesc('id')->take(3);
         $qna = QnA::all();
         $setting = Setting::orderBy('id', 'desc')->first();
-
+        $transparansi=TransparansiDanaDesa::where('is_active', 1)->get();
         $penduduks = Penduduk::all();
         $pria = Penduduk::where('jenis_kelamin', 'laki-laki')->get();
         $wanita = Penduduk::where('jenis_kelamin', 'perempuan')->get();
         $kematians = Penduduk::where('id_kematian', '!=', null)->get();
-
 
         $posyandus = Posyandu::all();
         $homes = Home::with([
@@ -35,7 +35,7 @@ class FrontController extends Controller
         ])->get();
 
         return view('Front.pages.front', compact('homes', 'perangkats', 'bpds', 'berita',
-            'penduduks', 'pria', 'wanita', 'kematians', 'qna','posyandus', 'setting'));
+            'penduduks', 'pria', 'wanita', 'kematians', 'qna','posyandus', 'transparansi', 'setting'));
     }
 
     public function showTentangKami($id)

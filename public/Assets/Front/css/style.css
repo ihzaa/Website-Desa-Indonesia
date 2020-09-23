@@ -778,6 +778,8 @@ section {
     display: none;
 }
 
+
+
 @media (max-width: 1024px) {
     .why-us .content, .why-us .accordion-list {
         padding-left: 0;
@@ -801,6 +803,137 @@ section {
 
 @media (max-width: 575px) {
     .why-us .img {
+        min-height: 200px;
+    }
+}
+
+/*  */
+
+/*--------------------------------------------------------------
+# Why Us
+--------------------------------------------------------------*/
+
+.transparansi .content {
+    padding: 60px 100px 0 100px;
+}
+
+.transparansi .content h3 {
+    font-weight: 400;
+    font-size: 34px;
+    color: #37517e;
+}
+
+.transparansi .content h4 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.transparansi .content p {
+    font-size: 15px;
+    color: #848484;
+}
+
+.transparansi .img {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.transparansi .transparansi-accordion-list {
+    padding: 0 100px 60px 100px;
+}
+
+.transparansi .transparansi-accordion-list ul {
+    padding: 0;
+    list-style: none;
+}
+
+.transparansi .transparansi-accordion-list li + li {
+    margin-top: 15px;
+}
+
+.transparansi .transparansi-accordion-list li {
+    padding: 20px;
+    background: #fff;
+    border-radius: 4px;
+}
+
+.transparansi .transparansi-accordion-list a {
+    display: block;
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    padding-right: 30px;
+    outline: none;
+}
+
+.transparansi .transparansi-accordion-list span {
+    color: #47b2e4;
+    font-weight: 600;
+    font-size: 18px;
+    padding-right: 10px;
+}
+
+.transparansi .transparansi-accordion-list i {
+    font-size: 24px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.transparansi .transparansi-accordion-list p {
+    margin-bottom: 0;
+    padding: 10px 0 0 0;
+}
+
+.transparansi .transparansi-accordion-list .icon-show {
+    display: none;
+}
+
+.transparansi .transparansi-accordion-list a.collapsed {
+    color: #343a40;
+}
+
+.transparansi .transparansi-accordion-list a.collapsed:hover {
+    color: #47b2e4;
+}
+
+.transparansi .transparansi-accordion-list a.collapsed .icon-show {
+    display: inline-block;
+}
+
+.transparansi .transparansi-accordion-list a.collapsed .icon-close {
+    display: none;
+}
+
+
+
+@media (max-width: 1024px) {
+    .transparansi .content, .transparansi .transparansi-accordion-list {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .transparansi .img {
+        min-height: 400px;
+    }
+
+    .transparansi .content {
+        padding-top: 30px;
+    }
+
+    .transparansi .transparansi-accordion-list {
+        padding-bottom: 30px;
+    }
+}
+
+@media (max-width: 575px) {
+    .transparansi .img {
         min-height: 200px;
     }
 }
@@ -1135,7 +1268,7 @@ section {
 /*--------------------------------------------------------------
 # Team
 --------------------------------------------------------------*/
-.berita .detailberita {
+.transparansi .detailtransparansi {
     position: relative;
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
     padding: 30px;
@@ -1144,32 +1277,32 @@ section {
     transition: 0.5s;
   }
 
-  .berita .detailberita .pic {
+  .transparansi .detailtransparansi .pic {
     overflow: hidden;
     width: 180px;
     border-radius: 50%;
   }
 
-  .berita .detailberita .pic img {
+  .transparansi .detailtransparansi .pic img {
     transition: ease-in-out 0.3s;
   }
 
-  .berita .detailberita:hover {
+  .transparansi .detailtransparansi:hover {
     transform: translateY(-10px);
   }
 
-  .berita .detailberita .detailberita-info {
+  .transparansi .detailtransparansi .detailtransparansi-info {
     padding-left: 30px;
   }
 
-  .berita .detailberita h4 {
+  .transparansi .detailtransparansi h4 {
     font-weight: 700;
     margin-bottom: 5px;
     font-size: 20px;
     color: #37517e;
   }
 
-  .berita .detailberita span {
+  .transparansi .detailtransparansi span {
     display: block;
     font-size: 15px;
     padding-bottom: 10px;
@@ -1177,7 +1310,7 @@ section {
     font-weight: 500;
   }
 
-  .berita .detailberita span::after {
+  .transparansi .detailtransparansi span::after {
     content: '';
     position: absolute;
     display: block;
@@ -1188,7 +1321,7 @@ section {
     left: 0;
   }
 
-  .berita .detailberita p {
+  .transparansi .detailtransparansi p {
     margin: 10px 0 0 0;
     font-size: 14px;
   }

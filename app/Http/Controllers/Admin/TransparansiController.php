@@ -45,7 +45,7 @@ class TransparansiController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'tahun' => 'required|max:4|unique:App\Models\TransparansiDanaDesa,tahun',
+            'tahun' => 'required|max:4|unique:App\Models\TransparansiDanaDesa,tahun,NULL,id,deleted_at,NULL',
         ],
             [
                 'tahun.required' => 'Tahun harus diisi.',
@@ -75,6 +75,7 @@ class TransparansiController extends Controller
             'pendapatan_desa_id' => $idPendapatan,
             'pembiayaan_desa_id' => $idPembiayaan,
             'belanja_desa_id' => $idBelanja,
+            ''
         ]);
 
         return redirect()->back()->with('success', 'Berhasil menambahkan data');
@@ -128,6 +129,25 @@ class TransparansiController extends Controller
     {
         TransparansiDanaDesa::find($id)
             ->delete();
+        return redirect()->back()->with('success', 'Berhasil mengubah data');
+    }
+
+    public function SwitchToggle($id, Request $request){
+        if($request->is_active=='on'){
+            TransparansiDanaDesa::find($id)->update([
+                'is_active'=>1
+            ]);
+        }else{
+            TransparansiDanaDesa::find($id)->update([
+                'is_active'=>0
+            ]);
+        }
+        $transparansi=TransparansiDanaDesa::where('id','!=', $id)->get();
+        foreach($transparansi as $data){
+            $data->update([
+                'is_active'=>0
+            ]);
+        }
         return redirect()->back()->with('success', 'Berhasil mengubah data');
     }
 
@@ -339,6 +359,5 @@ class TransparansiController extends Controller
         JenisBelanja::find($id)->delete();
         return redirect()->back()->with('success', 'Berhasil menghapus data');
     }
-
     // END BELANJA
 }

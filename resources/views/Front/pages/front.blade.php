@@ -90,10 +90,10 @@
     <!-- ======= Why Us Section ======= -->
     @include('Front.components.whyus')
     <!-- End Why Us Section -->
-
-    <!-- ======= Pricing Section ======= -->
-    @include('Front.components.pricing')
-    <!-- End Pricing Section -->
+    
+    <!-- ======= Transparansi Section ======= -->
+    @include('Front.components.transparansi')
+    <!-- End Transparansi Section -->
 
     <!-- ======= Frequently Asked Questions Section ======= -->
     @include('Front.components.faq')
