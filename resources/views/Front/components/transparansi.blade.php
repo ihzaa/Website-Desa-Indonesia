@@ -125,19 +125,26 @@
             </div>
 
             <div class="col-lg-6 d-flex flex-column justify-content-center align-items-stretch">
-                <div data-aos="fade-up" data-aos-delay="100" id="chartAll" style="height: 500px;"></div>
-                <div data-aos="fade-up" data-aos-delay="100" id="chartPendapatan" style="height: 500px; display: none;">
-                </div>
-                <div data-aos="fade-up" data-aos-delay="100" id="chartPembiayaan" style="height: 500px; display: none;">
-                </div>
-                <div data-aos="fade-up" data-aos-delay="100" id="chartBelanja" style="height: 500px; display: none;">
-                </div>
+                
+                    <div class="card-header text-center">
+                        Visualisasi Data
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="100" id="chartAll" style="height: 400px;"></div>
+                    <div data-aos="fade-up" data-aos-delay="100" id="chartPendapatan"
+                        style="height: 400px; display: none;">
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="100" id="chartPembiayaan"
+                        style="height: 400px; display: none;">
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="100" id="chartBelanja"
+                        style="height: 400px; display: none;">
+                    </div>
             </div>
         </div>
         @endif
     </div>
 </section>
-    
+
 @section('js_after')
 <!-- Resources -->
 <script src="{{asset('Front/vendor/amchart/core.js')}}"></script>
@@ -168,19 +175,20 @@
         var chart = am4core.create("chartAll", am4charts.PieChart3D);
         chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
         chart.legend = new am4charts.Legend();
+        chart.responsive.enabled = true;
 
         chart.data = [
             {
                 jenis: "Pendapatan Desa (Rp.)",
-                nominal: {{$transparansi->isNotEmpty()? $transparansi[0]-> pendapatandesa -> total_pendapatan : '' }}
+                nominal: {{ $transparansi-> isNotEmpty() ? $transparansi[0] -> pendapatandesa -> total_pendapatan : '' }}
       },
         {
             jenis: "Pembiayaan Desa (Rp.)",
-            nominal: {{ $transparansi->isNotEmpty()? $transparansi[0]-> pembiayaandesa -> total_pembiayaan : '' }}
+            nominal: {{ $transparansi-> isNotEmpty() ? $transparansi[0] -> pembiayaandesa -> total_pembiayaan : '' }}
       },
         {
             jenis: "Belanja Desa (Rp.)",
-            nominal: {{ $transparansi->isNotEmpty()? $transparansi[0]-> belanjadesa -> total_belanja : ''  }}
+            nominal: {{ $transparansi-> isNotEmpty() ? $transparansi[0] -> belanjadesa -> total_belanja : ''  }}
       },    
     ];
 
@@ -210,7 +218,7 @@
         chart.data = [
         @foreach($transparansi as $data)
         @foreach($data -> pendapatandesa -> jenispendapatan as $datas)
-        { !!json_encode($datas -> only('jenis_pendapatan', 'nominal_pendapatan'))!! },
+        {!! json_encode($datas -> only('jenis_pendapatan', 'nominal_pendapatan')) !!},
         @endforeach
         @endforeach
         ];
@@ -242,7 +250,7 @@
         chart.data = [
         @foreach($transparansi as $data)
         @foreach($data -> pembiayaandesa -> jenispembiayaan as $datas)
-        { !!json_encode($datas -> only('jenis_pembiayaan', 'nominal_pembiayaan'))!! },
+        {!! json_encode($datas -> only('jenis_pembiayaan', 'nominal_pembiayaan')) !!},
         @endforeach
         @endforeach
         ];
@@ -274,7 +282,7 @@
         chart.data = [
         @foreach($transparansi as $data)
         @foreach($data -> belanjadesa -> jenisbelanja as $datas)
-        { !!json_encode($datas -> only('jenis_belanja', 'nominal_belanja'))!! },
+        {!! json_encode($datas -> only('jenis_belanja', 'nominal_belanja')) !!},
         @endforeach
         @endforeach
         ];
