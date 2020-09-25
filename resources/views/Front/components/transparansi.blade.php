@@ -272,12 +272,13 @@
       },
     ];
 
-    chart.innerRadius = 100;
+    chart.innerRadius = 85;
 
     var series = chart.series.push(new am4charts.PieSeries3D());
     series.dataFields.value = "nominal";
     series.dataFields.category = "jenis";
     series.hiddenState.properties.endAngle = -90;
+    series.slices.template.cursorOverStyle = am4core.MouseCursorStyle.pointer;
 
 
     }); // end am4core.ready()
@@ -341,7 +342,7 @@
         @endforeach
         ];
 
-        chart.innerRadius = 100;
+        chart.innerRadius = 85;
         chart.exporting.menu = new am4core.ExportMenu();
         chart.exporting.filePrefix = "Visualisasi Data Dana Pendapatan";
 
@@ -349,6 +350,7 @@
         series.dataFields.value = "nominal_pendapatan";
         series.dataFields.category = "jenis_pendapatan";
         series.hiddenState.properties.endAngle = -90;
+        series.slices.template.cursorOverStyle = am4core.MouseCursorStyle.pointer;
 
 
     }); // end am4core.ready()
@@ -414,12 +416,13 @@
         @endforeach
         ];
 
-        chart.innerRadius = 100;
+        chart.innerRadius = 85;
 
         var series = chart.series.push(new am4charts.PieSeries3D());
         series.dataFields.value = "nominal_pembiayaan";
         series.dataFields.category = "jenis_pembiayaan";
         series.hiddenState.properties.endAngle = -90;
+        series.slices.template.cursorOverStyle = am4core.MouseCursorStyle.pointer;
 
 
     }); // end am4core.ready()
@@ -484,12 +487,13 @@
         @endforeach
         ];
 
-        chart.innerRadius = 100;
+        chart.innerRadius = 85;
 
         var series = chart.series.push(new am4charts.PieSeries3D());
         series.dataFields.value = "nominal_belanja";
         series.dataFields.category = "jenis_belanja";
         series.hiddenState.properties.endAngle = -90;
+        series.slices.template.cursorOverStyle = am4core.MouseCursorStyle.pointer;
 
 
     }); // end am4core.ready()
