@@ -97,7 +97,7 @@
                             <td>{{$datas->id}}</td>
                             <td>{{$loop->iteration}}</td>
                             <td class="jenis_pendapatan">{{$datas->jenis_pendapatan}}</td>
-                            <td class="nominal_pendapatan">Rp. {{$datas->nominal_pendapatan}}</td>
+                            <td class="nominal_pendapatan">Rp. {{number_format($datas->nominal_pendapatan,0,'','.')}}</td>
                             <td>
                                 <button class="btn btn-warning editPendapatan" data-value="{{$datas->id}}">Edit</button>
                                 <button class="btn btn-danger deleteModalPendapatan" data-toggle="modal"
@@ -141,7 +141,7 @@
                             <td>{{$datas->id}}</td>
                             <td>{{$loop->iteration}}</td>
                             <td class="jenis_pembiayaan">{{$datas->jenis_pembiayaan}}</td>
-                            <td class="nominal_pembiayaan">Rp. {{$datas->nominal_pembiayaan}}</td>
+                            <td class="nominal_pembiayaan">Rp. {{number_format($datas->nominal_pembiayaan,0,'','.')}}</td>
                             <td>
                                 <button class="btn btn-warning editPembiayaan" data-value="{{$datas->id}}">Edit</button>
                                 <button class="btn btn-danger deleteModalPembiayaan" data-toggle="modal"
@@ -186,7 +186,7 @@
                             <td>{{$datas->id}}</td>
                             <td>{{$loop->iteration}}</td>
                             <td class="jenis_belanja">{{$datas->jenis_belanja}}</td>
-                            <td class="nominal_belanja">Rp. {{$datas->nominal_belanja}}</td>
+                            <td class="nominal_belanja">Rp. {{number_format($datas->nominal_belanja,0,'','.')}}</td>
                             <td>
                                 <button class="btn btn-warning editBelanja" data-value="{{$datas->id}}">Edit</button>
                                 <button class="btn btn-danger deleteModalBelanja" data-toggle="modal"

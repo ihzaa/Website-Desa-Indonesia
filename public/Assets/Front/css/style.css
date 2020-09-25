@@ -844,6 +844,10 @@ section {
     padding: 0 100px 60px 100px;
 }
 
+.transparansi .transparansi-chart {
+    padding: 0 100px 0 0;
+}
+
 .transparansi .transparansi-accordion-list ul {
     padding: 0;
     list-style: none;
@@ -915,6 +919,10 @@ section {
     .transparansi .content, .transparansi .transparansi-accordion-list {
         padding-left: 0;
         padding-right: 0;
+    }
+
+    .transparansi .transparansi-chart {
+        padding: 0 12px 0 12px;
     }
 }
 

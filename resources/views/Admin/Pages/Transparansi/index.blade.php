@@ -69,13 +69,13 @@
                                 data-off="Nonaktif" data-onstyle="success" onChange="this.form.submit()" data-offstyle="danger">
                         </form>
                     </td>
-                    <td>{{$data->sisapendapatan->total_sisa_pendapatan != null ? $data->sisapendapatan->sisa_pendapatan : 'Data belum dikelola' }}
+                    <td>{{$data->sisapendapatan->total_sisa_pendapatan != null ? "Rp. ".number_format($data->sisapendapatan->sisa_pendapatan,0,'','.') : 'Data belum dikelola' }}
                     </td>
-                    <td>{{$data->pendapatandesa->total_pendapatan != null ? $data->pendapatandesa->total_pendapatan : 'Data belum dikelola' }}
+                    <td>{{$data->pendapatandesa->total_pendapatan != null ? "Rp. ".number_format($data->pendapatandesa->total_pendapatan,0,'','.') : 'Data belum dikelola' }}
                     </td>
-                    <td>{{$data->pembiayaandesa->total_pembiayaan != null ? $data->pembiayaandesa->total_pembiayaan : 'Data belum dikelola' }}
+                    <td>{{$data->pembiayaandesa->total_pembiayaan != null ? "Rp. ".number_format($data->pembiayaandesa->total_pembiayaan,0,'','.') : 'Data belum dikelola' }}
                     </td>
-                    <td>{{$data->belanjadesa->total_belanja != null ? $data->belanjadesa->total_belanja : 'Data belum dikelola' }}
+                    <td>{{$data->belanjadesa->total_belanja != null ? "Rp. ".number_format($data->belanjadesa->total_belanja,0,'','.') : 'Data belum dikelola' }}
                     </td>
                     <td>
                         <a href="{{route('admin_kelola_transparansi', $data->id)}}" class="btn btn-warning"><i
@@ -150,9 +150,6 @@
         </div>
     </div>
 </div>
-
-
-
 @endsection
 
 @section('js_after')

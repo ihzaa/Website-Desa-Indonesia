@@ -19,7 +19,7 @@
                         <div class="form-group">
                             <label for="jenis_pendapatan">Jenis Pendapatan</label>
                             <textarea name="jenis_pendapatan" id="jenis_pendapatan" cols="30" rows="3"
-                                class="form-control required"></textarea>
+                                class="form-control" required></textarea>
                         </div>
                         <div class="form-group">
                             <label for="jenis_pendapatan">Nominal Pendapatan</label>
@@ -28,7 +28,7 @@
                                     <span class="input-group-text">Rp. </span>
                                 </div>
                                 <input name="nominal_pendapatan" type="number" id="nominal_pendapatan"
-                                    class="form-control required">
+                                    class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Tambah Data Pendapatan</h5>
+                <h5 class="modal-title">Edit Data Pendapatan</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

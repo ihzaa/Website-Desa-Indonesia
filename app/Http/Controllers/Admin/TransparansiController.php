@@ -75,7 +75,7 @@ class TransparansiController extends Controller
             'pendapatan_desa_id' => $idPendapatan,
             'pembiayaan_desa_id' => $idPembiayaan,
             'belanja_desa_id' => $idBelanja,
-            ''
+            '',
         ]);
 
         return redirect()->back()->with('success', 'Berhasil menambahkan data');
@@ -132,20 +132,21 @@ class TransparansiController extends Controller
         return redirect()->back()->with('success', 'Berhasil mengubah data');
     }
 
-    public function SwitchToggle($id, Request $request){
-        if($request->is_active=='on'){
+    public function SwitchToggle($id, Request $request)
+    {
+        if ($request->is_active == 'on') {
             TransparansiDanaDesa::find($id)->update([
-                'is_active'=>1
+                'is_active' => 1,
             ]);
-        }else{
+        } else {
             TransparansiDanaDesa::find($id)->update([
-                'is_active'=>0
+                'is_active' => 0,
             ]);
         }
-        $transparansi=TransparansiDanaDesa::where('id','!=', $id)->get();
-        foreach($transparansi as $data){
+        $transparansi = TransparansiDanaDesa::where('id', '!=', $id)->get();
+        foreach ($transparansi as $data) {
             $data->update([
-                'is_active'=>0
+                'is_active' => 0,
             ]);
         }
         return redirect()->back()->with('success', 'Berhasil mengubah data');
@@ -194,19 +195,8 @@ class TransparansiController extends Controller
             'pendapatan_desa_id' => $idPendapatanDesa,
         ]);
 
-        $calculate = JenisPendapatan::whereHas('pendapatandesa', function ($q) use ($id) {
-            $q->whereHas('transparansidesa', function ($q) use ($id) {
-                $q->where('id', $id);
-            });
-        })->get();
-        $sum = 0;
-        foreach ($calculate as $data) {
-            $sum += $data->nominal_pendapatan;
-        }
-        PendapatanDesa::find($idPendapatanDesa)
-            ->update([
-                'total_pendapatan' => $sum,
-            ]);
+        $this->PendapatanDesa($idPendapatanDesa);
+
         return redirect()->back()->with('success', 'Data berhasil ditambahkan.');
     }
 
@@ -225,12 +215,17 @@ class TransparansiController extends Controller
             'jenis_pendapatan' => $request->jenis_pendapatan,
             'nominal_pendapatan' => $request->nominal_pendapatan,
         ]);
+        $idPendapatanDesa = JenisPendapatan::where('id',$id)->first()->pendapatan_desa_id;
+        $this->PendapatanDesa($idPendapatanDesa);
+
         return redirect()->back()->with('success', 'Berhasil mengubah data');
     }
 
     public function DestroyPendapatan(Request $request, $id)
     {
+        $idPendapatanDesa = JenisPendapatan::where('id',$id)->first()->pendapatan_desa_id;
         JenisPendapatan::find($id)->delete();
+        $this->PendapatanDesa($idPendapatanDesa);
         return redirect()->back()->with('success', 'Berhasil menghapus data');
     }
 
@@ -256,19 +251,7 @@ class TransparansiController extends Controller
             'pembiayaan_desa_id' => $idPembiayaanDesa,
         ]);
 
-        $calculate = JenisPembiayaan::whereHas('pembiayaandesa', function ($q) use ($id) {
-            $q->whereHas('transparansidesa', function ($q) use ($id) {
-                $q->where('id', $id);
-            });
-        })->get();
-        $sum = 0;
-        foreach ($calculate as $data) {
-            $sum += $data->nominal_pembiayaan;
-        }
-        PembiayaanDesa::find($idPembiayaanDesa)
-            ->update([
-                'total_pembiayaan' => $sum,
-            ]);
+        $this->PembiayaanDesa($idPembiayaanDesa);
         return redirect()->back()->with('success', 'Data berhasil ditambahkan.');
     }
 
@@ -283,16 +266,23 @@ class TransparansiController extends Controller
                 'nominal_pembiayaan.require' => 'Data tidak boleh kosong',
                 'nominal_pembiayaan.numeric' => 'Data harus berupa angka',
             ]);
+
+            $idPembiayaanDesa = JenisPembiayaan::where('id',$id)->first()->pembiayaan_desa_id;
+
         JenisPembiayaan::find($id)->update([
             'jenis_pembiayaan' => $request->jenis_pembiayaan,
             'nominal_pembiayaan' => $request->nominal_pembiayaan,
         ]);
+
+        $this->PembiayaanDesa($idPembiayaanDesa);
         return redirect()->back()->with('success', 'Berhasil mengubah data');
     }
 
     public function DestroyPembiayaan(Request $request, $id)
     {
+        $idPembiayaanDesa = JenisPembiayaan::where('id',$id)->first()->pembiayaan_desa_id;
         JenisPembiayaan::find($id)->delete();
+        $this->PembiayaanDesa($idPembiayaanDesa);
         return redirect()->back()->with('success', 'Berhasil menghapus data');
     }
 
@@ -320,19 +310,7 @@ class TransparansiController extends Controller
             'belanja_desa_id' => $idBelanjaDesa,
         ]);
 
-        $calculate = JenisBelanja::whereHas('belanjadesa', function ($q) use ($id) {
-            $q->whereHas('transparansidesa', function ($q) use ($id) {
-                $q->where('id', $id);
-            });
-        })->get();
-        $sum = 0;
-        foreach ($calculate as $data) {
-            $sum += $data->nominal_belanja;
-        }
-        BelanjaDesa::find($idBelanjaDesa)
-            ->update([
-                'total_belanja' => $sum,
-            ]);
+        $this->BelanjaDesa($idBelanjaDesa);
         return redirect()->back()->with('success', 'Data berhasil ditambahkan.');
     }
 
@@ -347,17 +325,94 @@ class TransparansiController extends Controller
                 'nominal_belanja.require' => 'Data tidak boleh kosong',
                 'nominal_belanja.numeric' => 'Data harus berupa angka',
             ]);
+
+            $idBelanjaDesa = JenisBelanja::where('id',$id)->first()->belanja_desa_id;
+
         JenisBelanja::find($id)->update([
             'jenis_belanja' => $request->jenis_belanja,
             'nominal_belanja' => $request->nominal_belanja,
         ]);
+
+        $this->BelanjaDesa($idBelanjaDesa);
         return redirect()->back()->with('success', 'Berhasil mengubah data');
     }
 
     public function DestroyBelanja(Request $request, $id)
     {
+        $idBelanjaDesa = JenisBelanja::where('id',$id)->first()->belanja_desa_id;
         JenisBelanja::find($id)->delete();
+        $this->BelanjaDesa($idBelanjaDesa);
         return redirect()->back()->with('success', 'Berhasil menghapus data');
     }
+
     // END BELANJA
+
+    // START TOTAL
+
+    public function PendapatanDesa($id)
+    {
+        $idTransparansi=TransparansiDanaDesa::where('pendapatan_desa_id', $id)->first()->id;
+
+        $calculate = JenisPendapatan::whereHas('pendapatandesa', function ($q) use ($id) {
+            $q->where('id', $id);
+        })->get();
+        $sum = 0;
+        foreach ($calculate as $data) {
+            $sum += $data->nominal_pendapatan;
+        }
+        PendapatanDesa::find($id)
+            ->update([
+                'total_pendapatan' => $sum,
+            ]);
+        $this->sisaPendapatan($idTransparansi);
+    }
+
+    public function PembiayaanDesa($id)
+    {
+        $idTransparansi=TransparansiDanaDesa::where('pembiayaan_desa_id', $id)->first()->id;
+
+        $calculate = JenisPembiayaan::whereHas('pembiayaandesa', function ($q) use ($id) {
+            $q->where('id', $id);
+        })->get();
+        $sum = 0;
+        foreach ($calculate as $data) {
+            $sum += $data->nominal_pembiayaan;
+        }
+        PembiayaanDesa::find($id)
+            ->update([
+                'total_pembiayaan' => $sum,
+            ]);
+        $this->sisaPendapatan($idTransparansi);
+    }
+
+    public function BelanjaDesa($id)
+    {
+
+        $idTransparansi=TransparansiDanaDesa::where('belanja_desa_id', $id)->first()->id;
+
+        $calculate = JenisBelanja::whereHas('belanjadesa', function ($q) use ($id) {
+            $q->where('id', $id);
+        })->get();
+        $sum = 0;
+        foreach ($calculate as $data) {
+            $sum += $data->nominal_belanja;
+        }
+        BelanjaDesa::find($id)
+            ->update([
+                'total_belanja' => $sum,
+            ]);
+        $this->sisaPendapatan($idTransparansi);
+    }
+
+    public function SisaPendapatan($id)
+    {
+        $sisaPendapatan = TransparansiDanaDesa::with('pendapatandesa', 'pembiayaandesa', 'belanjadesa')
+            ->where('id', $id)->first();
+        $calculate = $sisaPendapatan->pendapatandesa->total_pendapatan-$sisaPendapatan->pembiayaandesa->total_pembiayaan-$sisaPendapatan->belanjadesa->total_belanja;
+        SisaPendapatanDesa::find(TransparansiDanaDesa::where('id', $id)->first()->sisa_pendapatan_id)
+        ->update([
+            'sisa_pendapatan'=>$calculate
+        ]);
+    }
+    // END TOTAL
 }
