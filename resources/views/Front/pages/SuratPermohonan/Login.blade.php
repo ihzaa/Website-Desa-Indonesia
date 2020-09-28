@@ -1,4 +1,5 @@
 @extends('Front.master')
+@section('title',"- Login Penduduk")
 @section('css_after')
 <link rel="stylesheet" href="{{asset('Admin/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
 @endsection
