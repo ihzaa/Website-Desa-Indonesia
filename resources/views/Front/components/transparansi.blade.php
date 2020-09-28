@@ -182,6 +182,8 @@
                 </div>
             </div>
         </div>
+        @else
+        <div class="text-center">Belum ada data.</div>
         @endif
     </div>
 </section>
