@@ -100,8 +100,7 @@
                             data-aos-delay="100">
                             <a data-toggle="collapse" href="#transparansi-list-3" data-accordion="chartBelanja"
                                 id="accordionBelanja" class="text-white collapsed" onclick="chartBelanja()">
-                                <h3 class="text-white">Dana Belanja</h3> Merupakan dana yang digunakan oleh desa untuk
-                                membeli atau belanja suatu barang untuk menunjang kegiatan desa. <i
+                                <h3 class="text-white">Dana Belanja</h3> Merupakan dana yang digunakan oleh desa untuk belanja dan operasional penunjang kegiatan desa. <i
                                     class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i>
                             </a>
                             <div id="transparansi-list-3" class="collapse" data-parent=".transparansi-accordion-list">
@@ -256,6 +255,7 @@
 
         chart.exporting.menu = new am4core.ExportMenu();
         chart.exporting.filePrefix = "Visualisasi Data Transparansi Dana Desa";
+        chart.exporting.timeoutDelay = 20000;
 
         chart.data = [
             {
@@ -345,6 +345,7 @@
         chart.innerRadius = 85;
         chart.exporting.menu = new am4core.ExportMenu();
         chart.exporting.filePrefix = "Visualisasi Data Dana Pendapatan";
+        chart.exporting.timeoutDelay = 20000;
 
         var series = chart.series.push(new am4charts.PieSeries3D());
         series.dataFields.value = "nominal_pendapatan";
@@ -375,6 +376,7 @@
         chart.legend = new am4charts.Legend();
         chart.exporting.menu = new am4core.ExportMenu();
         chart.exporting.filePrefix = "Visualisasi Data Dana Pembiayaan";
+        chart.exporting.timeoutDelay = 20000;
 
         chart.responsive.enabled = true;
         chart.responsive.useDefault = false;
@@ -447,6 +449,7 @@
         chart.legend = new am4charts.Legend();
         chart.exporting.menu = new am4core.ExportMenu();
         chart.exporting.filePrefix = "Visualisasi Data Dana Belanja";
+        chart.exporting.timeoutDelay = 20000;
 
         chart.responsive.enabled = true;
         chart.responsive.useDefault = false;
