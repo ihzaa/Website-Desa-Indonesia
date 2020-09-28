@@ -106,12 +106,13 @@
 
                         <div class="progress">
                             <div class="progress-bar"
-                                style="width: @php try{echo( $data['total_penduduk_laki']/$data['total_penduduk']*100);}catch(Exception $e){echo 0;} @endphp%"></div>
+                                style="width: @php try{echo( $data['total_penduduk_laki']/$data['total_penduduk']*100);}catch(Exception $e){echo 0;} @endphp%">
+                            </div>
                         </div>
                         <span class="progress-description">
                             @php try{echo(
-                                round($data['total_penduduk_laki']/$data['total_penduduk']*100));}catch(Exception
-                                $e){echo 0;} @endphp %
+                            round($data['total_penduduk_laki']/$data['total_penduduk']*100));}catch(Exception
+                            $e){echo 0;} @endphp %
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -165,7 +166,9 @@
                         @php
                         $warna = ['primary','success','danger','info','secondary'];
                         @endphp
+                        @if($data['total_surat_tahun'] != 0)
                         @foreach ($data['surat_tebanyak'] as $d)
+
                         <div class="progress-group">
                             {{$d->jenis_surat}}
                             <span
@@ -176,8 +179,11 @@
                                 </div>
                             </div>
                         </div>
-                        @endforeach
 
+                        @endforeach
+                        @else
+                        <p class="text-center">Belum Ada Surat yang Diunduh Tahun Ini.</p>
+                        @endif
                     </div>
                     <!-- /.col -->
                 </div>
