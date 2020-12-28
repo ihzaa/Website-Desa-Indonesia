@@ -35,25 +35,51 @@
                 </tr>
             </thead>
             <tbody>
+                <?php $num = 1; ?>
+                @if(!is_null($kepala))
+                    <tr>
+                        <td>{{$num}}</td>
+                        <td>{{$kepala->nama}}</td>
+                        <td>{{$kepala->tgl_lahir}}</td>
+                        <td>{{$kepala->umur}}</td>
+                        <td>{{$kepala->shdrt}}</td>
+                        <td>{{$kepala->pekerjaan}}</td>
+                        <td>{{$kepala->pendidikan}}</td>
+                        <td><span class="label {{$kepala->pemilih == 'aktif'? 'label-success' : 'label-default'}}">{{$kepala->pemilih}}</span></td>
+                        <td>
+                        <a href="{{route('data_penduduk_edit',['id'=>$kk->id,'id_anggota'=>$kepala->id])}}" class="btn btn-sm btn-primary">
+                        <i class="fas fa-edit"></i> edit
+                        </a>
+                        <button type="button" data-toggle="modal" data-id="{{$kepala->id}}" data-nama="{{$kepala->nama}}" data-target="#modal-default" class="hapus-modal btn btn-sm btn-danger">
+                            <i class="fas fa-trash"></i> hapus
+                        </button>
+                        </td>
+                    </tr>
+                    <?php $num++; ?>
+                @endif
                 @foreach($kk->penduduks as $p)
-                <tr>
-                    <td>{{$loop->iteration}}</td>
-                    <td>{{$p->nama}}</td>
-                    <td>{{$p->tgl_lahir}}</td>
-                    <td>{{$p->umur}}</td>
-                    <td>{{$p->shdrt}}</td>
-                    <td>{{$p->pekerjaan}}</td>
-                    <td>{{$p->pendidikan}}</td>
-                    <td><span class="label {{$p->pemilih == 'aktif'? 'label-success' : 'label-default'}}">{{$p->pemilih}}</span></td>
-                    <td>
-                    <a href="{{route('data_penduduk_edit',['id'=>$kk->id,'id_anggota'=>$p->id])}}" class="btn btn-sm btn-primary">
-                    <i class="fas fa-edit"></i> edit
-                    </a>
-                    <button type="button" data-toggle="modal" data-id="{{$p->id}}" data-nama="{{$p->nama}}" data-target="#modal-default" class="hapus-modal btn btn-sm btn-danger">
-                        <i class="fas fa-trash"></i> hapus
-                    </button>
-                    </td>
-                </tr>
+                    @if($p->shdrt == 'kepala keluarga')
+                        @continue
+                    @endif
+                    <tr>
+                        <td>{{$num}}</td>
+                        <td>{{$p->nama}}</td>
+                        <td>{{$p->tgl_lahir}}</td>
+                        <td>{{$p->umur}}</td>
+                        <td>{{$p->shdrt}}</td>
+                        <td>{{$p->pekerjaan}}</td>
+                        <td>{{$p->pendidikan}}</td>
+                        <td><span class="label {{$p->pemilih == 'aktif'? 'label-success' : 'label-default'}}">{{$p->pemilih}}</span></td>
+                        <td>
+                        <a href="{{route('data_penduduk_edit',['id'=>$kk->id,'id_anggota'=>$p->id])}}" class="btn btn-sm btn-primary">
+                        <i class="fas fa-edit"></i> edit
+                        </a>
+                        <button type="button" data-toggle="modal" data-id="{{$p->id}}" data-nama="{{$p->nama}}" data-target="#modal-default" class="hapus-modal btn btn-sm btn-danger">
+                            <i class="fas fa-trash"></i> hapus
+                        </button>
+                        </td>
+                    </tr>
+                    <?php $num++; ?>
                 @endforeach
             </tbody>
         </table>

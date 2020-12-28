@@ -189,8 +189,10 @@
                 </div>
                 <div class="form-group">
                     <label>Status Hidup Dalam Rumah Tangga </label>
-                    <select class="form-control" name="shdrt" style="width: 100%;">
-                        <option value="kepala keluarga" selected="selected">kepala keluarga</option>
+                    <select class="form-control" name="shdrt" style="width: 100%;" required>
+                        @if($kkFilled)
+                            <option value="kepala keluarga" selected="selected">kepala keluarga</option>
+                        @endif
                         <option value="anak">anak</option>
                         <option value="istri">istri</option>
                     </select>

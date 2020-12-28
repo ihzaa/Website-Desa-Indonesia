@@ -16,7 +16,8 @@ class PendudukController extends Controller
     public function form_add($id)
     {
         $kk = KartuKeluarga::find($id);
-        return view($this->folder_view . 'tambah', compact('kk'));
+        $kkFilled = is_null($kk->penduduks->where('shdrt', 'kepala keluarga')->first());
+        return view($this->folder_view . 'tambah', compact('kk', 'kkFilled'));
     }
 
     public function store($id, Request $request)

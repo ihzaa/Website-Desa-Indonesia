@@ -23,12 +23,10 @@ class KartuKeluargaController extends Controller
 
     public function form_edit($id)
     {
-        $kk = KartuKeluarga::where('id',$id);
-        if($kk==null){
-            return redirect(route('data_kk_index'))->with('status', 'Data KK tidak ditemukan!');
-        }
+        $kk = KartuKeluarga::where('id',$id)->firstOrFail();
+        $kepala = $kk->penduduks->where('shdrt', 'kepala keluarga')->first();
         $kk = $kk->with(['penduduks'])->get()[0];
-        return view($this->folder_view.'edit', compact('kk'));
+        return view($this->folder_view.'edit', compact('kk', 'kepala'));
     }
 
     public function store(Request $request)
