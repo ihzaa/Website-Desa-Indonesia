@@ -32,4 +32,7 @@ Route::prefix('surat-permohonan')->namespace('Front')->group(function () {
     Route::post('login', 'SuratPermohonanController@login')->name('front_surat_permohonan_login_post');
     Route::get('logout', 'SuratPermohonanController@logout')->name('front_surat_permohonan_logout');
     Route::get('unduh/{id}', 'SuratPermohonanController@unduh')->name('front_surat_permohonan_unduh');
+    Route::get('pindah/{id}/prov', 'SuratPermohonanController@getDataWilayah')->name('front_surat_permohonan_pindah_get_prov');
+    Route::get('pindah/{id}/kota', 'SuratPermohonanController@getKota')->name('front_surat_permohonan_pindah_get_kota');
+    Route::post('unduh/pindah', 'SuratPermohonanController@unduhSuratKeluar')->name('front_surat_permohonan_pindah_unduh');
 });

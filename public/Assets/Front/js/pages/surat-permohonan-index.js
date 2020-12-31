@@ -1,3 +1,7 @@
+function sleep(time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+}
+
 function download(nama, isi) {
     var el = document.createElement("div");
     el.innerHTML = isi;
@@ -13,7 +17,11 @@ function download(nama, isi) {
         .from(el)
         .save()
         .then(() => {
-            $("#preloader").remove();
+            if (nama == "Surat Pengantar Pindah") {
+                location.reload();
+            } else {
+                $("#preloader").remove();
+            }
         });
 }
 $(document).on("click", ".card-surat", function () {
@@ -40,4 +48,141 @@ $(document).on("click", ".card-surat", function () {
                 });
         }
     });
+});
+
+$(document).on("click", ".card-surat-pindah", function () {
+    $("#modal-surat-keluar").modal("show");
+});
+
+$(document).on("change", "#pindah_pilih_prop", function () {
+    $("body").append(`<div id="preloader"></div>`);
+    $("#profinsi_xx").remove();
+    $("#pindah_pilih_kota").html(
+        '<option value="xx" id="kota_xx">Pilih Kabupaten/Kota</option>'
+    );
+    $("#pindah_pilih_kec").html(
+        '<option value="xx" id="kec_xx">Pilih Kecamatan</option>'
+    );
+    $("#pindah_pilih_kec").attr("disabled", "");
+    $("#pindah_pilih_kel").html(
+        '<option value="xx" id="kel_xx">Pilih Kelurahan/Desa</option>'
+    );
+    $("#pindah_pilih_kel").attr("disabled", "");
+    let temp_url = url.getProv;
+    temp_url = temp_url.replace("nahkan", $(this).val());
+    getAndRenderWilayah(temp_url, "pindah_pilih_kota");
+});
+
+$(document).on("change", "#pindah_pilih_kota", function () {
+    $("body").append(`<div id="preloader"></div>`);
+    $("#kota_xx").remove();
+    $("#pindah_pilih_kec").html(
+        '<option value="xx" id="kec_xx">Pilih Kecamatan</option>'
+    );
+    $("#pindah_pilih_kec").attr("disabled", "");
+    $("#pindah_pilih_kel").html(
+        '<option value="xx" id="kel_xx">Pilih Kelurahan/Desa</option>'
+    );
+    $("#pindah_pilih_kel").attr("disabled", "");
+    let temp_url = url.getProv;
+    temp_url = temp_url.replace("nahkan", $(this).val());
+    getAndRenderWilayah(temp_url, "pindah_pilih_kec");
+});
+
+$(document).on("change", "#pindah_pilih_kec", function () {
+    $("body").append(`<div id="preloader"></div>`);
+    $("#kec_xx").remove();
+    $("#pindah_pilih_kel").html(
+        '<option value="xx" id="kel_xx">Pilih Kelurahan/Desa</option>'
+    );
+    $("#pindah_pilih_kel").attr("disabled", "");
+    let temp_url = url.getProv;
+    temp_url = temp_url.replace("nahkan", $(this).val());
+    getAndRenderWilayah(temp_url, "pindah_pilih_kel");
+});
+
+function getAndRenderWilayah(url, target) {
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+            if (target == "pindah_pilih_kota") {
+                $("#" + target).html(
+                    '<option value="xx" id="kota_xx">Pilih Kabupaten/Kota</option>'
+                );
+            } else if (target == "pindah_pilih_kec") {
+                $("#" + target).html(
+                    '<option value="xx" id="kec_xx">Pilih Kecamatan</option>'
+                );
+            } else if (target == "pindah_pilih_kel") {
+                $("#" + target).html(
+                    '<option value="xx" id="kel_xx">Pilih Kelurahan/Desa</option>'
+                );
+            }
+            const len = data.length;
+            for (let i = 0; i < len; i++) {
+                $("#" + target).append(
+                    `<option value="${data[i].kode}">${data[i].nama}</option>`
+                );
+            }
+        })
+        .then(() => {
+            $("#" + target).removeAttr("disabled");
+            $("#preloader").fadeOut();
+            sleep(500).then(() => {
+                $("#preloader").remove();
+            });
+        })
+        .catch((err) =>
+            alert("terjadi error " + err + ". Silahkan Muat ulang halaman!")
+        );
+}
+
+$(document).ready(function () {
+    $(".select_wilayah").select2();
+});
+
+$(document).on("click", "#btn_untuh_surat_pindah", function () {
+    const prov = $("#pindah_pilih_prop");
+    const kota = $("#pindah_pilih_kota");
+    const kec = $("#pindah_pilih_kec");
+    const kel = $("#pindah_pilih_kel");
+    const rt = $("#rt");
+    const rw = $("#rw");
+    const anggota = $("#pindah_pilih_anggota");
+    if (
+        prov.val() != "xx" &&
+        kota.val() != "xx" &&
+        kec.val() != "xx" &&
+        kel.val() != "xx" &&
+        rt.val() != "" &&
+        rw.val() != "" &&
+        anggota.val() != ""
+    ) {
+        $("body").append(`<div id="preloader"></div>`);
+        fetch(url.udh_pindah, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+            body: JSON.stringify({
+                prov: $("#pindah_pilih_prop option:selected").text(),
+                kota: $("#pindah_pilih_kota option:selected").text(),
+                kel: $("#pindah_pilih_kel option:selected").text(),
+                kec: $("#pindah_pilih_kec option:selected").text(),
+                rt: rt.val(),
+                rw: rw.val(),
+                anggota: anggota.val(),
+            }),
+        })
+            .then((resp) => resp.text())
+            // .then((data) => console.log(data));
+            .then((data) => download("Surat Pengantar Pindah", data));
+    } else {
+        Swal.fire({
+            title: `Isi seluruh kolom inputan!`,
+            text: "",
+            icon: "warning",
+        });
+    }
 });

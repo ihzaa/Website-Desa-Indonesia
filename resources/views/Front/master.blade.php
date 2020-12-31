@@ -62,7 +62,7 @@
 
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li class="active"><a href="{{url('/')}}">Home</a></li>
+                <li><a href="{{url('/')}}">Home</a></li>
                 <li><a href="{{url('/#grafik')}}">Pertumbuhan</a></li>
                 <li><a href="{{url('/#berita')}}">Berita</a></li>
                 <li><a href="{{url('/#posyandus')}}">Posyandu</a></li>

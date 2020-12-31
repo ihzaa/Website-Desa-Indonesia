@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\arsip_surat_penduduk;
+use App\Models\arsip_surat_pindah_penduduk;
 use App\Models\DataKtp;
 use App\Models\Penduduk;
 use App\Models\permohonan_surat;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class SuratPermohonanController extends Controller
 {
@@ -17,7 +19,9 @@ class SuratPermohonanController extends Controller
     {
         if (Auth::guard('penduduk')->check()) {
             $data['penduduk'] = Penduduk::find(Auth::guard('penduduk')->id());
+            $data['kk'] = Penduduk::where('id_kartu_keluarga', $data['penduduk']->id_kartu_keluarga)->get();
             $data['surat'] = permohonan_surat::all();
+            $data['prop'] = DB::select(DB::raw("SELECT `kode`,`nama` FROM `wilayah_2020` WHERE CHAR_LENGTH(`kode`)=2 ORDER BY `nama`"));
             return view('Front.pages.SuratPermohonan.index', compact("data"));
         } else {
             return view('Front.pages.SuratPermohonan.Login');
@@ -89,5 +93,63 @@ class SuratPermohonanController extends Controller
     {
         Auth::guard('penduduk')->logout();
         return redirect(route('front_dashboard'));
+    }
+
+    public function getDataWilayah($id)
+    {
+        $n = strlen($id);
+        $m = ($n == 2 ? 5 : ($n == 5 ? 8 : 13));
+        $data = DB::select(DB::raw("SELECT `kode`,`nama` FROM `wilayah_2020` WHERE LEFT(`kode`,'$n')='$id' AND CHAR_LENGTH(`kode`)=$m ORDER BY `nama`"));
+
+        return response()->json($data);
+    }
+
+    public function getKota($id)
+    {
+
+        $n = strlen($id);
+        $m = ($n == 2 ? 5 : ($n == 5 ? 8 : 13));
+        $data = DB::select(DB::raw("SELECT `kode`,`nama` FROM `wilayah_2020` WHERE LEFT(`kode`,'$n')='$id' AND CHAR_LENGTH(kode)=$m ORDER BY `nama`"));
+
+        return response()->json($data);
+    }
+
+    public function unduhSuratKeluar(Request $request)
+    {
+        if (Auth::guard('penduduk')->check()) {
+            $penduduk = Penduduk::find(Auth::guard('penduduk')->id());
+            $anggota = $request->anggota;
+
+            if (in_array(Auth::guard('penduduk')->id(), $anggota)) {
+                Auth::guard('penduduk')->logout();
+            }
+            $kk['anggota'] = Penduduk::whereIn('id', $request->anggota)->get();
+            $kk['nama'] = Penduduk::where('id_kartu_keluarga', $penduduk->id_kartu_keluarga)->where('shdrt', 'kepala keluarga')->first();
+            $kk['nik'] = DataKtp::find($kk['nama']->id_data_ktp);
+            $pindah = array();
+            $pindah["rt"] = $request->rt;
+            $pindah["rw"] = $request->rw;
+            $pindah["prov"] = $request->prov;
+            $pindah['kota'] = $request->kota;
+            $pindah['kec'] = $request->kec;
+            $pindah['kel'] = $request->kel;
+            // return response()->json($pindah)
+            $data['tgl'] = Carbon::now()->format('d-m-Y');
+            for ($i = 0; $i < count($anggota); $i++) {
+                arsip_surat_pindah_penduduk::create([
+                    'penduduk_id' => $anggota[$i],
+                    'rt' => $request->rt,
+                    'rw' => $request->rw,
+                    'desa_kelurahan' => $request->kel,
+                    'kecamatan' => $request->kec,
+                    'kabupaten_kota' => $request->kota,
+                    'provinsi' => $request->prov
+                ]);
+                Penduduk::find($anggota[$i])->delete();
+            }
+            return response()->view('Front.pages.SuratPermohonan.TemplateSuratPindah', compact("pindah", "penduduk", "data", "kk"));
+        } else {
+            return view('Front.pages.SuratPermohonan.Login');
+        }
     }
 }
