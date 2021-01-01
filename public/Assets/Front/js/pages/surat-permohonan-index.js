@@ -175,14 +175,34 @@ $(document).on("click", "#btn_untuh_surat_pindah", function () {
                 anggota: anggota.val(),
             }),
         })
-            .then((resp) => resp.text())
-            // .then((data) => console.log(data));
-            .then((data) => download("Surat Pengantar Pindah", data));
+            .then((resp) => {
+                console.log(resp);
+                if (resp.status == 202) {
+                    return 202;
+                } else {
+                    return resp.text();
+                }
+            })
+            .then((data) => {
+                $("#modal-surat-keluar").modal("hide");
+                if (data == 202) {
+                    const pesan =
+                        "Tidak ada kepala keluarga pada kartu keluarga anda.";
+                    $("#preloader").remove();
+                    Swal.fire({
+                        title: pesan,
+                        text: "",
+                        icon: "error",
+                    });
+                } else {
+                    download("Surat Pengantar Pindah", data);
+                }
+            });
     } else {
         Swal.fire({
-            title: `Isi seluruh kolom inputan!`,
-            text: "",
-            icon: "warning",
+            title: "Isikan seluruh inputan yang tersedia.",
+            text: "Maaf!",
+            icon: "error",
         });
     }
 });

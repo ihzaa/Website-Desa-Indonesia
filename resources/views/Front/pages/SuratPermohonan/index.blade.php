@@ -111,8 +111,16 @@
                         <option value="{{$d->id}}">{{$d->nama}}</option>
                         @endforeach
                     </select></div>
+                <div class="col-md-12  mt-3">
+                    <p class="mb-1">Catatan:</p>
+                    <p class="mb-0"><small class="">- Anggota keluarga yang dipilih akan dihapus dari sistem.</small></p>
+                    <p><small class="">- Apabila kepala keluarga mengurus surat pindah harus melapor perangkat
+                            desa untuk memperbaharui kartu keluarga.</small>
+                    </p>
+                </div>
             </div>
             <div class="modal-footer">
+
                 <button class="btn btn-primary" id="btn_untuh_surat_pindah">Unduh!</button>
             </div>
         </div>

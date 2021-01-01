@@ -119,12 +119,11 @@ class SuratPermohonanController extends Controller
         if (Auth::guard('penduduk')->check()) {
             $penduduk = Penduduk::find(Auth::guard('penduduk')->id());
             $anggota = $request->anggota;
-
-            if (in_array(Auth::guard('penduduk')->id(), $anggota)) {
-                Auth::guard('penduduk')->logout();
-            }
             $kk['anggota'] = Penduduk::whereIn('id', $request->anggota)->get();
             $kk['nama'] = Penduduk::where('id_kartu_keluarga', $penduduk->id_kartu_keluarga)->where('shdrt', 'kepala keluarga')->first();
+            if ($kk['nama'] == []) {
+                return response('', 202, []);
+            }
             $kk['nik'] = DataKtp::find($kk['nama']->id_data_ktp);
             $pindah = array();
             $pindah["rt"] = $request->rt;
@@ -146,6 +145,9 @@ class SuratPermohonanController extends Controller
                     'provinsi' => $request->prov
                 ]);
                 Penduduk::find($anggota[$i])->delete();
+            }
+            if (in_array(Auth::guard('penduduk')->id(), $anggota)) {
+                Auth::guard('penduduk')->logout();
             }
             return response()->view('Front.pages.SuratPermohonan.TemplateSuratPindah', compact("pindah", "penduduk", "data", "kk"));
         } else {
