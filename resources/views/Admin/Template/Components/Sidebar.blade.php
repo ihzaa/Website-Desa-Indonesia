@@ -111,15 +111,15 @@
 
                 {{-- <li class="nav-item">
                     <a href="{{route('admin_surat_permohonan_index')}}"
-                        class="nav-link {{request()->is('*surat/permohonan*')? 'active':''}}">
-                        <i class="nav-icon fas fa-envelope-open-text"></i>
-                        <p>
-                            Surat Permohonan
-                        </p>
-                    </a>
+                class="nav-link {{request()->is('*surat/permohonan*')? 'active':''}}">
+                <i class="nav-icon fas fa-envelope-open-text"></i>
+                <p>
+                    Surat Permohonan
+                </p>
+                </a>
                 </li> --}}
-                <li class="nav-item has-treeview {{request()->is('*surat/*')? "menu-open":""}}">
-                    <a href="#" class="nav-link {{request()->is('*surat/permohonan*')? "active":""}}">
+                <li class="nav-item has-treeview {{request()->is('*surat*')? "menu-open":""}}">
+                    <a href="#" class="nav-link {{request()->is('*surat*')? "active":""}}">
                         <i class="nav-icon fas fa-envelope-open-text"></i>
                         <p>
                             Surat
@@ -135,7 +135,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link {{request()->is('*perangkatdesa*')? "active":""}}">
+                            <a href="{{route('admin_surat_pengantar_pindah_index')}}"
+                                class="nav-link {{request()->is('*surat/pengantar-pindah')? "active":""}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Pengantar Pindah</p>
                             </a>

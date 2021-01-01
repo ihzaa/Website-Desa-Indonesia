@@ -24,6 +24,9 @@ Route::prefix('4dm1n')->namespace('Admin')->middleware('auth:admin')->group(func
         Route::get('arsip/all', 'SuratPermohonanController@getAllArsip')->name('admin_surat_permohonan_get_all_arsip');
         Route::get('download/arsip/{id}', 'SuratPermohonanController@downloadArsipById')->name('admin_surat_permohonan_download_arsip');
     });
+    Route::name('admin_surat_pengantar_pindah_')->prefix('surat/pengantar-pindah')->group(function () {
+        Route::get('/', 'SuratPengantarPindahController@index')->name('index');
+    });
 });
 
 

@@ -19,12 +19,12 @@ class SuratPermohonanController extends Controller
 {
     public function index()
     {
-        return view('Admin.Pages.Surat Permohonan.index');
+        return view('Admin.Pages.SuratPermohonan.index');
     }
 
     public function indexResponse()
     {
-        return response()->view('Admin.Pages.Surat Permohonan.response_index');
+        return response()->view('Admin.Pages.SuratPermohonan.response_index');
     }
 
     public function getAll()
@@ -41,7 +41,7 @@ class SuratPermohonanController extends Controller
         $data = array();
         $data['kolom_penduduk'] = Schema::getColumnListing('penduduks');
         // return $data;
-        return view('Admin.Pages.Surat Permohonan.tambah_edit', compact("data"));
+        return view('Admin.Pages.SuratPermohonan.tambah_edit', compact("data"));
     }
 
     public function halamanTambahResponse()
@@ -49,7 +49,7 @@ class SuratPermohonanController extends Controller
         $data = array();
         $data['kolom_penduduk'] = Schema::getColumnListing('penduduks');
         // return $data;
-        return response()->view('Admin.Pages.Surat Permohonan.tambah_edit_response', compact("data"));
+        return response()->view('Admin.Pages.SuratPermohonan.tambah_edit_response', compact("data"));
     }
 
     public function halamanEdit($id)
@@ -59,7 +59,7 @@ class SuratPermohonanController extends Controller
         $data['surat']->attribute = json_decode($data['surat']->attribute);
         $data['kolom_penduduk'] = Schema::getColumnListing('penduduks');
         // return $data;
-        return view('Admin.Pages.Surat Permohonan.tambah_edit', compact("data"));
+        return view('Admin.Pages.SuratPermohonan.tambah_edit', compact("data"));
     }
 
     public function halamanEditResponse($id)
@@ -68,7 +68,7 @@ class SuratPermohonanController extends Controller
         $data['surat'] = permohonan_surat::find($id);
         $data['surat']->attribute = json_decode($data['surat']->attribute);
         $data['kolom_penduduk'] = Schema::getColumnListing('penduduks');
-        return response()->view('Admin.Pages.Surat Permohonan.tambah_edit_response', compact("data"));
+        return response()->view('Admin.Pages.SuratPermohonan.tambah_edit_response', compact("data"));
     }
 
     public function tambah(Request $request)
