@@ -27,6 +27,13 @@ Route::prefix('4dm1n')->namespace('Admin')->middleware('auth:admin')->group(func
     Route::name('admin_surat_pengantar_pindah_')->prefix('surat/pengantar-pindah')->group(function () {
         Route::get('/', 'SuratPengantarPindahController@index')->name('index');
     });
+    Route::name('admin_template_surat_')->prefix('surat/template')->group(function () {
+        Route::get('/', 'TemplateSuratController@index')->name('index');
+        Route::post('/tambah', 'TemplateSuratController@tambah')->name('tambah');
+        Route::get('/hapus/{id}', 'TemplateSuratController@hapus')->name('hapus');
+        Route::post('edit/{id}', 'TemplateSuratController@edit')->name('edit');
+        Route::get('download/{id}', 'TemplateSuratController@download')->name('download');
+    });
 });
 
 
@@ -38,4 +45,5 @@ Route::prefix('surat-permohonan')->namespace('Front')->group(function () {
     Route::get('pindah/{id}/prov', 'SuratPermohonanController@getDataWilayah')->name('front_surat_permohonan_pindah_get_prov');
     Route::get('pindah/{id}/kota', 'SuratPermohonanController@getKota')->name('front_surat_permohonan_pindah_get_kota');
     Route::post('unduh/pindah', 'SuratPermohonanController@unduhSuratKeluar')->name('front_surat_permohonan_pindah_unduh');
+    Route::get('template/download/{id}', 'TemplateSuratController@download')->name('front_surat_template_download');
 });

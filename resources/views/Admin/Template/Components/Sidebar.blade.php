@@ -141,6 +141,13 @@
                                 <p>Pengantar Pindah</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin_template_surat_index')}}"
+                                class="nav-link {{request()->is('*surat/template*')? "active":""}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Template</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-header">EVALUASI PELAYANAN</li>

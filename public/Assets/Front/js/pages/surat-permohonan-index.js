@@ -139,7 +139,33 @@ function getAndRenderWilayah(url, target) {
 
 $(document).ready(function () {
     $(".select_wilayah").select2();
+
+    $(document).on("click", ".card-surat-template", function () {
+        let id = $(this).data("id");
+        let nama = $(this).data("nama");
+        Swal.fire({
+            title: `Apakah Anda Yakin Mengunduh ${nama}?`,
+            text: "",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Unduh!",
+            cancelButtonText: "Batal",
+        }).then((result) => {
+            if (result.value) {
+                let temp_url = url.udh_template;
+                temp_url = temp_url.replace("nahkan", id);
+                openInNewTab(temp_url);
+            }
+        });
+    });
 });
+
+function openInNewTab(url) {
+    var win = window.open(url, "_blank");
+    win.focus();
+}
 
 $(document).on("click", "#btn_untuh_surat_pindah", function () {
     const prov = $("#pindah_pilih_prop");

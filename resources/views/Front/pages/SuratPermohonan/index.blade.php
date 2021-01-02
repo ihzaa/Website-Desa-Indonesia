@@ -40,6 +40,15 @@
                 </div>
             </div>
             @endforeach
+            @foreach ($data['template'] as $d)
+            <div class="col mb-4 card-surat-template" data-id="{{$d->id}}" data-nama="{{$d->nama}}">
+                <div class="card clickable">
+                    <div class="card-body">
+                        <h5 class="card-title m-0">{{$d->nama}}</h5>
+                    </div>
+                </div>
+            </div>
+            @endforeach
         </div>
         {{-- @if(count($data['surat']) == 0)
         <h1 class="text-info text-center">Maaf Belum Ada Surat Permohonan yang Dibuat.</h1>
@@ -113,7 +122,8 @@
                     </select></div>
                 <div class="col-md-12  mt-3">
                     <p class="mb-1">Catatan:</p>
-                    <p class="mb-0"><small class="">- Anggota keluarga yang dipilih akan dihapus dari sistem.</small></p>
+                    <p class="mb-0"><small class="">- Anggota keluarga yang dipilih akan dihapus dari sistem.</small>
+                    </p>
                     <p><small class="">- Apabila kepala keluarga mengurus surat pindah harus melapor perangkat
                             desa untuk memperbaharui kartu keluarga.</small>
                     </p>
@@ -135,7 +145,8 @@
     let url = {udh : "{{route('front_surat_permohonan_unduh',['id'=>'__post__'])}}",
     getProv : "{{route('front_surat_permohonan_pindah_get_prov',['id'=>'nahkan'])}}",
     getKota : "{{route('front_surat_permohonan_pindah_get_kota',['id'=>'nahkan'])}}",
-    udh_pindah : "{{route('front_surat_permohonan_pindah_unduh')}}"
+    udh_pindah : "{{route('front_surat_permohonan_pindah_unduh')}}",
+    udh_template : "{{route('front_surat_template_download',['id'=>'nahkan'])}}"
     };
 </script>
 <script src="{{asset('Front/js/pages/surat-permohonan-index.js')}}"></script>

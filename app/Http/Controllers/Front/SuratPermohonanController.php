@@ -8,6 +8,7 @@ use App\Models\arsip_surat_pindah_penduduk;
 use App\Models\DataKtp;
 use App\Models\Penduduk;
 use App\Models\permohonan_surat;
+use App\Models\template_surat;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,6 +22,7 @@ class SuratPermohonanController extends Controller
             $data['penduduk'] = Penduduk::find(Auth::guard('penduduk')->id());
             $data['kk'] = Penduduk::where('id_kartu_keluarga', $data['penduduk']->id_kartu_keluarga)->get();
             $data['surat'] = permohonan_surat::all();
+            $data['template'] = template_surat::all();
             $data['prop'] = DB::select(DB::raw("SELECT `kode`,`nama` FROM `wilayah_2020` WHERE CHAR_LENGTH(`kode`)=2 ORDER BY `nama`"));
             return view('Front.pages.SuratPermohonan.index', compact("data"));
         } else {
