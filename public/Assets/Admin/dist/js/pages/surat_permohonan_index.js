@@ -66,27 +66,31 @@ $(document).ready(function () {
         .then((data) => {
             let el = $("#tabel_arsip tbody");
             let isi = "";
-            for (let i = 0; i < data.arsip.length; i++) {
+            console.log(data);
+            for (let i = 0; i < data.length; i++) {
                 isi += `
                 <tr>
                     <td>
                         ${i + 1}
                     </td>
                     <td>
-                        ${Date.parse(data.arsip[i].tanggal_surat).toString(
+                        ${Date.parse(data[i].tanggal_surat).toString(
                             "d MMMM yyyy"
                         )}
                     </td>
                     <td class="nama_surat">${
-                        data.surat[data.arsip[i].permohonan_surat_id]
+                        data[i].jenis_surat
                     }</td>
                     <td>
-                        ${data.penduduk[data.arsip[i].penduduk_id]}
+                        ${data[i].nik}
+                    </td>
+                    <td>
+                        ${data[i].nama}
                     </td>
                     <td class="text-center">
                         <button class="btn btn-sm btn-info btn-unduh-arsip" data-toggle="tooltip" data-id="${
-                            data.arsip[i].id
-                        }" data-no="${data.arsip[i].nomer}"
+                            data[i].id
+                        }" data-no="${data[i].nomer}"
                         data-placement="bottom" title="Unduh Surat"><i class="fas fa-file-download"></i></button>
                     </td>
                 </tr>
@@ -100,6 +104,27 @@ $(document).ready(function () {
                 ordering: true,
                 info: true,
                 autoWidth: true,
+                dom: "Bfrtip",
+                buttons: [
+                    {
+                        extend: "csvHtml5",
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4],
+                        },
+                    },
+                    {
+                        extend: "excelHtml5",
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4],
+                        },
+                    },
+                    {
+                        extend: "pdfHtml5",
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4],
+                        },
+                    },
+                ],
             });
             $('[data-toggle="tooltip"]').tooltip();
             $("#arsip_loading").remove();

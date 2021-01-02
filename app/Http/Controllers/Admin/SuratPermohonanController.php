@@ -315,9 +315,9 @@ class SuratPermohonanController extends Controller
         // foreach ($data['surat'] as $k => $v) {
         //     $data['arsip'][$k] = arsip_surat_penduduk::where('permohonan_surat_id', $k)->get();
         // }
-        $data['surat'] = permohonan_surat::pluck('jenis_surat', 'id');
-        $data['penduduk'] = Penduduk::pluck('nama', 'id');
-        $data['arsip'] = arsip_surat_penduduk::orderBy('tanggal_surat', 'desc')->get();
+        // $data['surat'] = permohonan_surat::pluck('jenis_surat', 'id');
+        $data = DB::select(DB::raw('SELECT penduduks.nama as nama, penduduks.id as id, data_ktps.nik as nik, arsip_surat_penduduks.tanggal_surat, permohonan_surats.jenis_surat, arsip_surat_penduduks.nomer FROM penduduks JOIN data_ktps ON data_ktps.id = penduduks.id_data_ktp JOIN arsip_surat_penduduks ON arsip_surat_penduduks.penduduk_id = penduduks.id JOIN permohonan_surats on permohonan_surats.id = arsip_surat_penduduks.permohonan_surat_id ORDER BY arsip_surat_penduduks.tanggal_surat DESC'));
+        // $data['arsip'] = arsip_surat_penduduk::orderBy('tanggal_surat', 'desc')->get();
 
         return response()->json($data);
     }
