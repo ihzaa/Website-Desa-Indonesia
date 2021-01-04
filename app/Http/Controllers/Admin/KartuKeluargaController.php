@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\KartuKeluarga;
+use App\Models\Penduduk;
 use Illuminate\Http\Request;
 
 class KartuKeluargaController extends Controller
@@ -59,6 +60,18 @@ class KartuKeluargaController extends Controller
         );
         $kk->delete();
         return redirect(route('data_kk_index'))->with('status', 'Berhasil menghapus data!');
+    }
+
+    public function indexRestore(){
+        $penduduks = Penduduk::onlyTrashed()->get();
+        return view($this->folder_view.'restore', compact('penduduks'));
+    }
+
+    public function restore(Request $request){
+        Penduduk::withTrashed()
+        ->where('id', $request->id)
+        ->restore();
+        return redirect()->back()->with('status', 'Berhasil mengembalikan data penduduk');
     }
 
 }

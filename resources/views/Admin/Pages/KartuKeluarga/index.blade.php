@@ -17,7 +17,8 @@
   <div class="card-header">
     <h3 class="card-title">Daftar Kartu Keluarga</h3>
     <div class="card-tools">
-      <a href="{{route('data_kk_form_add')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</a>
+      <a href="{{route('data_kk_form_add')}}" class="btn-block btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</a>
+      <a href="{{route('data_kk_restore_index')}}" class="btn-block btn btn-info"><i class="fas fa-trash-restore"></i> Restore Data Penduduk</a>
     </div>
   </div>
   <div class="card-body">
