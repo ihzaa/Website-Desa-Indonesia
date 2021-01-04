@@ -2,6 +2,10 @@
 
 @section('page_title','Update Kartu Keluarga')
 
+@section('css_before')
+<link rel="stylesheet" href="{{asset('Admin/plugins/datatables-select/css/select.bootstrap4.min.css')}}">
+@endsection
+
 @section('breadcumb')
 <li class="breadcrumb-item">Home</li>
 <li class="breadcrumb-item" aria-current="page">
@@ -15,8 +19,10 @@
 <div class="card-header">
         <h3 class="card-title">Daftar Anggota Keluarga</h3>
         <div class="card-tools">
-            <a href="{{route('data_penduduk_add',['id'=>$kk->id])}}" class="btn btn-primary">
+            <a href="{{route('data_penduduk_add',['id'=>$kk->id])}}" class="btn btn-primary btn-block">
                 <i class="fas fa-user"></i> Tambah Anggota Keluarga</a>
+            <a class="btn btn-info btn-block text-white" data-toggle="modal" data-target="#modal-add-penduduk">
+                <i class="fas fa-file-import"></i> Pindah Anggota Keluarga</a>
         </div>
     </div>
     <div class="card-body">
@@ -197,12 +203,64 @@
   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
+
+<div class="modal fade" id="modal-add-penduduk">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Pindah Penduduk</h4>
+            </div>
+            <div class="form-group py-3 px-3">
+                <label>Cari Nama Penduduk</label>
+                <div class="row">
+                    <div class="col-md-10 px-2">
+                        <input type="text" class="form-control" id="nama_penduduk_search" required>
+                    </div>
+                    <div class="col-md-2 px-2">
+                        <button type="button" id="search-penduduk" class="btn btn-primary btn-block">Cari</button>
+                    </div>
+                </div>
+            </div>
+            <div id="notif_search" class="alert alert-warning text-dark font-weight-bold">
+            </div>
+            <div id="notif_success" hidden class="alert alert-success text-dark font-weight-bold">
+                Berhasil memindahkan penduduk
+            </div>
+            <div class="py-3 px-3">
+                <table id="example2" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nik</th>
+                            <th>Nama Penduduk</th>
+                            <th>Tanggal Lahir</th>
+                            <th>Umur (Tahun)</th>
+                            <th>Golongan Darah</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div class="col-md-4 float-right">
+                    <button type="button" id="submit-button" class="btn btn-success btn-block">Submit</button>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-warning btn-block" data-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 @endsection
 
 
 @section('js_after')
 <!-- DataTables -->
 <script src="{{asset('Admin/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('Admin/plugins/datatables-select/js/dataTables.select.min.js')}}"></script>
 <script src="{{asset('Admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{asset('Admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
 <script src="{{asset('Admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
@@ -216,6 +274,74 @@
       $("#id_penduduk").val(idKK);
       $("#nama_penduduk").val(titleKK);
     });
+
+    var notif_search = $('#notif_search');
+    notif_search.attr("hidden", true);
+    var table_penduduk = $('#example2').DataTable({
+        select: {
+            style: 'multi'
+        }
+    });
+
+    $('#search-penduduk').on("click", function() {
+        table_penduduk.rows().clear().draw();
+        notif_search.attr("hidden", true);
+        $.ajax({
+            url: "{{route('query.penduduk.base')}}" + "/" + $('#nama_penduduk_search').val(),
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(result) {
+                let penduduks = result.penduduks;
+                if (penduduks.length > 0) {
+                    penduduks.map(function(p) {
+                        table_penduduk.row.add([p.id, p.nik, p.nama, p.tgl_lahir, p.umur, p.gol_darah]).draw();
+                    });
+                } else {
+                    notif_search.html("Data penduduk tidak ditemukan");
+                    notif_search.removeAttr('hidden');
+                }
+            }
+        });
+    })
+
+    $('#submit-button').on("click", function() {
+        notif_search.attr("hidden", true);
+        let datas = table_penduduk.rows({
+            selected: true
+        }).data();
+        if (datas.length > 0) {
+            var ids = [];
+            for (let i = 0; i < datas.length; i++) {
+                console.log(datas[i]);
+                ids.push(datas[i][0]);
+            }
+            console.log(ids);
+            $.ajax({
+                type: "POST",
+                url: "{{route('kk_pindah_penduduk')}}",
+                data: {
+                    'id_penduduk[]': ids,
+                    "_token": "{{ csrf_token() }}",
+                    "id_kk": "{{$kk->id}}"
+                },
+                success: function(result) {
+                    $('#notif_success').removeAttr('hidden');
+                    $('#submit-button').attr("hidden", true);
+                    setTimeout(location.reload.bind(location), 1000);
+                }
+            });
+        } else {
+            notif_search.html("Data penduduk belum dipilih");
+            notif_search.removeAttr('hidden');
+        }
+    });
+
+    $('#nama_penduduk_search').on('keypress', function(event) {
+        if (event.which === 13) {
+            $('#search-penduduk').click();
+        }
+    });
+
   })
 </script>
 @endsection

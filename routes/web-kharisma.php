@@ -20,6 +20,7 @@ Route::prefix('4dm1n')->namespace('Admin')->middleware('auth:admin')->group(func
         Route::get('/edit/{id}', 'KartuKeluargaController@form_edit')->name('data_kk_form_edit');
         Route::get('/restore', 'KartuKeluargaController@indexRestore')->name('data_kk_restore_index');
         Route::post('/restore', 'KartuKeluargaController@restore')->name('data_kk_restore');
+        Route::post('/pindah-penduduk', 'KartuKeluargaController@movePenduduk')->name('kk_pindah_penduduk');
         Route::prefix('/edit/{id}')->group(function () {
             Route::get('/add-anggota', 'PendudukController@form_add')->name('data_penduduk_add');
             Route::post('/add-anggota', 'PendudukController@store')->name('data_penduduk_store');

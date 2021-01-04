@@ -26,7 +26,6 @@ class KartuKeluargaController extends Controller
     {
         $kk = KartuKeluarga::where('id',$id)->firstOrFail();
         $kepala = $kk->penduduks->where('shdrt', 'kepala keluarga')->first();
-        $kk = $kk->with(['penduduks'])->get()[0];
         return view($this->folder_view.'edit', compact('kk', 'kepala'));
     }
 
@@ -72,6 +71,16 @@ class KartuKeluargaController extends Controller
         ->where('id', $request->id)
         ->restore();
         return redirect()->back()->with('status', 'Berhasil mengembalikan data penduduk');
+    }
+
+    public function movePenduduk(Request $request){
+        $penduduks = Penduduk::whereIn('id', $request->id_penduduk)->get();
+        $idKK = $request->id_kk;
+        foreach ($penduduks as $p) {
+            $p->id_kartu_keluarga = $idKK;
+            $p->save();
+        }
+        return true;
     }
 
 }
