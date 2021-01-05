@@ -19,12 +19,12 @@ class SuratPermohonanController extends Controller
 {
     public function index()
     {
-        return view('Admin.Pages.Surat Permohonan.index');
+        return view('Admin.Pages.SuratPermohonan.index');
     }
 
     public function indexResponse()
     {
-        return response()->view('Admin.Pages.Surat Permohonan.response_index');
+        return response()->view('Admin.Pages.SuratPermohonan.response_index');
     }
 
     public function getAll()
@@ -41,7 +41,7 @@ class SuratPermohonanController extends Controller
         $data = array();
         $data['kolom_penduduk'] = Schema::getColumnListing('penduduks');
         // return $data;
-        return view('Admin.Pages.Surat Permohonan.tambah_edit', compact("data"));
+        return view('Admin.Pages.SuratPermohonan.tambah_edit', compact("data"));
     }
 
     public function halamanTambahResponse()
@@ -49,7 +49,7 @@ class SuratPermohonanController extends Controller
         $data = array();
         $data['kolom_penduduk'] = Schema::getColumnListing('penduduks');
         // return $data;
-        return response()->view('Admin.Pages.Surat Permohonan.tambah_edit_response', compact("data"));
+        return response()->view('Admin.Pages.SuratPermohonan.tambah_edit_response', compact("data"));
     }
 
     public function halamanEdit($id)
@@ -59,7 +59,7 @@ class SuratPermohonanController extends Controller
         $data['surat']->attribute = json_decode($data['surat']->attribute);
         $data['kolom_penduduk'] = Schema::getColumnListing('penduduks');
         // return $data;
-        return view('Admin.Pages.Surat Permohonan.tambah_edit', compact("data"));
+        return view('Admin.Pages.SuratPermohonan.tambah_edit', compact("data"));
     }
 
     public function halamanEditResponse($id)
@@ -68,7 +68,7 @@ class SuratPermohonanController extends Controller
         $data['surat'] = permohonan_surat::find($id);
         $data['surat']->attribute = json_decode($data['surat']->attribute);
         $data['kolom_penduduk'] = Schema::getColumnListing('penduduks');
-        return response()->view('Admin.Pages.Surat Permohonan.tambah_edit_response', compact("data"));
+        return response()->view('Admin.Pages.SuratPermohonan.tambah_edit_response', compact("data"));
     }
 
     public function tambah(Request $request)
@@ -315,9 +315,9 @@ class SuratPermohonanController extends Controller
         // foreach ($data['surat'] as $k => $v) {
         //     $data['arsip'][$k] = arsip_surat_penduduk::where('permohonan_surat_id', $k)->get();
         // }
-        $data['surat'] = permohonan_surat::pluck('jenis_surat', 'id');
-        $data['penduduk'] = Penduduk::pluck('nama', 'id');
-        $data['arsip'] = arsip_surat_penduduk::orderBy('tanggal_surat', 'desc')->get();
+        // $data['surat'] = permohonan_surat::pluck('jenis_surat', 'id');
+        $data = DB::select(DB::raw('SELECT penduduks.nama as nama, penduduks.id as id, data_ktps.nik as nik, arsip_surat_penduduks.tanggal_surat, permohonan_surats.jenis_surat, arsip_surat_penduduks.nomer FROM penduduks JOIN data_ktps ON data_ktps.id = penduduks.id_data_ktp JOIN arsip_surat_penduduks ON arsip_surat_penduduks.penduduk_id = penduduks.id JOIN permohonan_surats on permohonan_surats.id = arsip_surat_penduduks.permohonan_surat_id ORDER BY arsip_surat_penduduks.tanggal_surat DESC'));
+        // $data['arsip'] = arsip_surat_penduduk::orderBy('tanggal_surat', 'desc')->get();
 
         return response()->json($data);
     }
