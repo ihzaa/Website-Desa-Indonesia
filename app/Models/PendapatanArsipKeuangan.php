@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class PendapatanArsipKeuangan extends Model
+{
+    protected $table = 'pendapatan_arsip_keuangan';
+    protected $fillable = [
+        'tahun_arsip_keuangan_id',
+        'nama_pendapatan',
+        'nominal',
+        'cash_on_hand'
+    ];
+
+    public function TahunArsipKeuangan(){
+        return $this->belongsTo(TahunArsipKeuangan::class);
+    }
+
+    public function BidangArsipKeuangan(){
+        return $this->hasMany(BidangArsipKeuangan::class);
+    }
+}

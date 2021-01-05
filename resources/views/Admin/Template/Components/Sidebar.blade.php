@@ -150,22 +150,22 @@
                         </li>
                     </ul>
                 </li>
-                
+
                 <li class="nav-header">ARSIP INTERNAL</li>
                 <li class="nav-item">
-                    <a href="{{route('admin_kritiksaran')}}"
-                        class="nav-link {{request()->is('*arsip-statis*')? 'active':''}}">
-                        <i class="nav-icon fas fa-award"></i>
+                    <a href="{{route('admin.arsip-dokumen.index')}}"
+                        class="nav-link {{request()->is('*arsip-dokumen*')? 'active':''}}">
+                       <i class="fas fa-file-alt nav-icon"></i>
                         <p>
-                            Arsip Statis
+                            Arsip Dokumen
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('posyandu.index')}}" class="nav-link {{request()->is('*arsip-dinamis*')? 'active':''}}">
-                        <i class="nav-icon fas fa-medkit"></i>
+                    <a href="{{route('admin.arsip-keuangan.index')}}" class="nav-link {{request()->is('*arsip-keuangan*')? 'active':''}}">
+                        <i class="fas fa-file-invoice-dollar nav-icon"></i>
                         <p>
-                            Arsip Dinamis
+                            Arsip Keuangan
                         </p>
                     </a>
                 </li>

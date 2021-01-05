@@ -42,4 +42,11 @@ Route::namespace ('Admin')->middleware('auth:admin')->group(function () {
         });
     });
 
+    Route::prefix('4dm1n/arsip-dokumen')->group(function(){
+        
+    });
+
+    Route::prefix('4dm1n/arsip-dokumen')->group(function(){
+        
+    });
 });
