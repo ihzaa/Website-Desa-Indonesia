@@ -15,8 +15,9 @@ class CreateTahunArsipDokumenTable extends Migration
     {
         Schema::create('tahun_arsip_dokumen', function (Blueprint $table) {
             $table->id();
-            $table->string('5');
+            $table->string('tahun');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

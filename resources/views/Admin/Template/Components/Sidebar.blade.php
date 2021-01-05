@@ -153,7 +153,7 @@
 
                 <li class="nav-header">ARSIP INTERNAL</li>
                 <li class="nav-item">
-                    <a href="{{route('admin.arsip-dokumen.index')}}"
+                    <a href="{{route('admin_arsip_dokumen_index')}}"
                         class="nav-link {{request()->is('*arsip-dokumen*')? 'active':''}}">
                        <i class="fas fa-file-alt nav-icon"></i>
                         <p>
@@ -162,7 +162,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin.arsip-keuangan.index')}}" class="nav-link {{request()->is('*arsip-keuangan*')? 'active':''}}">
+                    <a href="{{route('admin_arsip_keuangan_index')}}" class="nav-link {{request()->is('*arsip-keuangan*')? 'active':''}}">
                         <i class="fas fa-file-invoice-dollar nav-icon"></i>
                         <p>
                             Arsip Keuangan

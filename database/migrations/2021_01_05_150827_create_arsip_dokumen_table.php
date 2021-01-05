@@ -24,6 +24,7 @@ class CreateArsipDokumenTable extends Migration
             $table->string('nama_arsip');
             $table->string('file');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

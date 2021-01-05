@@ -23,6 +23,7 @@ class CreatePosArsipKeuanganTable extends Migration
             ->onDelete('cascade');
             $table->string('nama_pos');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

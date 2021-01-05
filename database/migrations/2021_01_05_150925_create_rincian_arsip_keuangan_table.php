@@ -31,6 +31,7 @@ class CreateRincianArsipKeuanganTable extends Migration
             $table->double('nominal');
             $table->double('pajak');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

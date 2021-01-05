@@ -17,6 +17,7 @@ class CreateTahunArsipKeuanganTable extends Migration
             $table->id();
             $table->string('tahun', 5);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

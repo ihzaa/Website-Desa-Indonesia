@@ -24,6 +24,7 @@ class CreateBidangArsipKeuanganTable extends Migration
             $table->string('nama_bidang');
             $table->double('cash_on_hand');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

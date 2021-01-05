@@ -25,6 +25,7 @@ class CreatePendapatanArsipKeuanganTable extends Migration
             $table->double('nominal');
             $table->double('cash_on_hand');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
