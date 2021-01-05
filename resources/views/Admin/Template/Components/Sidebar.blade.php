@@ -150,6 +150,26 @@
                         </li>
                     </ul>
                 </li>
+                
+                <li class="nav-header">ARSIP INTERNAL</li>
+                <li class="nav-item">
+                    <a href="{{route('admin_kritiksaran')}}"
+                        class="nav-link {{request()->is('*arsip-statis*')? 'active':''}}">
+                        <i class="nav-icon fas fa-award"></i>
+                        <p>
+                            Arsip Statis
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('posyandu.index')}}" class="nav-link {{request()->is('*arsip-dinamis*')? 'active':''}}">
+                        <i class="nav-icon fas fa-medkit"></i>
+                        <p>
+                            Arsip Dinamis
+                        </p>
+                    </a>
+                </li>
+
                 <li class="nav-header">EVALUASI PELAYANAN</li>
                 <li class="nav-item">
                     <a href="{{route('admin_kritiksaran')}}"

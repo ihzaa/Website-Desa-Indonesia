@@ -45,9 +45,9 @@
                     <td>{{$data->judul_berita}}</td>
                     <td>{{Carbon\Carbon::parse($data->updated_at)->translatedFormat('l, d F Y H:i')}}</td>
                     <td>
-                        <a href="{{route('admin_berita_edit', $data->id)}}" class="btn btn-warning">Edit</a>
+                        <a href="{{route('admin_berita_edit', $data->id)}}" class="btn btn-warning"><i class="far fa-edit"></i> Edit</a>
                         <button class="btn btn-danger ml-2 deleteModal" data-toggle="modal" data-target="#deleteModal"
-                            id="{{$data->id}}">Hapus</button>
+                            id="{{$data->id}}"><i class="fas fa-trash"></i> Hapus</button>
                     </td>
                 </tr>
                 @endforeach

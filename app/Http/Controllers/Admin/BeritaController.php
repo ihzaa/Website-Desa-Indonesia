@@ -48,15 +48,15 @@ class BeritaController extends Controller
         $dom->loadHtml($description, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
         $images = $dom->getElementsByTagName('img');
 
-        if (!is_dir(storage_path('app\public\images\berita\konten'))) {
-            mkdir(storage_path('app\public\images\berita\konten'), 0777, true);
+        if (!is_dir(storage_path('app/public/images/berita/konten'))) {
+            mkdir(storage_path('app/public/images/berita/konten'), 0777, true);
         }
 
         foreach ($images as $k => $img) {
             $data = $img->getAttribute('src');
             list($type, $data) = explode(';', $data);
             list(, $data) = explode(',', $data);
-            $image_name = "\app\public\images\berita\konten\img" . time() . $k . '.png';
+            $image_name = "app/public/images/berita/konten/img" . time() . $k . '.png';
             $path = storage_path() . $image_name;
             file_put_contents($path, $data);
             $img->removeAttribute('src');
@@ -64,7 +64,7 @@ class BeritaController extends Controller
         }
 
         $imageName = 'img'.time().'.'.$request->thumbnail_berita->extension();
-        $request->thumbnail_berita->move(storage_path('\app\public\images\berita\thumbnails'), $imageName);
+        $request->thumbnail_berita->move(storage_path('app/public/images/berita/thumbnails'), $imageName);
         Berita::create([
             'judul_berita'=>$request->judul_berita,
             'konten_berita'=>$request->konten_berita,
@@ -107,6 +107,16 @@ class BeritaController extends Controller
     {
         $edit=Berita::find($id);
         $edit->update($request->all());
+        if($request->thumbnail_edit_berita != null){
+            if (!is_dir(storage_path('app/public/images/berita/konten'))) {
+                mkdir(storage_path('app/public/images/berita/konten'), 0777, true);
+            }
+            $imageName = 'img'.time().'.'.$request->thumbnail_edit_berita->extension();
+            $request->thumbnail_edit_berita->move(storage_path('app/public/images/berita/thumbnails'), $imageName);
+            $edit->update([
+                'thumbnail_berita'=>$imageName
+            ]);
+        }
         return redirect()->route('admin_berita_index')->with('success', 'Berhasil mengubah konten');
     }
 
