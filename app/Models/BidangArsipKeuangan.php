@@ -10,13 +10,14 @@ class BidangArsipKeuangan extends Model
     use SoftDeletes;
     protected $table = 'bidang_arsip_keuangan';
     protected $fillable = [
-        'pendapatan_arsip_keuangan_id',
+        'tahun_arsip_keuangan_id',
         'nama_bidang',
+        'uang_bagian',
         'cash_on_hand'
     ];
 
-    public function PendapatanArsipKeuangan(){
-        return $this->belongsTo(PendapatanArsipKeuangan::class);
+    public function TahunArsipKeuangan(){
+        return $this->belongsTo(TahunArsipKeuangan::class);
     }
 
     public function RincianArsipKeuangan(){

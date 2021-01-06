@@ -27,9 +27,9 @@ class CreateRincianArsipKeuanganTable extends Migration
             ->on('pos_arsip_keuangan')
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->string('rincian');
-            $table->double('nominal');
-            $table->double('pajak');
+            $table->text('rincian');
+            $table->double('nominal')->nullable();
+            $table->double('pajak')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

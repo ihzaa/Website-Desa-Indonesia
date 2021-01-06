@@ -1,40 +1,43 @@
+<!-- MODAL PENDAPATAN -->
 
 <!--Modal create data-->
-<div class="modal fade" id="createModalBelanja" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+<div class="modal fade" id="createModalPendapatan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header bg-danger">
-                <h5 class="modal-title">Tambah Data Belanja</h5>
+            <div class="modal-header bg-success">
+                <h5 class="modal-title">Tambah Data Pendapatan</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form id="formCreateBelanja"
-                action="{{route('admin_kelola_transparansi_store_belanja', $transparansi[0]->id)}}" method="post">
+            <form id="formCreatePendapatan" action="{{route('admin_arsip_keuangan_kelola_pendapatan_store', $idTahun)}}" method="post">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
                         <div class="form-group">
-                            <label for="jenis_belanja">Jenis Belanja</label>
-                            <textarea name="jenis_belanja" id="jenis_belanja" cols="30" rows="3"
-                                class="form-control" required></textarea>
+                            <label for="nama_pendapatan">Nama Pendapatan<span class="text-red">*</span></label>
+                            <input type="text" id="nama_pendapatan" name="nama_pendapatan" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="jenis_belanja">Nominal Belanja</label>
+                            <label for="nominal">Nominal Pendapatan<span class="text-red">*</span></label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Rp. </span>
                                 </div>
-                                <input name="nominal_belanja" type="number" id="nominal_belanja"
+                                <input name="nominal" id="nominal_pendapatan" type="number" id="nominal"
                                     class="form-control" required>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tgl_pendapatan">Tanggal Pendapatan<span class="text-red">*</span></label>
+                            <input type="date" id="tgl_pendapatan" name="tgl_pendapatan" class="form-control" required>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-light" data-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-danger">Kirim Data</button>
+                    <button type="submit" class="btn btn-success">Kirim Data</button>
                 </div>
             </form>
         </div>
@@ -44,7 +47,7 @@
 
 
 <!--Modal delete data-->
-<div class="modal fade" id="deleteModalBelanja" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+<div class="modal fade" id="deleteModalPendapatan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content bg-danger">
@@ -54,7 +57,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form id="formDeleteBelanja" action="" method="post">
+            <form id="formDeletePendapatan" action="/" method="post">
                 @method('delete')
                 @csrf
                 <div class="modal-body">
@@ -69,37 +72,39 @@
     </div>
 </div>
 
-<!-- Attachment Modal -->
-<div class="modal fade" id="editModalBelanja" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+<!--Modal edit data-->
+<div class="modal fade" id="editModalPendapatan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Edit Data Belanja</h5>
+            <div class="modal-header bg-success">
+                <h5 class="modal-title">Edit Data Pendapatan</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form id="editFormBelanja"
-                action="{{route('admin_kelola_transparansi_store_belanja', $transparansi[0]->id)}}" method="post">
+            <form id="formEditPendapatan" action="/" method="post">
                 @csrf
-                @method('put')
+                @method('PUT')
                 <div class="modal-body">
                     <div class="form-group">
                         <div class="form-group">
-                            <label for="jenis_belanja">Jenis Belanja</label>
-                            <textarea name="jenis_belanja" id="modal_jenis_belanja" cols="30" rows="3"
-                                class="form-control" required></textarea>
+                            <label for="nama_pendapatan">Nama Pendapatan<span class="text-red">*</span></label>
+                            <input id="nama_pendapatan_modal" type="text" name="nama_pendapatan" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="jenis_belanja">Nominal Belanja</label>
+                            <label for="nominal">Nominal Pendapatan<span class="text-red">*</span></label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Rp. </span>
                                 </div>
-                                <input name="nominal_belanja" type="number" id="modal_nominal_belanja"
-                                    class="form-control" required>
+                                <input name="nominal" type="number"
+                                    class="form-control" id="nominal_pendapatan_modal" required>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tgl_pendapatan">Tanggal Pendapatan<span class="text-red">*</span></label>
+                            <input type="date" id="tgl_pendapatan_modal" name="tgl_pendapatan" class="form-control" required>
                         </div>
                     </div>
                 </div>
@@ -111,4 +116,5 @@
         </div>
     </div>
 </div>
-<!-- /Attachment Modal -->
+<!-- Modal edit data -->
+<!-- MODAL PENDAPATAN -->

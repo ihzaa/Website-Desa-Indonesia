@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ArsipDokumen;
 use App\Models\TahunArsipDokumen;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -17,7 +18,8 @@ class TahunArsipDokumenController extends Controller
     public function index()
     {
         $tahun = TahunArsipDokumen::all();
-        return view('Admin.Pages.ArsipDokumen.index', compact('tahun'));
+        $arsip = ArsipDokumen::all();
+        return view('Admin.Pages.ArsipDokumen.index', compact('tahun', 'arsip'));
     }
 
     /**

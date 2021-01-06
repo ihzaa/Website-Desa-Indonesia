@@ -56,7 +56,7 @@
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$data->tahun}}</td>
-                    <td>{{$data->tahun}}</td>
+                    <td>{{$arsip->where('tahun_arsip_dokumen_id')->count()}}</td>
                     <td>
                         <button class="btn btn btn-danger ml-2 deleteModal text-white" data-toggle="modal"
                         data-target="#deleteModal" id="{{$data->id}}"><i class="fas fa-trash"></i>

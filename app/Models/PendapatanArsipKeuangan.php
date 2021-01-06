@@ -13,14 +13,11 @@ class PendapatanArsipKeuangan extends Model
         'tahun_arsip_keuangan_id',
         'nama_pendapatan',
         'nominal',
-        'cash_on_hand'
+        'cash_on_hand',
+        'tgl_pendapatan'
     ];
 
     public function TahunArsipKeuangan(){
         return $this->belongsTo(TahunArsipKeuangan::class);
-    }
-
-    public function BidangArsipKeuangan(){
-        return $this->hasMany(BidangArsipKeuangan::class);
     }
 }

@@ -54,13 +54,29 @@
                 </tr>
             </thead>
             <tbody>
-                
+                @foreach($tahun as $data)
+                    <tr>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$data->tahun}}</td>
+                        <td>{{$pos->where('tahun_arsip_keuangan_id', $data->id)->count()}}</td>
+                        <td>{{$bidang->where('tahun_arsip_keuangan_id', $data->id)->count()}}</td>
+                        <td>Rp{{number_format($pendapatan->where('tahun_arsip_keuangan_id')->sum('nominal'), 2)}}</td>
+                        <td>
+                            <button class="btn btn btn-danger ml-2 deleteModal text-white" data-toggle="modal"
+                        data-target="#deleteModal" id="{{$data->id}}"><i class="fas fa-trash"></i>
+                        &nbsp;Hapus</button>
+                        &nbsp;
+                        <a href="{{route('admin_arsip_keuangan_kelola_index', $data->id)}}" class="btn btn btn-warning"><i
+                            class="fas fa-tools"></i> &nbsp;Kelola Arsip</button>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
 </div>
 
-<!--Modal delete data-->
+<!--Modal store data-->
 <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -70,7 +86,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form id="formCreate" action="{{route('admin_transparansi_store')}}" method="post">
+            <form id="formCreate" action="{{route('admin_arsip_keuangan_store')}}" method="post">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
@@ -139,7 +155,7 @@
 
         $(".deleteModal").click(function (e) {
             let id = $(this).attr("id")
-            $('#formDelete').attr('action', '/4dm1n/transparansi/' + id)
+            $('#formDelete').attr('action', '/4dm1n/arsip-keuangan/' + id)
         });
 
         window.setTimeout(function () {

@@ -23,7 +23,7 @@ class CreatePendapatanArsipKeuanganTable extends Migration
             ->onDelete('cascade');
             $table->string('nama_pendapatan', 125);
             $table->double('nominal');
-            $table->double('cash_on_hand');
+            $table->datetime('tgl_pendapatan');
             $table->timestamps();
             $table->softDeletes();
         });

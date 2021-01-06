@@ -16,6 +16,7 @@ class CreateTahunArsipKeuanganTable extends Migration
         Schema::create('tahun_arsip_keuangan', function (Blueprint $table) {
             $table->id();
             $table->string('tahun', 5);
+            $table->double('cash_on_hand')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

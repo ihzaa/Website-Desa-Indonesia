@@ -15,14 +15,15 @@ class CreateBidangArsipKeuanganTable extends Migration
     {
         Schema::create('bidang_arsip_keuangan', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('pendapatan_arsip_keuangan_id');
-            $table->foreign('pendapatan_arsip_keuangan_id')
+            $table->unsignedBigInteger('tahun_arsip_keuangan_id');
+            $table->foreign('tahun_arsip_keuangan_id')
             ->references('id')
-            ->on('pendapatan_arsip_keuangan')
+            ->on('tahun_arsip_keuangan')
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->string('nama_bidang');
-            $table->double('cash_on_hand');
+            $table->double('uang_bagian')->nullable();
+            $table->double('cash_on_hand')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

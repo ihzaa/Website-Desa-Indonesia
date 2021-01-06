@@ -11,7 +11,12 @@ class TahunArsipKeuangan extends Model
     protected $table = 'tahun_arsip_keuangan';
     protected $fillable = [
         'tahun',
+        'cash_on_hand'
     ];
+
+    public function BidangArsipKeuangan(){
+        return $this->hasMany(BidangArsipKeuangan::class);
+    }
 
     public function PendapatanArsipKeuangan(){
         return $this->hasMany(PendapatanArsipKeuangan::class);
