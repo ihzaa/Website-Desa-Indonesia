@@ -17,7 +17,7 @@
 @section('content')
     <div class="callout callout-info">
         <h5>Cash On Hand Bidang</h5>
-        <h3><strong>Rp{{number_format($bidang->cash_on_hand, 0, ',', '.')}}</strong></h3>
+        <h3><strong>Rp{{number_format(floor($bidang->cash_on_hand), 0, ',', '.')}}</strong></h3>
     </div>
     <div class="card">
         <div class="card-header">
@@ -72,9 +72,9 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$data->PosArsipKeuangan->nama_pos}}</td>
                             <td>{{$data->rincian}}</td>
-                            <td>{{$data->nominal != null ? $data->nominal : '-'}}</td>
-                            <td>{{$data->pajak != null ? $data->pajak : '-'}}</td>
-                            <td>{{$data->nominal-($data->pajak*$data->nominal/100)}}</td>
+                            <td>{{$data->nominal != null ? 'Rp'.number_format($data->nominal,0,'.,','.') : '-'}}</td>
+                            <td>{{$data->pajak != null ? $data->pajak.'%' : '-'}}</td>
+                            <td>{{'Rp'.number_format($data->nominal-($data->pajak*$data->nominal/100), 0, ',', '.')}}</td>
                             <td>
                                 <button class="btn btn-warning editModal"><i class="fas fa-edit"></i>Ubah Data</button>
                                 <button class="btn btn-danger deleteModal" data-id="{{$data->id}}"><i class="fas fa-trash"></i> Hapus
@@ -147,12 +147,14 @@
                                     <td>Pajak (%)</td>
                                     <td>Nominal Pajak (Rp)</td>
                                     <td>Total (Rp)</td>
+                                    <td>Cash On Hand (Rp)</td>
                                 </tr>
                                 <tr>
                                     <td class="table_nominal_rincian">0</td>
                                     <td class="table_pajak_rincian">0</td>
                                     <td class="table_nominal_pajak_rincian">0</td>
                                     <td class="table_total_rincian">0</td>
+                                    <td class="table_cash_on_hand_rincian">0</td>
                                 </tr>
                             </table>
                         </div>
@@ -228,12 +230,14 @@
                                     <td>Pajak (%)</td>
                                     <td>Nominal Pajak (Rp)</td>
                                     <td>Total (Rp)</td>
+                                    <td>Cash On Hand (Rp)</td>
                                 </tr>
                                 <tr>
                                     <td class="table_nominal_rincian">0</td>
                                     <td class="table_pajak_rincian">0</td>
                                     <td class="table_nominal_pajak_rincian">0</td>
                                     <td class="table_total_rincian">0</td>
+                                    <td class="table_cash_on_hand_rincian">0</td>
                                 </tr>
                             </table>
                         </div>
@@ -287,6 +291,7 @@
             var total_rincian=0;
             var nominal_rincian=0;
             var pajak_rincian=0;
+            var cash_on_hand=0;
 
             var table = $("#dfUsageTable").DataTable({
                 "responsive": true,
@@ -319,20 +324,23 @@
                     $tr = $tr.prev('.parent');
                 }
                 var data = table.row($tr).data();
+                var nominal_edit = data[4].replace("Rp", "").replaceAll('.','')
+                var pajak_edit = data[5].replace("%","");
                 $('#pos_belanja_edit').val(data[2]);
                 $('#rincian_edit').html(data[3])
-                $('#nominal_edit').val(data[4])
-                $('#pajak_edit').val(data[5])
+                $('#nominal_edit').val(nominal_edit)
+                $('#pajak_edit').val(pajak_edit)
                 if(data[4]!='-'){
-                    nominal_rincian=data[4]
+                    nominal_rincian=nominal_edit
                 }else{
                     nominal_rincian=0
                 }
                 if(data[5]!='-'){
-                    pajak_rincian=data[5]
+                    pajak_rincian=pajak_edit
                 }else{
                     pajak_rincian=0
                 }
+                cash_on_hand=parseInt({{$bidang->cash_on_hand}})
                 kalkulasi_rincian()
 
                 $('#formedit').attr('action', '/4dm1n/arsip-keuangan/'+{{$idTahun}}+'/kelola/'+{{$idBidang}}+'/'+data[0]);
@@ -342,11 +350,13 @@
             $('.btn-create').click(function(){
                 nominal_rincian=0
                 pajak_rincian=0
+                cash_on_hand = parseInt({{$bidang->cash_on_hand}})
                 kalkulasi_rincian()
             });
             
             $('.nominal').on('input', function(){
                 nominal_rincian=$(this).val()
+                cash_on_hand=parseInt({{$bidang->cash_on_hand}})
                 kalkulasi_rincian()
             })
 
@@ -361,6 +371,7 @@
                 let nominal_pajak = parseInt(nominal_rincian*pajak_rincian/100)
                 let kalkulasi = parseInt(nominal_rincian-nominal_pajak)
                 $('.table_nominal_pajak_rincian').html(formatRupiah(nominal_pajak.toString()))
+                cash_on_hand=cash_on_hand-kalkulasi
                 if(kalkulasi>=0){
                     $('.table_total_rincian').html(formatRupiah(kalkulasi.toString()))
                     $('.btn_modal').attr('disabled', false);
@@ -371,6 +382,12 @@
                 if(nominal_pajak==0 && pajak_rincian!=0){
                     $('.table_total_rincian').html('Error')
                     $('.btn_modal').attr('disabled', true);                 
+                }
+                if(cash_on_hand>=0){
+                    $('.table_cash_on_hand_rincian').html(formatRupiah(cash_on_hand.toString()))
+                }else{
+                    $('.table_cash_on_hand_rincian').html('Error')
+                    $('.btn_modal').attr('disabled', true);
                 }
             }
 
