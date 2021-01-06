@@ -30,14 +30,14 @@
                                  style="max-height: 80px">
                         @endif
                     </div>
-                    <h1 class="mt-4">Desa {{$setting->nama_desa}}</h1>
-                    <h2>Layanan Sistem Informasi dan Manajemen Tata Kelola Desa {{$setting->nama_desa}},
+                    <h1 class="mt-4 text-uppercase">{{$setting->nama_desa}}</h1>
+                    <h2>Sistem Informasi dan Pelayanan Administrasi Desa {{$setting->nama_desa}},
                         Kecamatan {{$setting->kecamatan}}
                         <br>{{$setting->kabupaten}}</h2>
                     <div class="d-lg-flex">
                         <a href="{{route('front_index_surat_permohonan')}}" class="btn-get-started scrollto">Surat
                             Permohonan</a>
-                        <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video"
+                        <a href="#" class="venobox btn-watch-video"
                            data-vbtype="video" data-autoplay="true"> Lihat Video <i class="icofont-play-alt-2"></i></a>
                     </div>
                 </div>
@@ -82,14 +82,16 @@
     <!-- ======= Cta Section ======= -->
     @include('Front.components.cta')
     <!-- End Cta Section -->
-
+    
+{{-- 
     <!-- ======= About Us Section ======= -->
     @include('Front.components.aboutus')
     <!-- End About Us Section -->
 
     <!-- ======= Why Us Section ======= -->
     @include('Front.components.whyus')
-    <!-- End Why Us Section -->
+    <!-- End Why Us Section --> 
+--}}
 
     <!-- ======= Transparansi Section ======= -->
     @include('Front.components.transparansi')

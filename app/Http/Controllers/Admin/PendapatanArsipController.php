@@ -46,7 +46,6 @@ class PendapatanArsipController extends Controller
      */
     public function update($idTahun, $idPendapatan, Request $request)
     {
-        dd($request->all());
         $tahun = TahunArsipKeuangan::findOrFail($idTahun);
         $pendapatan = PendapatanArsipKeuangan::findOrFail($idPendapatan);
 
@@ -78,7 +77,12 @@ class PendapatanArsipController extends Controller
      */
     public function destroy($idTahun, $idPendapatan)
     {
-        PendapatanArsipKeuangan::findOrFail($idPendapatan)->delete;
+        $pendapatan = PendapatanArsipKeuangan::findOrFail($idPendapatan);
+        $tahun = TahunArsipKeuangan::findOrFail($idTahun);
+        $tahun->update([
+            'cash_on_hand'=>$tahun->cash_on_hand-$pendapatan->nominal
+        ]);
+        $pendapatan->delete();
         return redirect()->back()->with('success', 'Berhasil menghapus data');
     }
 }

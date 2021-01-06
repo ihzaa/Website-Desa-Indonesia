@@ -47,9 +47,9 @@ class PosArsipController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($idTahun, $idPos)
     {
-        PosArsipKeuangan::findOrFail($id)->delete();
+        PosArsipKeuangan::findOrFail($idPos)->delete();
         return redirect()->back()->with('success', 'Berhasil menghapus data');
     }
 }

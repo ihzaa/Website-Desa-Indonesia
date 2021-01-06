@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
             'kecamatan' => 'Default',
             'kabupaten' => 'Kota Default',
             'alamat_lengkap' => 'Jl.Default',
-            'no_wa' => '089512312312',
+            'no_wa' => '6281333044665',
             'no_telepon' => '032112312312',
             'email' => 'default@gmail.com',
             'maps' => 'https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Malang+(Mojokerto)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'

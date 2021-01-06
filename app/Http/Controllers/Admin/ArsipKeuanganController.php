@@ -25,9 +25,9 @@ class ArsipKeuanganController extends Controller
     
     public function index($idTahun)
     {
-        $pos = PosArsipKeuangan::where('tahun_arsip_keuangan_id', $idTahun)->get();
-        $pendapatan = PendapatanArsipKeuangan::where('tahun_arsip_keuangan_id', $idTahun)->get();
-        $bidang = BidangArsipKeuangan::where('tahun_arsip_keuangan_id', $idTahun)->get();
+        $pos = PosArsipKeuangan::where('tahun_arsip_keuangan_id', $idTahun)->get()->sortByDesc('id');
+        $pendapatan = PendapatanArsipKeuangan::where('tahun_arsip_keuangan_id', $idTahun)->get()->sortByDesc('id');
+        $bidang = BidangArsipKeuangan::where('tahun_arsip_keuangan_id', $idTahun)->get()->sortByDesc('id');
         $tahun = TahunArsipKeuangan::findOrFail($idTahun);
         $totalBelanjaBidang = [];
         // dd($bidang);

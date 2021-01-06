@@ -60,7 +60,7 @@
                         <td>{{$data->tahun}}</td>
                         <td>{{$pos->where('tahun_arsip_keuangan_id', $data->id)->count()}}</td>
                         <td>{{$bidang->where('tahun_arsip_keuangan_id', $data->id)->count()}}</td>
-                        <td>Rp{{number_format($pendapatan->where('tahun_arsip_keuangan_id')->sum('nominal'), 2)}}</td>
+                        <td>Rp{{number_format($pendapatan->where('tahun_arsip_keuangan_id', $data->id)->sum('nominal'), 2)}}</td>
                         <td>
                             <button class="btn btn btn-danger ml-2 deleteModal text-white" data-toggle="modal"
                         data-target="#deleteModal" id="{{$data->id}}"><i class="fas fa-trash"></i>

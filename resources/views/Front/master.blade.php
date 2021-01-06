@@ -99,25 +99,45 @@
 <!-- ======= Footer ======= -->
 <footer id="footer">
 
-    <div class="footer-newsletter">
+    <div class="footer-top footer-newsletter">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <h4>Join Our Newsletter</h4>
-                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-                    <form action="" method="post">
+                <div class="col-lg-4 col-md-6 footer-contact">
+                    <h3>Desa {{$setting->nama_desa}}</h3>
+                    <p>
+                        {!! $setting->alamat_lengkap !!} <br><br>
+                        <strong>Whatsapp:</strong> {{$setting->no_wa}}<br>
+                        <strong>Telepon:</strong> {{$setting->no_telepon}}<br>
+                        <strong>Email:</strong> {{$setting->email}}<br>
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-6 footer-links">
+                    <h4>SIPANJI</h4>
+                    <p>Sistem Informasi dan Pelayanan Administrasi Desa Kedungpanji</p>
+                    {{-- <form action="" method="post">
                         <input type="email" name="email"><input type="submit" value="Subscribe">
-                    </form>
+                    </form> --}}
+                </div>
+                <div class="col-lg-4 col-md-6 footer-links">
+                    <h4>Our Social Networks</h4>
+                    {{-- <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p> --}}
+                    <div class="social-links mt-3">
+                        <a href="#!" class="twitter"><i class="bx bxl-twitter"></i></a>
+                        <a href="#!" class="facebook"><i class="bx bxl-facebook"></i></a>
+                        <a href="#!" class="instagram"><i class="bx bxl-instagram"></i></a>
+                        <a href="#!" class="google-plus"><i class="bx bxl-skype"></i></a>
+                        <a href="#!" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="footer-top">
+    {{-- <div class="footer-top">
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-3 col-md-6 footer-contact">
+                <div class="col-lg-6 col-md-6 footer-contact">
                     <h3>Desa {{$setting->nama_desa}}</h3>
                     <p>
                         {!! $setting->alamat_lengkap !!} <br><br>
@@ -149,7 +169,7 @@
                     </ul>
                 </div>
 
-                <div class="col-lg-3 col-md-6 footer-links">
+                <div class="col-lg-6 col-md-6 footer-links">
                     <h4>Our Social Networks</h4>
                     <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
                     <div class="social-links mt-3">
@@ -163,11 +183,14 @@
 
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="container footer-bottom clearfix">
         <div class="copyright">
-            &copy; Copyright <strong><span>Arsha</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>Arsha</span></strong>.All Rights Reserved. 
+            <div>
+                Developed by <strong>PT. Media Layar Independen</strong>
+            </div>
         </div>
         <div class="credits">
             <!-- All the links in the footer should remain intact. -->

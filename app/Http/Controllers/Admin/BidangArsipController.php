@@ -67,6 +67,7 @@ class BidangArsipController extends Controller
         if($cash_on_hand_tahun<0){
             return redirect()->back()->with('failed', 'Cash On Hand pada tahun akan minus, silakan masukkan kembali dengan menyesuaikan uang yang ada.');
         }
+        
         $bidang->update([
             'tahun_arsip_keuangan_id'=>$idTahun,
             'nama_bidang'=>$request->nama_bidang,
@@ -74,7 +75,7 @@ class BidangArsipController extends Controller
             'cash_on_hand'=>$cash_on_hand_bidang
         ]);
         $tahun->update([
-            'cash_on_hand'=>$tahun->cash_on_hand-$request->cash_on_hand
+            'cash_on_hand'=>$cash_on_hand_tahun
         ]);
         return redirect()->back()->with('success', 'Berhasil mengubah data');
     }

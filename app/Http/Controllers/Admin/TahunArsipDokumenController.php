@@ -17,7 +17,7 @@ class TahunArsipDokumenController extends Controller
      */
     public function index()
     {
-        $tahun = TahunArsipDokumen::all();
+        $tahun = TahunArsipDokumen::all()->sortByDesc('id');
         $arsip = ArsipDokumen::all();
         return view('Admin.Pages.ArsipDokumen.index', compact('tahun', 'arsip'));
     }

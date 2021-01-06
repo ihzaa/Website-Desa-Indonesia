@@ -278,6 +278,7 @@
         var pendapatan = $("#dfPendapatanTable").DataTable({
             "responsive": true,
             "autoWidth": false,
+            "order": [[ 1, "asc" ]],
             "columnDefs": [
                 {
                     "targets": [0],
@@ -309,6 +310,7 @@
         var bidang = $("#dfBidangTable").DataTable({
             "responsive": true,
             "autoWidth": false,
+            "order": [[ 1, "asc" ]],
             "columnDefs": [
                 {
                     "targets": [0],
@@ -337,6 +339,7 @@
         var pos = $("#dfPosTable").DataTable({
             "responsive": true,
             "autoWidth": false,
+            "order": [[ 1, "asc" ]],
             "columnDefs": [
                 {
                     "targets": [0],

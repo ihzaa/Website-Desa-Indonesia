@@ -120,7 +120,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">Rp. </span>
                                         </div>
-                                        <input name="nominal" type="number" class="form-control nominal">
+                                        <input name="nominal" type="number" class="form-control nominalCreate">
                                     </div>
                                     <small>Nominal tidak boleh melebihi dari cash on hand bidang {{$bidang->nama_bidang}}</small>
                                 </div>
@@ -129,7 +129,7 @@
                                 <div class="form-group">
                                     <label for="pajak">Pajak <span><small>(kosongkan jika tidak memiliki pajak)</small></span></label>
                                     <div class="input-group">
-                                        <input name="pajak" type="number" min="0" max="100" class="form-control pajak">
+                                        <input name="pajak" type="number" min="0" max="100" class="form-control pajakCreate">
                                         <div class="input-group-append">
                                             <span class="input-group-text">%</span>
                                         </div>
@@ -292,10 +292,12 @@
             var nominal_rincian=0;
             var pajak_rincian=0;
             var cash_on_hand=0;
+            var nominal_asli=0;
 
             var table = $("#dfUsageTable").DataTable({
                 "responsive": true,
                 "autoWidth": false,
+                "order": [[ 1, "asc" ]],
                 "columnDefs":[{
                     "targets": [0],
                     "visible": false
@@ -324,6 +326,7 @@
                     $tr = $tr.prev('.parent');
                 }
                 var data = table.row($tr).data();
+                var total_edit = data[6].replace("Rp", "").replaceAll('.','')
                 var nominal_edit = data[4].replace("Rp", "").replaceAll('.','')
                 var pajak_edit = data[5].replace("%","");
                 $('#pos_belanja_edit').val(data[2]);
@@ -340,7 +343,9 @@
                 }else{
                     pajak_rincian=0
                 }
-                cash_on_hand=parseInt({{$bidang->cash_on_hand}})
+                nominal_asli=parseInt({{$bidang->cash_on_hand}})+parseInt(total_edit)
+                cash_on_hand=parseInt({{$bidang->cash_on_hand}})+parseInt(total_edit)
+                // cash_on_hand=parseInt({{$bidang->cash_on_hand}})
                 kalkulasi_rincian()
 
                 $('#formedit').attr('action', '/4dm1n/arsip-keuangan/'+{{$idTahun}}+'/kelola/'+{{$idBidang}}+'/'+data[0]);
@@ -350,17 +355,32 @@
             $('.btn-create').click(function(){
                 nominal_rincian=0
                 pajak_rincian=0
-                cash_on_hand = parseInt({{$bidang->cash_on_hand}})
+                cash_on_hand=parseInt({{$bidang->cash_on_hand}})
                 kalkulasi_rincian()
             });
             
             $('.nominal').on('input', function(){
                 nominal_rincian=$(this).val()
-                cash_on_hand=parseInt({{$bidang->cash_on_hand}})
+                if(nominal_rincian==''){
+                    nominal_rincian=0
+                }
+                cash_on_hand=nominal_asli
                 kalkulasi_rincian()
             })
 
             $('.pajak').on('input', function(){
+                pajak_rincian=$(this).val()
+                cash_on_hand=nominal_asli
+                kalkulasi_rincian()
+            }) 
+
+            $('.nominalCreate').on('input', function(){
+                nominal_rincian=$(this).val()
+                cash_on_hand=parseInt({{$bidang->cash_on_hand}})
+                kalkulasi_rincian()
+            })
+
+            $('.pajakCreate').on('input', function(){
                 pajak_rincian=$(this).val()
                 cash_on_hand=parseInt({{$bidang->cash_on_hand}})
                 kalkulasi_rincian()
@@ -370,9 +390,10 @@
                 $('.table_nominal_rincian').html(formatRupiah(nominal_rincian.toString()))
                 $('.table_pajak_rincian').html(pajak_rincian)
                 let nominal_pajak = parseInt(nominal_rincian*pajak_rincian/100)
-                let kalkulasi = parseInt(nominal_rincian-nominal_pajak)
+                let kalkulasi = parseInt(nominal_rincian)+parseInt(nominal_pajak)
                 $('.table_nominal_pajak_rincian').html(formatRupiah(nominal_pajak.toString()))
                 cash_on_hand=cash_on_hand-kalkulasi
+                // alert(cash_on_hand)
                 if(kalkulasi>=0){
                     $('.table_total_rincian').html(formatRupiah(kalkulasi.toString()))
                     $('.btn_modal').attr('disabled', false);

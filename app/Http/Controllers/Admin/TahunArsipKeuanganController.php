@@ -21,7 +21,7 @@ class TahunArsipKeuanganController extends Controller
     {
         $pos = PosArsipKeuangan::all();
         // $bidang = BidangArsipKeuangan::all();
-        $tahun = TahunArsipKeuangan::all();
+        $tahun = TahunArsipKeuangan::all()->sortByDesc('id');
         $pendapatan = PendapatanArsipKeuangan::all();
         $bidang = BidangArsipKeuangan::all();
         return view('Admin.Pages.ArsipKeuangan.index', compact('tahun', 'pos', 'bidang', 'pendapatan'));

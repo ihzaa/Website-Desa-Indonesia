@@ -16,7 +16,7 @@ class ArsipDokumenController extends Controller
      */
     public function index($id)
     {
-        $arsip = ArsipDokumen::where('tahun_arsip_dokumen_id', $id)->get();
+        $arsip = ArsipDokumen::where('tahun_arsip_dokumen_id', $id)->orderByDesc('id')->get();
         $tahun = TahunArsipDokumen::findOrFail($id)->tahun;
         return view('Admin.Pages.ArsipDokumen.KelolaArsip.index', compact('arsip', 'tahun', 'id'));
     }
@@ -104,7 +104,8 @@ class ArsipDokumenController extends Controller
      */
     public function destroy($idTahun, $idArsip)
     {
-        ArsipDokumen::findOrFail($idArsip)->delete();
+        $arsip=ArsipDokumen::findOrFail($idArsip);
+        $arsip->delete();
         return redirect()->back()->with('success', 'Berhasil menghapus data');
     }
 }

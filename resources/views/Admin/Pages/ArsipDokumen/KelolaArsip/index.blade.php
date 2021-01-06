@@ -68,9 +68,7 @@
                                     class="btn btn-primary"><i class="fas fa-book-reader"></i> Lihat File</a
                                     href="{{ storage_path('app/public/arsip/dokumen/') . $data->file }}" target="_blank">
                                 <button class="btn btn-warning editModal"><i class="fas fa-edit"></i>Ubah Data</button>
-                                <button data-toggle="modal" data-target="#deleteModal" data-id="{{ $data->id }}"
-                                    class="btn btn-danger deleteModal" id="btn-delete"><i class="fas fa-trash"></i> Hapus
-                                    Data</button>
+                                <button class="btn btn-danger deleteModal" id="btn-delete"><i class="fas fa-trash"></i> Hapus Data</button>
                             </td>
                         </tr>
                     @endforeach
@@ -201,6 +199,7 @@
         $(function() {
             var table = $("#dfUsageTable").DataTable({
                 "responsive": true,
+                "order": [[ 1, "asc" ]],
                 "autoWidth": false,
                 "columnDefs":[{
                     "targets": [0],
@@ -218,9 +217,15 @@
                 format: 'YYYY'
             });
 
-            $('.deleteModal').click(function() {
-                let id = $(this).data('id');
-                $('#formDelete').attr('action', '' + id);
+            table.on('click', '.deleteModal', function() {
+                $tr = $(this).closest('tr');
+                if ($($tr).hasClass('child')) {
+                    $tr = $tr.prev('.parent');
+                }
+                var data = table.row($tr).data();
+                $('#formDelete').attr('action', '/4dm1n/arsip-dokumen/'+{{$id}}+'/kelola/'+data[0]);
+                $('#deleteModal').modal('show')
+                
             });
 
             table.on('click', '.editModal', function() {

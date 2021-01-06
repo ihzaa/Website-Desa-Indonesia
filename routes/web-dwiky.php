@@ -70,16 +70,16 @@ Route::namespace ('Admin')->middleware('auth:admin')->group(function () {
         Route::get('/','ArsipKeuanganController@index')->name('admin_arsip_keuangan_kelola_index');
         
         Route::post('pendapatan/','PendapatanArsipController@store')->name('admin_arsip_keuangan_kelola_pendapatan_store');
-        Route::put('pendapatan/{idArsip}','PendapatanArsipController@update')->name('admin_arsip_keuangan_kelola_pendapatan_destroy');
-        Route::delete('pendapatan/{idArsip}','PendapatanArsipController@destroy')->name('admin_arsip_keuangan_kelola_pendapatan_update');
+        Route::put('pendapatan/{idPendapatan}','PendapatanArsipController@update')->name('admin_arsip_keuangan_kelola_pendapatan_destroy');
+        Route::delete('pendapatan/{idPendapatan}','PendapatanArsipController@destroy')->name('admin_arsip_keuangan_kelola_pendapatan_update');
 
         Route::post('bidang/','BidangArsipController@store')->name('admin_arsip_keuangan_kelola_bidang_store');
-        Route::put('bidang/{idArsip}','BidangArsipController@update')->name('admin_arsip_keuangan_kelola_bidang_destroy');
-        Route::delete('bidang/{idArsip}','BidangArsipController@destroy')->name('admin_arsip_keuangan_kelola_bidang_update');
+        Route::put('bidang/{idBidang}','BidangArsipController@update')->name('admin_arsip_keuangan_kelola_bidang_destroy');
+        Route::delete('bidang/{idBidang}','BidangArsipController@destroy')->name('admin_arsip_keuangan_kelola_bidang_update');
 
         Route::post('pos/','PosArsipController@store')->name('admin_arsip_keuangan_kelola_pos_store');
-        Route::put('pos/{idArsip}','PosArsipController@update')->name('admin_arsip_keuangan_kelola_pos_destroy');
-        Route::delete('pos/{idArsip}','PosArsipController@destroy')->name('admin_arsip_keuangan_kelola_pos_update');
+        Route::put('pos/{idPos}','PosArsipController@update')->name('admin_arsip_keuangan_kelola_pos_update');
+        Route::delete('pos/{idPos}','PosArsipController@destroy')->name('admin_arsip_keuangan_kelola_pos_destroy');
 
         Route::prefix('{idBidang}')->group(function(){
             Route::get('/', 'RincianArsipKeuanganController@index')->name('admin_arsip_keuangan_kelola_rincian_index');

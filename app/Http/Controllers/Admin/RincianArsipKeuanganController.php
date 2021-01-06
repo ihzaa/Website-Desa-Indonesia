@@ -18,7 +18,7 @@ class RincianArsipKeuanganController extends Controller
      */
     public function index($idTahun, $idBidang)
     {
-        $rincian = RincianArsipKeuangan::where('bidang_arsip_keuangan_id', $idBidang)->with('BidangArsipKeuangan', 'PosArsipKeuangan')->get();
+        $rincian = RincianArsipKeuangan::where('bidang_arsip_keuangan_id', $idBidang)->with('BidangArsipKeuangan', 'PosArsipKeuangan')->get()->sortByDesc('id');
         $tahun = TahunArsipKeuangan::findOrFail($idTahun)->tahun;
         $bidang = BidangArsipKeuangan::findOrFail($idBidang);
         $pos = PosArsipKeuangan::where('tahun_arsip_keuangan_id', $idTahun)->get();

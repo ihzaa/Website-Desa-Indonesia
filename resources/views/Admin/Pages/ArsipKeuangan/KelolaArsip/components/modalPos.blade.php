@@ -43,8 +43,8 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form id="formDeletePos" action="" method="post">
-                @method('DELETE')
+            <form id="formDeletePos" action="/" method="POST">
+                @method('delete')
                 @csrf
                 <div class="modal-body">
                     <p>Anda yakin ingin menghapus data tersebut ?</p>
