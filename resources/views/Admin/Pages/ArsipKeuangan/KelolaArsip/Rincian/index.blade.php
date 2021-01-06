@@ -74,7 +74,7 @@
                             <td>{{$data->rincian}}</td>
                             <td>{{$data->nominal != null ? 'Rp'.number_format($data->nominal,0,'.,','.') : '-'}}</td>
                             <td>{{$data->pajak != null ? $data->pajak.'%' : '-'}}</td>
-                            <td>{{'Rp'.number_format($data->nominal-($data->pajak*$data->nominal/100), 0, ',', '.')}}</td>
+                            <td>{{'Rp'.number_format($data->nominal+($data->pajak*$data->nominal/100), 0, ',', '.')}}</td>
                             <td>
                                 <button class="btn btn-warning editModal"><i class="fas fa-edit"></i>Ubah Data</button>
                                 <button class="btn btn-danger deleteModal" data-id="{{$data->id}}"><i class="fas fa-trash"></i> Hapus

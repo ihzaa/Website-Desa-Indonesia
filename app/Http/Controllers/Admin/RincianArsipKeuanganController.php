@@ -43,7 +43,7 @@ class RincianArsipKeuanganController extends Controller
         ]);
         $total = $request->nominal;
         if($request->pajak){
-            $total = $request->nominal-($request->nominal*$request->pajak/100);
+            $total = $request->nominal+($request->nominal*$request->pajak/100);
         }
         $bidang = BidangArsipKeuangan::findOrFail($idBidang);
         $cash_on_hand = $bidang->cash_on_hand;
@@ -104,10 +104,10 @@ class RincianArsipKeuanganController extends Controller
             'pajak'=>'min:0|max:100'
         ]);
         $rincian = RincianArsipKeuangan::findOrFail($idRincian);
-        $total_old = $rincian->nominal-($rincian->pajak*$rincian->nominal/100);
+        $total_old = $rincian->nominal+($rincian->pajak*$rincian->nominal/100);
         $total = $request->nominal;
         if($request->pajak){
-            $total = $request->nominal-($request->nominal*$request->pajak/100);
+            $total = $request->nominal+($request->nominal*$request->pajak/100);
         }
         $bidang = BidangArsipKeuangan::findOrFail($idBidang);
         $cash_on_hand_old = $bidang->cash_on_hand;
@@ -141,7 +141,7 @@ class RincianArsipKeuanganController extends Controller
     {
         $rincian = RincianArsipKeuangan::findOrFail($idRincian);
         $bidang = BidangArsipKeuangan::findOrFail($idBidang);
-        $total = $rincian->nominal-($rincian->nominal*$rincian->pajak/100);
+        $total = $rincian->nominal+($rincian->nominal*$rincian->pajak/100);
         $cash_on_hand = $bidang->cash_on_hand;
         $cash_on_hand = $cash_on_hand+$total;
         $bidang->update([

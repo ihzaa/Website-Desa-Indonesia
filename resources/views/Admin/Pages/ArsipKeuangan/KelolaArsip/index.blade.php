@@ -79,6 +79,35 @@
                             </div>
                             <!-- /.card-body -->
                         </div>
+                        <div class="card">
+                            <div class="card-header bg-info">
+                                <h3 class="card-title">Total Belanja Per Bidang</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                               <div class="row">
+                                    @if($totalBelanja==null)
+                                        Data bidang belum ditambahkan.
+                                    @else
+                                        <table class="table table-hover">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Nama Bidang</th>
+                                                <th>Total Belanja (Rp.)</th>
+                                            </tr>
+                                            @foreach($bidang as $data)
+                                            <tr>
+                                                <td>{{$loop->iteration}}</td>
+                                                <td>{{$data->nama_bidang}}</td>
+                                                <td>Rp{{number_format($totalBelanja[$loop->iteration-1], 0, ',','.')}}</td>
+                                            </tr>
+                                            @endforeach
+                                        </table>
+                                    @endif
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
                     </div>
                 </div>
             </div>
