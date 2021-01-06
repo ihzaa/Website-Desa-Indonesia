@@ -19,7 +19,7 @@ class BidangArsipController extends Controller
     public function store($idTahun, Request $request)
     {
         $tahun = TahunArsipKeuangan::findOrFail($idTahun);
-        $cash_on_hand = $tahun->cash_on_hand - $request->cash_on_hand;
+        $cash_on_hand = $tahun->cash_on_hand - $request->uang_bagian;
         if($cash_on_hand<0){
             return redirect()->back()->with('failed', 'Cash on hand minus, silakan masukkan kembali dengan menyesuaikan uang yang ada.');
         }
@@ -34,7 +34,7 @@ class BidangArsipController extends Controller
             'uang_bagian'=>$request->uang_bagian
         ]);
         $tahun->update([
-            'cash_on_hand'=>$tahun->cash_on_hand-$request->cash_on_hand
+            'cash_on_hand'=>$cash_on_hand
         ]);
         return redirect()->back()->with('success', 'Berhasil menambahkan data');
     }

@@ -362,6 +362,7 @@
 
             $('.pajak').on('input', function(){
                 pajak_rincian=$(this).val()
+                cash_on_hand=parseInt({{$bidang->cash_on_hand}})
                 kalkulasi_rincian()
             })
 
@@ -372,6 +373,7 @@
                 let kalkulasi = parseInt(nominal_rincian-nominal_pajak)
                 $('.table_nominal_pajak_rincian').html(formatRupiah(nominal_pajak.toString()))
                 cash_on_hand=cash_on_hand-kalkulasi
+                alert(cash_on_hand)
                 if(kalkulasi>=0){
                     $('.table_total_rincian').html(formatRupiah(kalkulasi.toString()))
                     $('.btn_modal').attr('disabled', false);
