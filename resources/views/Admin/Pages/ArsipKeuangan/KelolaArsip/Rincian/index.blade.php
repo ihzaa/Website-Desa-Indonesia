@@ -122,7 +122,7 @@
                                         </div>
                                         <input name="nominal" type="number" class="form-control nominal">
                                     </div>
-                                    <small>Uang bagian tidak boleh melebihi dari cash on hand bidang {{$bidang->nama_bidang}}</small>
+                                    <small>Nominal tidak boleh melebihi dari cash on hand bidang {{$bidang->nama_bidang}}</small>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -134,7 +134,7 @@
                                             <span class="input-group-text">%</span>
                                         </div>
                                     </div>
-                                    <small>Uang bagian tidak boleh melebihi dari cash on hand bidang {{$bidang->nama_bidang}}</small>
+                                    <small>Pajak tidak boleh lebih dari 100</small>
                                 </div>
                             </div>
                         </div>
@@ -205,7 +205,7 @@
                                         </div>
                                         <input name="nominal" type="number" id="nominal_edit" class="form-control nominal">
                                     </div>
-                                    <small>Uang bagian tidak boleh melebihi dari cash on hand bidang {{$bidang->nama_bidang}}</small>
+                                    <small>Nominal tidak boleh melebihi dari cash on hand bidang {{$bidang->nama_bidang}}</small>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -217,7 +217,7 @@
                                             <span class="input-group-text">%</span>
                                         </div>
                                     </div>
-                                    <small>Uang bagian tidak boleh melebihi dari cash on hand bidang {{$bidang->nama_bidang}}</small>
+                                    <small>Pajak tidak boleh lebih dari 100</small>
                                 </div>
                             </div>
                         </div>

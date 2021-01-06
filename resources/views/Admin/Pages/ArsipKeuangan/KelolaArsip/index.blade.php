@@ -102,6 +102,10 @@
                                                 <td>Rp{{number_format($totalBelanja[$loop->iteration-1], 0, ',','.')}}</td>
                                             </tr>
                                             @endforeach
+                                            <tr class="bg-gray-dark">
+                                                <td colspan="2" class="text-center">Total Belanja Seluruh Bidang</td>
+                                                <td>Rp{{array_sum($totalBelanja) != null ? number_format(array_sum($totalBelanja), 0, ',','.') : 'Tidak ada belanja'}}</td>
+                                            </tr>
                                         </table>
                                     @endif
                                 </div>
