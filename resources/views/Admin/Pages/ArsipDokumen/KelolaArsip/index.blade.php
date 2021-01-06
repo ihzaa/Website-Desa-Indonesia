@@ -229,7 +229,7 @@
                     $tr = $tr.prev('.parent');
                 }
                 var data = table.row($tr).data();
-                $('#nama_arsip').val(data[1]);
+                $('#nama_arsip').val(data[2]);
                 $('#formedit').attr('action', '/4dm1n/arsip-dokumen/'+{{$id}}+'/kelola/'+data[0]);
                 $('#editModal').modal('show')
             })

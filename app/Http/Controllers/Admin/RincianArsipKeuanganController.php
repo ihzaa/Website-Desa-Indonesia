@@ -22,6 +22,9 @@ class RincianArsipKeuanganController extends Controller
         $tahun = TahunArsipKeuangan::findOrFail($idTahun)->tahun;
         $bidang = BidangArsipKeuangan::findOrFail($idBidang);
         $pos = PosArsipKeuangan::where('tahun_arsip_keuangan_id', $idTahun)->get();
+        if($pos==null){
+            return redirect()->back()->with('failed', 'Data pos belum ditambahkan, silakan ditambahkan terlebih dahulu.');
+        }
         return view('Admin.Pages.ArsipKeuangan.KelolaArsip.Rincian.index', compact('rincian', 'bidang', 'pos', 'idTahun', 'idBidang', 'tahun'));
     }
 

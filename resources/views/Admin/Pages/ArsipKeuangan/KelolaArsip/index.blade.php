@@ -60,6 +60,9 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                <div class="row">
+                                   @if($bidang->isEmpty())
+                                        Data bidang belum ditambahkan.
+                                   @endif
                                    @foreach($bidang as $data)
                                     <div class="col-6 mb-2">
                                         <p><strong><code>{{$data->nama_bidang}}</code></strong></p>

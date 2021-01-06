@@ -15,7 +15,7 @@
                 <div class="modal-body">
                     <div class="callout callout-info">
                         <p>Cash On Hand</p>
-                        <h5><strong>Rp999.999</strong></h5>
+                        <h5><strong>Rp{{number_format($tahun->cash_on_hand, 0, ',', '.')}}</strong></h5>
                     </div>
                     <div class="form-group">
                         <div class="form-group">
@@ -88,7 +88,7 @@
                 <div class="modal-body">
                     <div class="callout callout-info">
                         <p>Cash On Hand</p>
-                        <h5><strong>Rp999.999</strong></h5>
+                        <h5><strong>Rp{{number_format($tahun->cash_on_hand, 0, ',', '.')}}</strong></h5>
                     </div>
                     <div class="form-group">
                         <div class="form-group">
