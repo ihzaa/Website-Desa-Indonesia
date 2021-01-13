@@ -66,7 +66,6 @@ $(document).ready(function () {
         .then((data) => {
             let el = $("#tabel_arsip tbody");
             let isi = "";
-            console.log(data);
             for (let i = 0; i < data.length; i++) {
                 isi += `
                 <tr>

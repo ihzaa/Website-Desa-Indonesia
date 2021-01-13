@@ -80,6 +80,7 @@ class SuratPermohonanController extends Controller
         $surat = new permohonan_surat;
         $surat->jenis_surat = $request->jenis_surat;
         $surat->attribute = $request->atribut;
+        $surat->keterangan_pembuka = $request->keterangan_pembuka;
         $surat->logo = 'a';
         $surat->keterangan = $request->keterangan;
         $surat->tipe_surat = $request->kode_surat;
@@ -144,6 +145,7 @@ class SuratPermohonanController extends Controller
         $surat = permohonan_surat::find($id);
         $surat->jenis_surat = $request->jenis_surat;
         $surat->attribute = $request->atribut;
+        $surat->keterangan_pembuka = $request->keterangan_pembuka;
         $surat->keterangan = $request->keterangan;
         $surat->tipe_surat = $request->kode_surat;
         if ($request->has('logo')) {

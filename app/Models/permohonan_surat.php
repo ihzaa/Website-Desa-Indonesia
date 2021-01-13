@@ -13,7 +13,8 @@ class permohonan_surat extends Model
         'attribute',
         'logo',
         'keterangan',
-        'tipe_surat'
+        'tipe_surat',
+        'keterangan_pembuka'
     ];
 
     public function penduduk()

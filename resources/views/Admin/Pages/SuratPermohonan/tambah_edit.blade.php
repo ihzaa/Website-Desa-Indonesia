@@ -80,6 +80,15 @@
                     Atribut dan Keterangan Surat
                 </h5>
                 <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5>Pembuka Surat <span class="text-success">^</span></h5>
+                            <div class="form-group">
+                                <textarea id="keterangan_pembuka"
+                                    name="keterangan_pembuka">{{request()->is('*/tambah*')?old('pembuka'):$data['surat']->keterangan_pembuka}}</textarea>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row mb-3">
                         <div class="col-md-12">
                             <h5 class="card-title">Pilih atribut yang akan ditampilkan pada surat<span
@@ -87,6 +96,7 @@
                         </div>
                     </div>
                     <div class="row">
+
                         <div class="col-md-12">
                             {{-- <div class="form-check form-check-inline mb-3 mr-3">
                                 <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
@@ -119,14 +129,16 @@
                             </div>
                         </div>
                         <div class="col-md-12 mt-2">
-                            <h5>Keterangan Surat <span class="text-danger">*</span></h5>
-                            <small>Jika pada keterangan ingin menyertakan data penduduk, tambahkan
-                                <strong>{nama_atribut}</strong> sesuai dengan nama atribut yang
-                                tersedia pada list atribut diatas. Misal: {nama} atau {tgl lahir}.</small>
+                            <h5>Keterangan Surat <span class="text-danger">*</span><span class="text-success">^</span></h5>
                             <div class="form-group">
                                 <textarea id="keterangan"
                                     name="keterangan">{{request()->is('*/tambah*')?old('keterangan'):$data['surat']->keterangan}}</textarea>
                             </div>
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <small><span class="text-success">^</span> : Jika pada pembukaan dan keterangan ingin menyertakan data penduduk, tambahkan
+                                <strong>{nama_atribut}</strong> sesuai dengan nama atribut yang
+                                tersedia pada list atribut dibawah. Misal: {nama} atau {tgl lahir}.</small>
                         </div>
                     </div>
 

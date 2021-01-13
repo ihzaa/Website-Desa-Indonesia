@@ -15,8 +15,17 @@ $(document).ready(function () {
         toolbar: [
             ["font", ["bold", "underline", "clear"]],
             ["color", ["color"]],
+            ["para", ["paragraph"]],
         ],
         placeholder: "Keterangan Surat....",
+    });
+    $("#keterangan_pembuka").summernote({
+        toolbar: [
+            ["font", ["bold", "underline", "clear"]],
+            ["color", ["color"]],
+            ["para", ["paragraph"]],
+        ],
+        placeholder: "Pembukaan Surat....",
     });
     $(".summernote").summernote({
         toolbar: [
@@ -89,6 +98,9 @@ $(document).ready(function () {
             }
             $("#modal_preview #atribut").html(attr);
             $("#modal_preview #keterangan").html($("#keterangan").val());
+            $("#modal_preview #keterangan_pembuka").html(
+                $("#keterangan_pembuka").val()
+            );
             $("#modal_preview #kiri").html($("#ttd1").val());
             $("#modal_preview #tengah").html($("#ttd2").val());
             $("#modal_preview #kanan").html($("#ttd3").val());
@@ -211,6 +223,7 @@ $(document).ready(function () {
         formData.append("jenis_surat", $("#nama_surat").val());
         formData.append("atribut", JSON.stringify($("#atribut").val()));
         formData.append("keterangan", $("#keterangan").val());
+        formData.append("keterangan_pembuka", $("#keterangan_pembuka").val());
         formData.append("kode_surat", $("#kode_surat").val());
         formData.append("ttd1", $("#ttd1").val());
         formData.append("ttd2", $("#ttd2").val());
