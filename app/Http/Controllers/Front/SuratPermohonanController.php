@@ -39,6 +39,7 @@ class SuratPermohonanController extends Controller
             $penduduk = Penduduk::find(Auth::guard('penduduk')->id());
             $penduduk->tgl_lahir = Carbon::parse($penduduk->tgl_lahir)->translatedFormat("d F Y");
             $surat['nomor'] = (arsip_surat_penduduk::where('permohonan_surat_id', $id)->count()) + 1;
+            $surat['nik'] = Auth::guard('penduduk')->user()->nik;
             arsip_surat_penduduk::create([
                 "nomer" => $surat['nomor'],
                 "tanggal_surat" => Carbon::now(),
@@ -49,10 +50,24 @@ class SuratPermohonanController extends Controller
             $str = "";
             do {
                 $str = $this->get_string_between($surat['keterangan'], "{", "}");
-                $tmp = str_replace(" ", "_", $str);
-                $surat['keterangan'] = str_replace("{" . $str . "}", $penduduk[$tmp], $surat['keterangan']);
+                if ($str == "nik") {
+                    $surat['keterangan'] = str_replace("{nik}", Auth::guard('penduduk')->user()->nik, $surat['keterangan']);
+                } else {
+                    $tmp = str_replace(" ", "_", $str);
+                    $surat['keterangan'] = str_replace("{" . $str . "}", $penduduk[$tmp], $surat['keterangan']);
+                }
             } while ($str != "");
-            // return response()->json($surat);
+            $str = "";
+            do {
+                $str = $this->get_string_between($surat['keterangan_pembuka'], "{", "}");
+                if ($str == "nik") {
+                    $surat['keterangan_pembuka'] = str_replace("{nik}", Auth::guard('penduduk')->user()->nik, $surat['keterangan_pembuka']);
+                } else {
+                    $tmp = str_replace(" ", "_", $str);
+                    $surat['keterangan_pembuka'] = str_replace("{" . $str . "}", $penduduk[$tmp], $surat['keterangan_pembuka']);
+                }
+            } while ($str != "");
+            // return response()->json($surat['keterangan']);
             return response()->view('Front.pages.SuratPermohonan.TemplateSurat', compact("surat", "penduduk"));
         } else {
             return view('Front.pages.SuratPermohonan.Login');

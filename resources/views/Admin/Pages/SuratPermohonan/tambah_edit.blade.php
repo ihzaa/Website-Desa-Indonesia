@@ -107,6 +107,15 @@
                                 <select class="select2bs4" multiple="multiple"
                                     data-placeholder="Pilih atribut yang akan ditampilkan pada surat"
                                     style="width: 100%;" name="atribut[]" id="atribut" required>
+                                    @if(request()->is('*/tambah*'))
+                                    <option value="nik">NIK</option>
+                                    @else
+                                        @if (in_array("nik",$data['surat']->attribute))
+                                            <option value="nik" selected="selected">NIK</option>
+                                        @else
+                                            <option value="nik">NIK</option>
+                                        @endif
+                                    @endif
                                     @foreach ($data['kolom_penduduk'] as $d)
                                     @if($d == "id" || $d== "no_kitas" || $d == "shdrt" || $d == "id_kartu_keluarga" ||
                                     $d == "id_data_ktp" || $d == "id_kematian" || $d == "deleted_at" || $d ==
@@ -118,11 +127,11 @@
                                     @if(request()->is('*/tambah*'))
                                     <option value="{{$d}}">{{str_replace('_',' ',$d)}}</option>
                                     @else
-                                    @if(in_array($d,$data['surat']->attribute))
-                                    <option value="{{$d}}" selected="selected">{{str_replace('_',' ',$d)}}</option>
-                                    @else
-                                    <option value="{{$d}}">{{str_replace('_',' ',$d)}}</option>
-                                    @endif
+                                        @if(in_array($d,$data['surat']->attribute))
+                                        <option value="{{$d}}" selected="selected">{{str_replace('_',' ',$d)}}</option>
+                                        @else
+                                        <option value="{{$d}}">{{str_replace('_',' ',$d)}}</option>
+                                        @endif
                                     @endif
                                     @endforeach
                                 </select>

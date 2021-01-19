@@ -93,7 +93,11 @@
         @foreach ($surat['attribute'] as $d)
         <div style="flex: 0 0 8%; width: 8%;;"></div>
         <div style="flex: 0 0 25%; width: 25%; text-transform: capitalize;">
+            @if ($d == "nik")
+                {{"NIK"}}
+            @else
             {{str_replace('_',' ',$d)}}
+            @endif
         </div>
         <div style="flex: 0 0 66%; width: 66%;">:
             @php
