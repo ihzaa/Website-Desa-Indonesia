@@ -9,6 +9,7 @@ use App\Models\permohonan_surat;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
@@ -318,7 +319,7 @@ class SuratPermohonanController extends Controller
         //     $data['arsip'][$k] = arsip_surat_penduduk::where('permohonan_surat_id', $k)->get();
         // }
         // $data['surat'] = permohonan_surat::pluck('jenis_surat', 'id');
-        $data = DB::select(DB::raw('SELECT penduduks.nama as nama, penduduks.id as id, data_ktps.nik as nik, arsip_surat_penduduks.tanggal_surat, permohonan_surats.jenis_surat, arsip_surat_penduduks.nomer FROM penduduks JOIN data_ktps ON data_ktps.id = penduduks.id_data_ktp JOIN arsip_surat_penduduks ON arsip_surat_penduduks.penduduk_id = penduduks.id JOIN permohonan_surats on permohonan_surats.id = arsip_surat_penduduks.permohonan_surat_id ORDER BY arsip_surat_penduduks.tanggal_surat DESC'));
+        $data = DB::select(DB::raw('SELECT penduduks.nama as nama, penduduks.id as id, data_ktps.nik as nik, arsip_surat_penduduks.tanggal_surat, permohonan_surats.jenis_surat, arsip_surat_penduduks.nomer, arsip_surat_penduduks.id as aid FROM penduduks JOIN data_ktps ON data_ktps.id = penduduks.id_data_ktp JOIN arsip_surat_penduduks ON arsip_surat_penduduks.penduduk_id = penduduks.id JOIN permohonan_surats on permohonan_surats.id = arsip_surat_penduduks.permohonan_surat_id ORDER BY arsip_surat_penduduks.tanggal_surat DESC'));
         // $data['arsip'] = arsip_surat_penduduk::orderBy('tanggal_surat', 'desc')->get();
 
         return response()->json($data);
@@ -363,8 +364,10 @@ class SuratPermohonanController extends Controller
             // array_push($penduduk[$d] => "Sesuai Dengan Data Penduduk");
             $penduduk->$d = "Sesuai Dengan Data Penduduk";
         }
+        $penduduk->nik = "Sesuai Dengan Data Penduduk";
         $surat['nomor'] = "NOMERSURAT";
         $surat['tahun'] = Carbon::now()->format('Y');
+        $surat['nik'] = "NIK-PENDUDUK";
         return response()->view('Front.pages.SuratPermohonan.TemplateSurat', compact("surat", "penduduk"));
     }
 }
