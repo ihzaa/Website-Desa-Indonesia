@@ -40,6 +40,7 @@ class SuratPermohonanController extends Controller
             $penduduk->tgl_lahir = Carbon::parse($penduduk->tgl_lahir)->translatedFormat("d F Y");
             $surat['nomor'] = (arsip_surat_penduduk::where('permohonan_surat_id', $id)->count()) + 1;
             $surat['nik'] = Auth::guard('penduduk')->user()->nik;
+            $surat['timestamp'] = Carbon::parse($surat->tanggal_surat)->format('d-m-Y');
             arsip_surat_penduduk::create([
                 "nomer" => $surat['nomor'],
                 "tanggal_surat" => Carbon::now(),

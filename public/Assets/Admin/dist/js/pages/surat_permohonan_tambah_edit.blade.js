@@ -105,6 +105,7 @@ $(document).ready(function () {
             $("#modal_preview #tengah").html($("#ttd2").val());
             $("#modal_preview #kanan").html($("#ttd3").val());
             $("#modal_preview #logo").attr("src", $("#img-logo").attr("src"));
+            $("#modal_preview #timestamp").html("KOTA, TANGGAL HARI INI");
             $("#modal_preview").modal("show");
         }
     });

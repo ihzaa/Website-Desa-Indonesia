@@ -29,7 +29,7 @@
 </div>
 <div style="min-width: 100%">
     <div style="text-align: center!important; min-width: 100%">
-        <h4 style="text-transform: uppercase!important;margin-bottom: 0!important;">NomerSurat/<span
+        <h4 style="text-transform: uppercase!important;margin-bottom: 0!important;">470/NomerSurat/<span
                 id="nomer_surat"></span>/Tahun</h4>
     </div>
 </div>
@@ -52,6 +52,13 @@ margin-top: 1.5rem !important;
 </div>
 <div style="min-width: 100%;margin-top: 1.5rem!important;padding-left: 3rem!important;padding-right: 3rem!important;">
     <p style="margin-bottom: 0!important;" id="keterangan"></p>
+</div>
+<div style="
+        margin-top: 1.5rem !important;
+        margin-left: 3rem !important;
+        margin-right: 3rem !important;
+        text-align: right;
+    " id="timestamp">
 </div>
 <div style="min-width: 100%;margin-top: 1.5rem!important;padding-left: 3rem!important;padding-right: 3rem!important;display: -ms-flexbox;
         display: flex;

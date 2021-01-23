@@ -63,7 +63,7 @@
             margin-top: 0 !important;
             font-size: 150%;
           ">
-                <strong>{{$surat['nomor']}}/<span
+                <strong>470/{{$surat['nomor']}}/<span
                         id="nomer_surat">{{$surat['tipe_surat']}}</span>/{{$surat['tahun']}}</strong>
             </p>
         </div>
@@ -94,7 +94,7 @@
         <div style="flex: 0 0 8%; width: 8%;;"></div>
         <div style="flex: 0 0 25%; width: 25%; text-transform: capitalize;">
             @if ($d == "nik")
-                {{"NIK"}}
+            {{"NIK"}}
             @else
             {{str_replace('_',' ',$d)}}
             @endif
@@ -117,7 +117,14 @@
             @endphp
         </p>
     </div>
-
+    <div style="
+        margin-top: 1.5rem !important;
+        margin-left: 3rem !important;
+        margin-right: 3rem !important;
+        text-align: right;
+    ">
+        {{env('LOKASI_SURAT').', '.$surat['timestamp']}}
+    </div>
     <div style="
         margin-top: 1.5rem !important;
         display: -ms-flexbox;

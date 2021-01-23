@@ -334,6 +334,7 @@ class SuratPermohonanController extends Controller
         $penduduk->tgl_lahir = Carbon::parse($penduduk->tgl_lahir)->translatedFormat("d F Y");
         $surat['nomor'] = $arsip->nomer;
         $surat['tahun'] = Carbon::parse($arsip->tanggal_surat)->format('Y');
+        $surat['timestamp'] = Carbon::parse($arsip->tanggal_surat)->format('d-m-Y');
         $str = "";
         do {
             $str = $this->get_string_between($surat['keterangan'], "{", "}");
@@ -368,6 +369,7 @@ class SuratPermohonanController extends Controller
         $surat['nomor'] = "NOMERSURAT";
         $surat['tahun'] = Carbon::now()->format('Y');
         $surat['nik'] = "NIK-PENDUDUK";
+        $surat['timestamp'] = Carbon::now()->format('d-m-Y');
         return response()->view('Front.pages.SuratPermohonan.TemplateSurat', compact("surat", "penduduk"));
     }
 }
