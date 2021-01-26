@@ -76,8 +76,7 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-12">
-                            <h5 class="card-title">Pilih atribut yang akan ditampilkan pada surat<span
-                                    class="text-danger">*</span></h5>
+                            <h5 class="card-title">Pilih atribut yang akan ditampilkan pada surat</h5>
                         </div>
                     </div>
                     <div class="row">
@@ -90,7 +89,7 @@
                                 {{-- <label>Atribut</label> --}}
                                 <select class="select2bs4" multiple="multiple"
                                     data-placeholder="Pilih atribut yang akan ditampilkan pada surat"
-                                    style="width: 100%;" name="atribut[]" id="atribut" required>
+                                    style="width: 100%;" name="atribut[]" id="atribut">
                                     @if(request()->is('*/tambah*'))
                                     <option value="nik">NIK</option>
                                     @else
@@ -123,7 +122,7 @@
                             </div>
                         </div>
                         <div class="col-md-12 mt-2">
-                            <h5>Keterangan Surat <span class="text-danger">*</span><span class="text-success">^</span>
+                            <h5>Keterangan Surat<span class="text-success">^</span>
                             </h5>
                             <div class="form-group">
                                 <textarea id="keterangan"

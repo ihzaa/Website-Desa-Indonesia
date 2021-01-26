@@ -18,10 +18,10 @@ class CreatePermohonanSuratsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->string('jenis_surat');
-            $table->text('attribute');
+            $table->text('attribute')->nullable();
             $table->string('logo');
             $table->text('keterangan_pembuka')->nullable();
-            $table->text('keterangan');
+            $table->text('keterangan')->nullable();
             $table->text('tipe_surat');
             $table->longText('ttd_kiri')->nullable();
             $table->longText('ttd_tengah')->nullable();

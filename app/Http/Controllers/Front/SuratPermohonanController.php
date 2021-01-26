@@ -19,7 +19,7 @@ class SuratPermohonanController extends Controller
     public function index()
     {
         if (Auth::guard('penduduk')->check()) {
-            $data['penduduk'] = Penduduk::find(Auth::guard('penduduk')->id());
+            $data['penduduk'] = Penduduk::where('id_data_ktp', Auth::guard('penduduk')->id())->first();
             $data['kk'] = Penduduk::where('id_kartu_keluarga', $data['penduduk']->id_kartu_keluarga)->get();
             $data['surat'] = permohonan_surat::all();
             $data['template'] = template_surat::all();
@@ -36,7 +36,7 @@ class SuratPermohonanController extends Controller
 
             $surat = permohonan_surat::find($id);
             $surat->attribute = json_decode($surat->attribute);
-            $penduduk = Penduduk::find(Auth::guard('penduduk')->id());
+            $penduduk = Penduduk::where('id_data_ktp', Auth::guard('penduduk')->id())->first();
             $penduduk->tgl_lahir = Carbon::parse($penduduk->tgl_lahir)->translatedFormat("d F Y");
             $surat['nomor'] = (arsip_surat_penduduk::where('permohonan_surat_id', $id)->count()) + 1;
             $surat['nik'] = Auth::guard('penduduk')->user()->nik;
@@ -135,7 +135,7 @@ class SuratPermohonanController extends Controller
     public function unduhSuratKeluar(Request $request)
     {
         if (Auth::guard('penduduk')->check()) {
-            $penduduk = Penduduk::find(Auth::guard('penduduk')->id());
+            $penduduk = Penduduk::where('id_data_ktp', Auth::guard('penduduk')->id())->first();
             $anggota = $request->anggota;
             $kk['anggota'] = Penduduk::whereIn('id', $request->anggota)->get();
             $kk['nama'] = Penduduk::where('id_kartu_keluarga', $penduduk->id_kartu_keluarga)->where('shdrt', 'kepala keluarga')->first();

@@ -47,9 +47,9 @@ $(document).ready(function () {
             kode_surat: {
                 required: true,
             },
-            atribut: {
-                required: true,
-            },
+            // atribut: {
+            //     required: true,
+            // },
         },
         errorElement: "span",
         errorPlacement: function (error, element) {
@@ -65,18 +65,19 @@ $(document).ready(function () {
     });
 
     $(document).on("click", "#btn_preview", function () {
-        if (!validator.checkForm() || $("#keterangan").val() == "") {
-            if ($("#keterangan").val() == "") {
-                // Toast.fire({
-                //     icon: "error",
-                //     title: " Keterangan Surat Tidak Boleh Kosong.",
-                // });
-                $(document).Toasts("create", {
-                    class: "bg-danger",
-                    title: "Maaf!",
-                    body: "Keterangan Surat Tidak Boleh Kosong.",
-                });
-            }
+        if (!validator.checkForm()) {
+            //  || $("#keterangan").val() == ""
+            // if ($("#keterangan").val() == "") {
+            //     // Toast.fire({
+            //     //     icon: "error",
+            //     //     title: " Keterangan Surat Tidak Boleh Kosong.",
+            //     // });
+            //     $(document).Toasts("create", {
+            //         class: "bg-danger",
+            //         title: "Maaf!",
+            //         body: "Keterangan Surat Tidak Boleh Kosong.",
+            //     });
+            // }
             document.body.scrollTop = 0; // For Safari
             document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
             validator.form();
@@ -111,7 +112,8 @@ $(document).ready(function () {
     });
     $(document).on("submit", "#formaja", function () {
         event.preventDefault();
-        if (!validator.checkForm() || $("#keterangan").val() == "") {
+        if (!validator.checkForm() ) {
+            // || $("#keterangan").val() == ""
             return;
         }
         if (document.getElementById("logo").hasAttribute("required")) {
