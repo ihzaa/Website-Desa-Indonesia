@@ -9,13 +9,12 @@
             max-width: 250px !important;
             ">
         <h3 style="text-transform: uppercase!important;margin-bottom: 0!important;">
-            PEMERINTAH KABUPATEN MADIUN</h3>
-        <h3 style="text-transform: uppercase!important;margin-bottom: 0!important;">KECAMATAN GEGER</h3>
-        <h1 style="text-transform: uppercase!important;margin-bottom: 0!important;"><strong>DESA SANGEN</strong>
+            {{env('SURAT_KABKOT')}}</h3>
+        <h3 style="text-transform: uppercase!important;margin-bottom: 0!important;">{{env('SURAT_KEC')}}</h3>
+        <h1 style="text-transform: uppercase!important;margin-bottom: 0!important;">
+            <strong>{{env('SURAT_KEL_DESA')}}</strong>
         </h1>
-        <p style="margin-bottom: 0!important;font-size: 75%;">Jl. Raya Ponorogo - Madiun No.10, Kembangsore, Sangen,
-            Kec. Geger,
-            Madiun, Jawa Timur</p>
+        <p style="margin-bottom: 0!important;font-size: 75%;">{{env('SURAT_ALAMAT')}}</p>
         <hr style="
             border-top: 2px solid rgba(0, 0, 0, 0.1);background-color: black;margin-bottom: 0!important;">
         <hr
@@ -30,15 +29,17 @@
 </div>
 <div style="min-width: 100%">
     <div style="text-align: center!important; min-width: 100%">
-        <h4 style="text-transform: uppercase!important;margin-bottom: 0!important;">NomerSurat/<span
+        <h4 style="text-transform: uppercase!important;margin-bottom: 0!important;">470/NomerSurat/<span
                 id="nomer_surat"></span>/Tahun</h4>
     </div>
 </div>
-<div style="min-width: 100%;margin-top: 1.5rem!important;padding-left: 3rem!important;padding-right: 3rem!important;">
+<div style="
+margin-top: 1.5rem !important;
+        margin-left: 3rem !important;
+        margin-right: 3rem !important;">
     <div style="min-width: 100%">
-        <p style="text-indent: 50px;margin-bottom: 0!important;">Dengan ini Kepala Desa Sangen Kecamatan
-            Geger Kabupaten Madiun,
-            menerangkan dengan sebenarnya bahwa :</p>
+        <p style="text-indent: 50px;margin-bottom: 0!important;" id="keterangan_pembuka">
+        </p>
     </div>
 </div>
 <div style="min-width: 100%;margin-top: 1.5rem!important;padding-left: 3rem!important;padding-right: 3rem!important;
@@ -51,6 +52,13 @@
 </div>
 <div style="min-width: 100%;margin-top: 1.5rem!important;padding-left: 3rem!important;padding-right: 3rem!important;">
     <p style="margin-bottom: 0!important;" id="keterangan"></p>
+</div>
+<div style="
+        margin-top: 1.5rem !important;
+        margin-left: 3rem !important;
+        margin-right: 3rem !important;
+        text-align: right;
+    " id="timestamp">
 </div>
 <div style="min-width: 100%;margin-top: 1.5rem!important;padding-left: 3rem!important;padding-right: 3rem!important;display: -ms-flexbox;
         display: flex;

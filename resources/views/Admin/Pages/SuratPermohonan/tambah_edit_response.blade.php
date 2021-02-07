@@ -65,10 +65,18 @@
                     Atribut dan Keterangan Surat
                 </h5>
                 <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5>Pembuka Surat<span class="text-success">^</span></h5>
+                            <div class="form-group">
+                                <textarea id="keterangan_pembuka"
+                                    name="keterangan_pembuka">{{request()->is('*/tambah*')?old('pembuka'):$data['surat']->keterangan_pembuka}}</textarea>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row mb-3">
                         <div class="col-md-12">
-                            <h5 class="card-title">Pilih atribut yang akan ditampilkan pada surat<span
-                                    class="text-danger">*</span></h5>
+                            <h5 class="card-title">Pilih atribut yang akan ditampilkan pada surat</h5>
                         </div>
                     </div>
                     <div class="row">
@@ -81,7 +89,16 @@
                                 {{-- <label>Atribut</label> --}}
                                 <select class="select2bs4" multiple="multiple"
                                     data-placeholder="Pilih atribut yang akan ditampilkan pada surat"
-                                    style="width: 100%;" name="atribut[]" id="atribut" required>
+                                    style="width: 100%;" name="atribut[]" id="atribut">
+                                    @if(request()->is('*/tambah*'))
+                                    <option value="nik">NIK</option>
+                                    @else
+                                        @if (in_array("nik",$data['surat']->attribute))
+                                            <option value="nik" selected="selected">NIK</option>
+                                        @else
+                                            <option value="nik">NIK</option>
+                                        @endif
+                                    @endif
                                     @foreach ($data['kolom_penduduk'] as $d)
                                     @if($d == "id" || $d== "no_kitas" || $d == "shdrt" || $d == "id_kartu_keluarga" ||
                                     $d == "id_data_ktp" || $d == "id_kematian" || $d == "deleted_at" || $d ==
@@ -93,6 +110,7 @@
                                     @if(request()->is('*/tambah*'))
                                     <option value="{{$d}}">{{str_replace('_',' ',$d)}}</option>
                                     @else
+
                                     @if(in_array($d,$data['surat']->attribute))
                                     <option value="{{$d}}" selected="selected">{{str_replace('_',' ',$d)}}</option>
                                     @else
@@ -104,14 +122,18 @@
                             </div>
                         </div>
                         <div class="col-md-12 mt-2">
-                            <h5>Keterangan Surat <span class="text-danger">*</span></h5>
-                            <small>Jika pada keterangan ingin menyertakan data penduduk, tambahkan
-                                <strong>{nama_atribut}</strong> sesuai dengan nama atribut yang
-                                tersedia pada list atribut diatas. Misal: {nama} atau {tgl lahir}.</small>
+                            <h5>Keterangan Surat<span class="text-success">^</span>
+                            </h5>
                             <div class="form-group">
                                 <textarea id="keterangan"
                                     name="keterangan">{{request()->is('*/tambah*')?old('keterangan'):$data['surat']->keterangan}}</textarea>
                             </div>
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <small><span class="text-success">^</span> : Jika pada pembukaan dan keterangan ingin
+                                menyertakan data penduduk, tambahkan
+                                <strong>{nama_atribut}</strong> sesuai dengan nama atribut yang
+                                tersedia pada list atribut dibawah. Misal: {nama} atau {tgl lahir}.</small>
                         </div>
                     </div>
 

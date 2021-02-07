@@ -1,4 +1,5 @@
 var tabel = "";
+var tabel_arsip = "";
 $(document).ready(function () {
     function getAll() {
         var myHeaders = new Headers();
@@ -64,6 +65,15 @@ $(document).ready(function () {
     fetch(url.getArsip, myInit)
         .then((response) => response.json())
         .then((data) => {
+            // console.log(tabel_arsip);
+            // console.log(tabel_arsip != undefined);
+            // if (tabel_arsip != undefined) {
+            //     try {
+            //         tabel_arsip.clear().destroy();
+            //     } catch (err) {
+            //         console.log(err);
+            //     }
+            // }
             let el = $("#tabel_arsip tbody");
             let isi = "";
             console.log(data);
@@ -78,9 +88,7 @@ $(document).ready(function () {
                             "d MMMM yyyy"
                         )}
                     </td>
-                    <td class="nama_surat">${
-                        data[i].jenis_surat
-                    }</td>
+                    <td class="nama_surat">${data[i].jenis_surat}</td>
                     <td>
                         ${data[i].nik}
                     </td>
@@ -89,15 +97,16 @@ $(document).ready(function () {
                     </td>
                     <td class="text-center">
                         <button class="btn btn-sm btn-info btn-unduh-arsip" data-toggle="tooltip" data-id="${
-                            data[i].id
+                            data[i].aid
                         }" data-no="${data[i].nomer}"
                         data-placement="bottom" title="Unduh Surat"><i class="fas fa-file-download"></i></button>
                     </td>
                 </tr>
                 `;
             }
+            $("#arsip_loading").remove();
             el.append(isi);
-            $("#tabel_arsip").DataTable({
+            tabel_arsip = $("#tabel_arsip").DataTable({
                 paging: true,
                 lengthChange: true,
                 searching: true,
@@ -127,7 +136,6 @@ $(document).ready(function () {
                 ],
             });
             $('[data-toggle="tooltip"]').tooltip();
-            $("#arsip_loading").remove();
         });
 
     $(document).on("click", ".btn-unduh-sampel", function () {

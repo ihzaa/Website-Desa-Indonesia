@@ -15,8 +15,17 @@ $(document).ready(function () {
         toolbar: [
             ["font", ["bold", "underline", "clear"]],
             ["color", ["color"]],
+            ["para", ["paragraph"]],
         ],
         placeholder: "Keterangan Surat....",
+    });
+    $("#keterangan_pembuka").summernote({
+        toolbar: [
+            ["font", ["bold", "underline", "clear"]],
+            ["color", ["color"]],
+            ["para", ["paragraph"]],
+        ],
+        placeholder: "Pembukaan Surat....",
     });
     $(".summernote").summernote({
         toolbar: [
@@ -38,9 +47,9 @@ $(document).ready(function () {
             kode_surat: {
                 required: true,
             },
-            atribut: {
-                required: true,
-            },
+            // atribut: {
+            //     required: true,
+            // },
         },
         errorElement: "span",
         errorPlacement: function (error, element) {
@@ -56,18 +65,19 @@ $(document).ready(function () {
     });
 
     $(document).on("click", "#btn_preview", function () {
-        if (!validator.checkForm() || $("#keterangan").val() == "") {
-            if ($("#keterangan").val() == "") {
-                // Toast.fire({
-                //     icon: "error",
-                //     title: " Keterangan Surat Tidak Boleh Kosong.",
-                // });
-                $(document).Toasts("create", {
-                    class: "bg-danger",
-                    title: "Maaf!",
-                    body: "Keterangan Surat Tidak Boleh Kosong.",
-                });
-            }
+        if (!validator.checkForm()) {
+            //  || $("#keterangan").val() == ""
+            // if ($("#keterangan").val() == "") {
+            //     // Toast.fire({
+            //     //     icon: "error",
+            //     //     title: " Keterangan Surat Tidak Boleh Kosong.",
+            //     // });
+            //     $(document).Toasts("create", {
+            //         class: "bg-danger",
+            //         title: "Maaf!",
+            //         body: "Keterangan Surat Tidak Boleh Kosong.",
+            //     });
+            // }
             document.body.scrollTop = 0; // For Safari
             document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
             validator.form();
@@ -89,16 +99,21 @@ $(document).ready(function () {
             }
             $("#modal_preview #atribut").html(attr);
             $("#modal_preview #keterangan").html($("#keterangan").val());
+            $("#modal_preview #keterangan_pembuka").html(
+                $("#keterangan_pembuka").val()
+            );
             $("#modal_preview #kiri").html($("#ttd1").val());
             $("#modal_preview #tengah").html($("#ttd2").val());
             $("#modal_preview #kanan").html($("#ttd3").val());
             $("#modal_preview #logo").attr("src", $("#img-logo").attr("src"));
+            $("#modal_preview #timestamp").html("KOTA, TANGGAL HARI INI");
             $("#modal_preview").modal("show");
         }
     });
     $(document).on("submit", "#formaja", function () {
         event.preventDefault();
-        if (!validator.checkForm() || $("#keterangan").val() == "") {
+        if (!validator.checkForm() ) {
+            // || $("#keterangan").val() == ""
             return;
         }
         if (document.getElementById("logo").hasAttribute("required")) {
@@ -211,6 +226,7 @@ $(document).ready(function () {
         formData.append("jenis_surat", $("#nama_surat").val());
         formData.append("atribut", JSON.stringify($("#atribut").val()));
         formData.append("keterangan", $("#keterangan").val());
+        formData.append("keterangan_pembuka", $("#keterangan_pembuka").val());
         formData.append("kode_surat", $("#kode_surat").val());
         formData.append("ttd1", $("#ttd1").val());
         formData.append("ttd2", $("#ttd2").val());

@@ -11,24 +11,24 @@
           text-transform: uppercase !important;
           margin-bottom: 0 !important;
         ">
-            PEMERINTAH KABUPATEN MADIUN
+            {{env('SURAT_KABKOT')}}
         </h3>
         <h3 style="
           text-transform: uppercase !important;
           margin-bottom: 0 !important;
           margin-top: 0 !important;
         ">
-            Kecamatan Geger
+            {{env('SURAT_KEC')}}
         </h3>
         <h1 style="
           text-transform: uppercase !important;
           margin-bottom: 0 !important;
           margin-top: 0 !important;
         ">
-            <strong>DESA Sangen</strong>
+            <strong>{{env('SURAT_KEL_DESA')}}</strong>
         </h1>
         <p style="margin-bottom: 0 !important; margin-top: 0 !important;font-size: 75%;">
-            Jl. Raya Ponorogo - Madiun No.10, Kembangsore, Sangen, Kec. Geger, Madiun, Jawa Timur
+            {{env('SURAT_ALAMAT')}}
         </p>
         <hr style="
           border-top: 2px solid rgba(0, 0, 0, 0.1);
@@ -63,7 +63,7 @@
             margin-top: 0 !important;
             font-size: 150%;
           ">
-                <strong>{{$surat['nomor']}}/<span
+                <strong>470/{{$surat['nomor']}}/<span
                         id="nomer_surat">{{$surat['tipe_surat']}}</span>/{{$surat['tahun']}}</strong>
             </p>
         </div>
@@ -74,10 +74,10 @@
         margin-right: 3rem !important;
       ">
         <div style="min-width: 100%">
-            <p style="text-indent: 50px; margin-bottom: 0 !important">
-                Dengan ini Kepala Desa Sangen Kecamatan Geger Kabupaten Madiun,
-                menerangkan dengan sebenarnya bahwa :
-            </p>
+            <p style="text-indent: 50px; margin-bottom: 0 !important" id="keterangan_pembuka">
+                @php
+                echo $surat['keterangan_pembuka'];
+                @endphp</p>
         </div>
     </div>
     <div style="
@@ -93,7 +93,11 @@
         @foreach ($surat['attribute'] as $d)
         <div style="flex: 0 0 8%; width: 8%;;"></div>
         <div style="flex: 0 0 25%; width: 25%; text-transform: capitalize;">
+            @if ($d == "nik")
+            {{"NIK"}}
+            @else
             {{str_replace('_',' ',$d)}}
+            @endif
         </div>
         <div style="flex: 0 0 66%; width: 66%;">:
             @php
@@ -113,7 +117,14 @@
             @endphp
         </p>
     </div>
-
+    <div style="
+        margin-top: 1.5rem !important;
+        margin-left: 3rem !important;
+        margin-right: 3rem !important;
+        text-align: right;
+    ">
+        {{env('LOKASI_SURAT').', '.$surat['timestamp']}}
+    </div>
     <div style="
         margin-top: 1.5rem !important;
         display: -ms-flexbox;
