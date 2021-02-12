@@ -22,6 +22,7 @@ class CreatePermohonanSuratsTable extends Migration
             $table->string('logo');
             $table->text('keterangan_pembuka')->nullable();
             $table->text('keterangan')->nullable();
+            $table->text('kode_surat');
             $table->text('tipe_surat');
             $table->longText('ttd_kiri')->nullable();
             $table->longText('ttd_tengah')->nullable();

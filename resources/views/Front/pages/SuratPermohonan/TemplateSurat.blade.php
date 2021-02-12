@@ -63,7 +63,7 @@
             margin-top: 0 !important;
             font-size: 150%;
           ">
-                <strong>470/{{$surat['nomor']}}/<span
+                <strong>{{$surat['kode_surat']}}/{{$surat['nomor']}}/<span
                         id="nomer_surat">{{$surat['tipe_surat']}}</span>/{{$surat['tahun']}}</strong>
             </p>
         </div>

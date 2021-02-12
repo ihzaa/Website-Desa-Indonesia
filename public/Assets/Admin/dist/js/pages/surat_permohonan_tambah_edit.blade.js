@@ -47,6 +47,9 @@ $(document).ready(function () {
             kode_surat: {
                 required: true,
             },
+            kode_wilayah: {
+                required: true,
+            },
             // atribut: {
             //     required: true,
             // },
@@ -83,7 +86,8 @@ $(document).ready(function () {
             validator.form();
         } else {
             $("#modal_preview #nama_surat").html($("#nama_surat").val());
-            $("#modal_preview #nomer_surat").html($("#kode_surat").val());
+            $("#modal_preview #kode_surat_preview").html($("#kode_surat").val());
+            $("#modal_preview #kode_wilayah_preview").html($("#kode_wilayah").val());
             let attr = "";
             let attr_input = $("#atribut").val();
             for (let i = 0; i < attr_input.length; i++) {
@@ -228,6 +232,7 @@ $(document).ready(function () {
         formData.append("keterangan", $("#keterangan").val());
         formData.append("keterangan_pembuka", $("#keterangan_pembuka").val());
         formData.append("kode_surat", $("#kode_surat").val());
+        formData.append("kode_wilayah", $("#kode_wilayah").val());
         formData.append("ttd1", $("#ttd1").val());
         formData.append("ttd2", $("#ttd2").val());
         formData.append("ttd3", $("#ttd3").val());

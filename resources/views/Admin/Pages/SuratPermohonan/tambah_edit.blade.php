@@ -35,16 +35,21 @@
                     <label for="kode_surat">Kode Surat <span class="text-danger">*</span> <small>NomerSurat dan Tahun
                             otomatis terisi.</small></label>
                     <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">NomerSurat/</span>
-                        </div>
+                         
                         <input type="text" class="form-control" id="kode_surat" name="kode_surat"
                             placeholder="Kode Surat"
-                            value="{{request()->is('*/tambah*')?old('kode_surat'):$data['surat']->tipe_surat}}">
+                            value="{{request()->is('*/tambah*')?old('kode_surat'):$data['surat']->kode_surat}}">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">/NomerSurat/</span>
+                        </div>
+                        <input type="text" class="form-control" id="kode_wilayah" name="kode_wilayah"
+                            placeholder="Kode Wilayah"
+                            value="{{request()->is('*/tambah*')?old('kode_wilayah'):$data['surat']->tipe_surat}}">
                         <div class="input-group-prepend">
                             <span class="input-group-text">/Tahun</span>
                         </div>
                     </div>
+                   
                 </div>
             </div>
             <div class="row">

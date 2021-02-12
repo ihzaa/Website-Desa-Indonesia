@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Front\SuratPermohonanController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,9 @@ Route::prefix('4dm1n')->namespace('Admin')->middleware('auth:admin')->group(func
     Route::get('dashboard', 'DashboardController@index')->name('admin_dashboard');
 
 });
+
+
+Route::get('z/{id}', [SuratPermohonanController::class, 'unduh']);
 
 //ROUTE FRONT
 Route::prefix('')->namespace('Front')->group(function (){

@@ -14,6 +14,7 @@ class permohonan_surat extends Model
         'logo',
         'keterangan',
         'tipe_surat',
+        'kode_surat',
         'keterangan_pembuka'
     ];
 

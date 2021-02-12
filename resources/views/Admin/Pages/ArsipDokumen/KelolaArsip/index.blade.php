@@ -67,8 +67,8 @@
                                 <a href="{{ Storage::url('arsip/dokumen/') . $data->file }}" target="_blank"
                                     class="btn btn-primary"><i class="fas fa-book-reader"></i> Lihat File</a
                                     href="{{ storage_path('app/public/arsip/dokumen/') . $data->file }}" target="_blank">
-                                <button class="btn btn-warning editModal"><i class="fas fa-edit"></i>Ubah Data</button>
-                                <button class="btn btn-danger deleteModal" id="btn-delete"><i class="fas fa-trash"></i> Hapus Data</button>
+                                <button class="btn btn-warning editModal"><i class="fas fa-edit"></i>Ubah File</button>
+                                <button class="btn btn-danger deleteModal" id="btn-delete"><i class="fas fa-trash"></i> Hapus File</button>
                             </td>
                         </tr>
                     @endforeach

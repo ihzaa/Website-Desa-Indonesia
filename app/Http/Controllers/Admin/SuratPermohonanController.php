@@ -84,7 +84,8 @@ class SuratPermohonanController extends Controller
         $surat->keterangan_pembuka = $request->keterangan_pembuka;
         $surat->logo = 'a';
         $surat->keterangan = $request->keterangan;
-        $surat->tipe_surat = $request->kode_surat;
+        $surat->tipe_surat = $request->kode_wilayah;
+        $surat->kode_surat = $request->kode_surat;
         $surat->save();
 
         if ($request->ttd1 != null) {
@@ -148,7 +149,8 @@ class SuratPermohonanController extends Controller
         $surat->attribute = $request->atribut;
         $surat->keterangan_pembuka = $request->keterangan_pembuka;
         $surat->keterangan = $request->keterangan;
-        $surat->tipe_surat = $request->kode_surat;
+        $surat->tipe_surat = $request->kode_wilayah;
+        $surat->kode_surat = $request->kode_surat;
         if ($request->has('logo')) {
             $extension = $request->file('logo')->getClientOriginalExtension();
             $location = 'Admin/dist/img/Logo Surat Permohonan';

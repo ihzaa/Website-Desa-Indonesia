@@ -35,10 +35,12 @@ class SuratPermohonanController extends Controller
         if (Auth::guard('penduduk')->check()) {
 
             $surat = permohonan_surat::find($id);
+            $kodesurat_id = permohonan_surat::where('kode_surat', $surat->kode_surat)->pluck('id')->toArray();
+            $surat['nomor'] = arsip_surat_penduduk::whereIn('permohonan_surat_id', $kodesurat_id)->count()+1;
             $surat->attribute = json_decode($surat->attribute);
             $penduduk = Penduduk::where('id_data_ktp', Auth::guard('penduduk')->id())->first();
             $penduduk->tgl_lahir = Carbon::parse($penduduk->tgl_lahir)->translatedFormat("d F Y");
-            $surat['nomor'] = (arsip_surat_penduduk::where('permohonan_surat_id', $id)->count()) + 1;
+            // $surat['nomor'] = (arsip_surat_penduduk::where('permohonan_surat_id', $id)->count()) + 1;
             $surat['nik'] = Auth::guard('penduduk')->user()->nik;
             $surat['timestamp'] = Carbon::parse($surat->tanggal_surat)->format('d-m-Y');
             arsip_surat_penduduk::create([

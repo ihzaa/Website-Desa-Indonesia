@@ -29,8 +29,8 @@
 </div>
 <div style="min-width: 100%">
     <div style="text-align: center!important; min-width: 100%">
-        <h4 style="text-transform: uppercase!important;margin-bottom: 0!important;">470/NomerSurat/<span
-                id="nomer_surat"></span>/Tahun</h4>
+        <h4 style="text-transform: uppercase!important;margin-bottom: 0!important;"><span id="kode_surat_preview"></span>/NomerSurat/<span
+                id="kode_wilayah_preview"></span>/Tahun</h4>
     </div>
 </div>
 <div style="

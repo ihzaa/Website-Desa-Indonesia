@@ -20,6 +20,9 @@
                 <div class="col-md-6">
                     <label for="kode_surat">Kode Surat <span class="text-danger">*</span></label>
                     <div class="input-group form-group">
+                        <input type="text" class="form-control" id="kode_surat" name="kode_surat"
+                        placeholder="Kode Surat"
+                        value="{{request()->is('*/tambah*')?old('kode_surat'):$data['surat']->tipe_surat}}">
                         <div class="input-group-prepend">
                             <span class="input-group-text">NomerSurat/</span>
                         </div>
