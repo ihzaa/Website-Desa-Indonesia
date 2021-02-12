@@ -27,8 +27,6 @@ Route::prefix('4dm1n')->namespace('Admin')->middleware('auth:admin')->group(func
 });
 
 
-Route::get('z/{id}', [SuratPermohonanController::class, 'unduh']);
-
 //ROUTE FRONT
 Route::prefix('')->namespace('Front')->group(function (){
     Route::get('', 'FrontController@index')->name('front_dashboard');
