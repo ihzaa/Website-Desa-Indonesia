@@ -4,17 +4,28 @@
         <img src="" id="logo" alt="" style="
             position: absolute;
             left: 3rem;
-            top: 1.5rem;
-            height: 100px;
-            max-width: 250px !important;
+            top: 0.5rem;
+            height: 120px;
+            max-width: 150px !important;
             ">
         <h3 style="text-transform: uppercase!important;margin-bottom: 0!important;">
-            {{env('SURAT_KABKOT')}}</h3>
-        <h3 style="text-transform: uppercase!important;margin-bottom: 0!important;">{{env('SURAT_KEC')}}</h3>
+            {{-- {{env('SURAT_KABKOT')}} --}}
+            {{$desa->kabupaten}}
+        </h3>
+        <h3 style="text-transform: uppercase!important;margin-bottom: 0!important;">    
+            {{-- {{env('SURAT_KEC')}} --}}
+            {{$desa->kecamatan}}
+        </h3>
         <h1 style="text-transform: uppercase!important;margin-bottom: 0!important;">
-            <strong>{{env('SURAT_KEL_DESA')}}</strong>
+            <strong>
+                {{-- {{env('SURAT_KEL_DESA')}} --}}
+                {{$desa->nama_desa}}
+            </strong>
         </h1>
-        <p style="margin-bottom: 0!important;font-size: 75%;">{{env('SURAT_ALAMAT')}}</p>
+        <p style="margin-bottom: 0!important;font-size: 75%;">
+            {{-- {{env('SURAT_ALAMAT')}} --}}
+            {{$desa->alamat_lengkap}}
+        </p>
         <hr style="
             border-top: 2px solid rgba(0, 0, 0, 0.1);background-color: black;margin-bottom: 0!important;">
         <hr

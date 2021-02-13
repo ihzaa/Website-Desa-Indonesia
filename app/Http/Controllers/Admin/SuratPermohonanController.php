@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\arsip_surat_penduduk;
 use App\Models\Penduduk;
 use App\Models\permohonan_surat;
+use App\Models\Setting;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -41,35 +42,39 @@ class SuratPermohonanController extends Controller
     {
         $data = array();
         $data['kolom_penduduk'] = Schema::getColumnListing('penduduks');
+        $desa = Setting::first();
         // return $data;
-        return view('Admin.Pages.SuratPermohonan.tambah_edit', compact("data"));
+        return view('Admin.Pages.SuratPermohonan.tambah_edit', compact("data", "desa"));
     }
 
     public function halamanTambahResponse()
     {
         $data = array();
         $data['kolom_penduduk'] = Schema::getColumnListing('penduduks');
+        $desa = Setting::first();
         // return $data;
-        return response()->view('Admin.Pages.SuratPermohonan.tambah_edit_response', compact("data"));
+        return response()->view('Admin.Pages.SuratPermohonan.tambah_edit_response', compact("data", "desa"));
     }
 
     public function halamanEdit($id)
     {
         $data = array();
+        $desa = Setting::first();
         $data['surat'] = permohonan_surat::find($id);
         $data['surat']->attribute = json_decode($data['surat']->attribute);
         $data['kolom_penduduk'] = Schema::getColumnListing('penduduks');
         // return $data;
-        return view('Admin.Pages.SuratPermohonan.tambah_edit', compact("data"));
+        return view('Admin.Pages.SuratPermohonan.tambah_edit', compact("data", "desa"));
     }
 
     public function halamanEditResponse($id)
     {
+        $desa = Setting::first();
         $data = array();
         $data['surat'] = permohonan_surat::find($id);
         $data['surat']->attribute = json_decode($data['surat']->attribute);
         $data['kolom_penduduk'] = Schema::getColumnListing('penduduks');
-        return response()->view('Admin.Pages.SuratPermohonan.tambah_edit_response', compact("data"));
+        return response()->view('Admin.Pages.SuratPermohonan.tambah_edit_response', compact("data", "desa"));
     }
 
     public function tambah(Request $request)

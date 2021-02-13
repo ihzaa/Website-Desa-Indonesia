@@ -3,32 +3,36 @@
         <img src="{{asset($surat['logo'])}}" id="logo" alt="" style="
           position: absolute;
           left: 0.6rem;
-          top: 1.5rem;
-          height: 90px;
+          top: 0.5rem;
+          height: 120px;
           max-width: 150px !important;
         " />
         <h3 style="
           text-transform: uppercase !important;
           margin-bottom: 0 !important;
         ">
-            {{env('SURAT_KABKOT')}}
+            {{-- {{env('SURAT_KABKOT')}} --}}
+            {{$desa->kabupaten}}
         </h3>
         <h3 style="
           text-transform: uppercase !important;
           margin-bottom: 0 !important;
           margin-top: 0 !important;
         ">
-            {{env('SURAT_KEC')}}
+            {{-- {{env('SURAT_KEC')}} --}}
+            {{$desa->kecamatan}}
         </h3>
         <h1 style="
           text-transform: uppercase !important;
           margin-bottom: 0 !important;
           margin-top: 0 !important;
         ">
-            <strong>{{env('SURAT_KEL_DESA')}}</strong>
+            {{-- <strong>{{env('SURAT_KEL_DESA')}}</strong> --}}
+            {{$desa->nama_desa}}
         </h1>
         <p style="margin-bottom: 0 !important; margin-top: 0 !important;font-size: 75%;">
-            {{env('SURAT_ALAMAT')}}
+            {{-- {{env('SURAT_ALAMAT')}} --}}
+            {{$desa->alamat_lengkap}}
         </p>
         <hr style="
           border-top: 2px solid rgba(0, 0, 0, 0.1);

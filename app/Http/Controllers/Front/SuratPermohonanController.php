@@ -8,6 +8,7 @@ use App\Models\arsip_surat_pindah_penduduk;
 use App\Models\DataKtp;
 use App\Models\Penduduk;
 use App\Models\permohonan_surat;
+use App\Models\Setting;
 use App\Models\template_surat;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -33,7 +34,7 @@ class SuratPermohonanController extends Controller
     public function unduh($id)
     {
         if (Auth::guard('penduduk')->check()) {
-
+            $desa = Setting::first();
             $surat = permohonan_surat::find($id);
             $kodesurat_id = permohonan_surat::where('kode_surat', $surat->kode_surat)->pluck('id')->toArray();
             $surat['nomor'] = arsip_surat_penduduk::whereIn('permohonan_surat_id', $kodesurat_id)->count()+1;
@@ -71,7 +72,7 @@ class SuratPermohonanController extends Controller
                 }
             } while ($str != "");
             // return response()->json($surat['keterangan']);
-            return response()->view('Front.pages.SuratPermohonan.TemplateSurat', compact("surat", "penduduk"));
+            return response()->view('Front.pages.SuratPermohonan.TemplateSurat', compact("surat", "penduduk", "desa"));
         } else {
             return view('Front.pages.SuratPermohonan.Login');
         }
